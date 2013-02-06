@@ -17,7 +17,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'thisforthat',
         'PASSWORD': 'thisforthat',
-        'HOST': 'thisforthatdb.css4dfpo4ezj.us-east-1.rds.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': 'devdb.hackshack.ca',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
