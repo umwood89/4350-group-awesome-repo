@@ -1,0 +1,20 @@
+Big User Stories to help visualize database design:
+
+Feature: Create a listing -
+
+User Jordan wants to put up a new listing for his N64 and two controllers.
+He fills out a title for the listing "N64 + two controllers (mint)".
+He fills out a description of the items being listed: "N64 in good condition with two controllers, one gray one green."
+He uploads a picture of the console and controllers.
+He clicks "Finish".
+Listing is added to the Listings table in the db.
+
+Feature: Make an offer on a listing -
+
+User Chris finds Jordan's listing "N64 + two controllers (mint)".
+He clicks the "Make an offer" button.
+In the make an offer page he fills out information about his offer, a dvd copy of 
+He fills out a description of his offer.
+He uploads a picture of his offer.
+He clicks "Finish"
+Offer is added to the offer table in the db.
