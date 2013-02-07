@@ -1,0 +1,31 @@
+User
+uid  		    	Integer		Auto-Increment
+username		String (15)	Not Null
+password		String (15)	Not Null
+address			String (50)
+city			String (30)
+province/state		String (2)
+country			String (20)
+email			String (40)
+
+Trade
+tid			Integer		Auto-Increment 
+uid			Integer		Not Null
+item(s)			String (200)		
+goodsService		Binary		Not Null
+wishlist		String (200)
+
+Offer
+oid			Integer		Not Null
+tid			Integer		Not Null
+uid			Integer		Not Null
+item(s)			String (200)
+goodsService		Binary		Not Null
+
+
+Create a user inserts into user table
+Creating a trade inserts into trade table using current uid
+Making an offer on a trade inserts into off using current uid, and selected tid
+Search for an item searches the item(s) in trade table
+Searching for user looks for username in user table
+Searching who wants an item searches wishlist in trade table
