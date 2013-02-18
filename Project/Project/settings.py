@@ -13,12 +13,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangostack',
-        'HOST': '/opt/bitnami/postgresql',
-        'PORT': '5432',
-        'USER': 'bitnami',
-        'PASSWORD': 'eb3086c036'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'thisforthat',
+        'HOST': '/opt/bitnami/mysql/tmp/mysql.sock',
+        'PORT': '',
+        'USER': 'root',
+        'PASSWORD': 'bitnami'
     }
 }
 
@@ -144,6 +144,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'TFT',
 )
 
 # A sample logging configuration. The only tangible logging
