@@ -1,0 +1,70 @@
+INITIAL BITNAMI EC2 INSTANCE SETUP!
+
+written by chris ventura (2013-02-18)
+
+----------------
+INTRO
+----------------
+
+Heeeeyo! This is how I managed to setup my instance to display something like
+this: http://ec2-54-242-163-11.compute-1.amazonaws.com/Project. Basically, what's here is 
+the django application serving up the basic HTML template as well as the css/javascript/images
+with it.
+
+Let me know if you need any help. 
+
+----------------
+TUTORIAL THINGY
+----------------
+
+1. SSH into your EC2 BitNami instance.
+
+2. Navigate to apps/django directory.
+
+3. Remove django_projects folder. 
+
+4. Clone git repo into new django_projects folder. I used this command:
+git clone git://github.com/umwood89/4350-group-awesome-repo.git django_projects
+(you may need to 'apt-get install git' to install the git commands)
+
+NOTE: This makes clones our git repo into the django_projects folder. So, our documentation 
+will reside in here as well.
+
+5. In the same level as the django_project folder, navigate to the "conf" folder.
+
+6. Edit the django.conf file. This file configures the server to serve up our static content.
+Directly underneath the "Alias /static" line, add the following lines:
+
+Alias /css "/home/bitnami/apps/django/django_projects/Project/Project/static/css"
+Alias /img "/home/bitnami/apps/django/django_projects/Project/Project/static/img"
+Alias /js "/home/bitnami/apps/django/django_projects/Project/Project/static/js"
+
+And at the very bottom of the file, add this stuff:
+
+<Directory '/home/bitnami/apps/django/django_projects/Project/Project/static/'>
+Order allow,deny
+Allow from all
+</Directory>
+
+7. Done?
+
+----------------
+OUTCOME
+----------------
+
+From here, you should be able to access the site using http://your_ec2_instance_public_dns.com/Project.
+
+----------------
+MORE STUFF
+----------------
+
+You probably want to setup the "thisforthat" database on your EC2 instance. To do that..
+
+1. Enter this command: mysql -u root -p
+2. It'll as for a password, should be 'bitnami'.
+3. You should be in the mysql prompt screen.
+4. Enter this command: CREATE DATABASE thisforthat; (don't forget the semicolon)
+
+That'll create the database with the name 'thisforthat'. 
+After creating the DB, you should be able to use the 'python manage.py syncdb' command to
+configure your db according to the models.py in TFT.
