@@ -9,10 +9,10 @@ body {
 }
 
 #brandlogo {
-	background-image: url("../img/trades_horiz.png");
-	background-size: Auto 28px;
+	background-image: url("../img/logo_horiz.png");
+	background-size: Auto 20px;
 	background-repeat: no-repeat;	
-	width: 92px;
+	width: 175px;
 	height: 20px;
 }
 
