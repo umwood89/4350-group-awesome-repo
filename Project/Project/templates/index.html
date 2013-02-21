@@ -5,8 +5,8 @@
     <title>Trades</title>
     <!-- Bootstrap -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" media="screen">
-	<script src="{{ STATIC_URL }}js/bootstrap.js"></script>  
+    <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+	<script src="/js/bootstrap.js"></script>  
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="/css/styles.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 						  <button type="submit" class="btn">Sign in</button>
 						</form>
 						<ul class="nav pull-right">
-							<li><a href="#">Sign up</a></li>
+							<li><a href="#reg-modal" role="button" data-toggle="modal">Sign up</a></li>
 							<li class="divider-vertical" />
 						</ul>
 					</div>
@@ -39,6 +39,46 @@
 			</div>
 		</div>
 		
+		<div id="reg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Create an account</h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="inFirstName">First Name</label>
+						<div class="controls">
+							<input type="text" id="inFirstName" placeholder="First Name">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inLastName">Last Name</label>
+						<div class="controls">
+							<input type="text" id="inLastName" placeholder="Last Name">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="inEmail">Email Address</label>
+						<div class="controls">
+							<input type="text" id="inEmail" placeholder="Email Address">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="inPassword">Password</label>
+						<div class="controls">
+							<input type="password" id="inPassword" placeholder="Password">
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">Create account</button>
+				</form>
+			</div>
+		</div>
+	
 		<div class="container">
 			<h1>Trade your stuff. For free. </h1>
 		</div>
