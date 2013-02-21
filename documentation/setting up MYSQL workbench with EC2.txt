@@ -1,0 +1,15 @@
+1. Do chris' SETUP.txt first.
+2. Go into MySQL Workbench (http://www.mysql.com/products/workbench/) and click new connection.
+3. Enter this data:
+	Connection Name: Whatever you like
+	Method: Standard TCP/IP over SSH
+	SSH Hostname: your EC2 public DNS
+	SSH username: bitnami
+	SSH Password:
+	SSH Key File: your key file for EC2
+	MySQL Hostname: 127.0.0.1
+	MySQL Server Port: 3306
+	Username: root
+	Password: bitnami
+	Defaul Schema: thisforthat
+4. BOOM DONE
