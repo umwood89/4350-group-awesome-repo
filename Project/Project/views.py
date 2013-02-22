@@ -4,6 +4,9 @@ from django.template.loader import get_template
 from TFT.models import User
 #from django.contrib.auth.models import User
 from TFT.models import Country
+
+from rest_framework import Request
+
 import datetime
 
 def home(request):
