@@ -4,6 +4,7 @@ from django.conf.urls import patterns, include, url
 # from django.contrib import admin
 # admin.autodiscover()
 from views import home
+from views import printUser
 
 urlpatterns = patterns('',
     # Examples:
@@ -16,4 +17,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
+    url(r'^users/(\w{1,19})$', printUser),
 )
