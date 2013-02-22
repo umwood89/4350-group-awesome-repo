@@ -68,3 +68,50 @@ You probably want to setup the "thisforthat" database on your EC2 instance. To d
 That'll create the database with the name 'thisforthat'. 
 After creating the DB, you should be able to use the 'python manage.py syncdb' command to
 configure your db according to the models.py in TFT.
+
+----------------
+Installing the Django Rest Framework (or other addons using pip)
+----------------
+On Windows: 
+	Open a command prompt
+	
+	c:\>cd BitNami\djangostack-1.4.4-0
+	c:\BitNami\djangostack-1.4.4-0>use_djangostack.bat
+	
+	c:\BitNami\djangostack-1.4.4-0>pip install djangorestframework
+	Downloading/unpacking djangorestframework
+	  Downloading djangorestframework-2.2.0.tar.gz (190kB): 190kB downloaded
+	  Running setup.py egg_info for package djangorestframework
+	
+	    warning: no files found matching '*.txt' under directory 'rest_framework\tem
+	plates'
+	Installing collected packages: djangorestframework
+	  Running setup.py install for djangorestframework
+	
+	    warning: no files found matching '*.txt' under directory 'rest_framework\tem
+	plates'
+	Successfully installed djangorestframework
+	Cleaning up...
+
+On Linux:
+	bitnami@ip-10-112-31-101:~$ sudo su
+	root@ip-10-112-31-101:/home/bitnami# /opt/bitnami/use_djangostack 
+	bash-4.2# . /opt/bitnami/scripts/setenv.sh 
+	bash-4.2# pip install djangorestframework
+	Downloading/unpacking djangorestframework
+	  Downloading djangorestframework-2.2.0.tar.gz (190kB): 190kB downloaded
+	  Running setup.py egg_info for package djangorestframework
+	    
+	    warning: no files found matching '*.txt' under directory 'rest_framework/templates'
+	Installing collected packages: djangorestframework
+	  Running setup.py install for djangorestframework
+	    
+	    warning: no files found matching '*.txt' under directory 'rest_framework/templates'
+	Successfully installed djangorestframework
+	Cleaning up...
+	bash-4.2# 
+
+
+
+
+
