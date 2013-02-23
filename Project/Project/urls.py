@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-from TFT.views import UserList, UserDetail
+from TFT.views import UserList, UserDetail, api_root
+from rest_framework.urlpatterns import format_suffix_patterns
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -19,6 +20,10 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
     url(r'^users/(\w{1,19})$', printUser),
-    url(r'^user/$', UserList.as_view(), name='user-list'),
-    url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),
+    # url(r'^api/$', 'TFT.views',name='api_root'),
+    url(r'^api/users/$', UserList.as_view(), name='user-list'),
+    url(r'^api/users/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),
 )
+
+
+#urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'api'])
