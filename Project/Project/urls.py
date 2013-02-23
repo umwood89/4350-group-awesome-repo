@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from TFT.views import UserList, UserDetail
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -18,4 +19,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
     url(r'^users/(\w{1,19})$', printUser),
+    url(r'^user/$', UserList.as_view(), name='user-list'),
+    url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),
 )
