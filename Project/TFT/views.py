@@ -19,7 +19,6 @@ def api_root(request, format=None):
         'offers': reverse('offer-List', request=request),
     })
     
-    
 class UserList(generics.ListCreateAPIView):
     """
     API endpoint that represents a list of users.
