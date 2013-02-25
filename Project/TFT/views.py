@@ -3,8 +3,8 @@ from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
-from TFT.serializers import UserSerializer
-from TFT.models import User
+from TFT.serializers import ListingSerializer, OfferSerializer
+from TFT.models import Listing, Offer
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -15,16 +15,23 @@ def api_root(request, format=None):
         'users': reverse('user-list', request=request),
     })
     
-class UserList(generics.ListCreateAPIView):
+class Listings(generics.ListCreateAPIView):
     """
-    API endpoint that represents a list of users.
+    API endpoint that represents a list of Trades.
     """
-    model = User
-    serializer_class = UserSerializer
+    model = Listing
+    serializer_class = ListingSerializer
     
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+class Offers(generics.ListCreateAPIView):
     """
-    API endpoint that represents a single user.
+    API endpoint that represents a list of Offers.
     """
-    model = User
-    serializer_class = UserSerializer
+    model = Offer
+    serializer_class = OfferSerializer
+    
+#class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+#    """
+#    API endpoint that represents a single user.
+#    """
+#    model = User
+#    serializer_class = UserSerializer

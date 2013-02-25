@@ -3,21 +3,6 @@ import datetime
 
 # Create your models here.
 
-class User(models.Model):
-	user_id = models.AutoField(primary_key=True)
-	username = models.CharField(max_length=25, unique=True)
-	password = models.CharField(max_length=25)
-	email = models.EmailField(max_length=255)
-	country_code = models.ForeignKey('Country')
-	def __unicode__(self):
-		return self.username
-
-class Country(models.Model):
-	country_code = models.CharField(max_length=2, primary_key=True)
-	full_name = models.CharField(max_length=50)
-	def __unicode__(self):
-		return self.full_name
-	
 class Listing(models.Model):
 	listing_id = models.AutoField(primary_key=True)
 	title = models.CharField(max_length=255)
