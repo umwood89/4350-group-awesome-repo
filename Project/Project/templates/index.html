@@ -4,8 +4,13 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trades</title>
     <!-- Bootstrap -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" media="screen">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/json2.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/underscore-min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/backbone-min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/offers.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/iCanHaz.min.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap.js"></script>  
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
@@ -42,5 +47,53 @@
 		<div class="container">
 			<h1>Trade your stuff. For free. </h1>
 		</div>
-  </body>
+		<div>
+		{% block content %}
+			<h1 class="page-header">Offers</h1>
+			<table class="table table-striped" id="app">
+				<thead>
+				  <tr>
+					<th>Title</th>
+					<th>Listing</th>
+					<th>User id</th>
+					<th>description</th>
+					<th>date created</th>
+				  </tr>
+				</thead>
+			</table>
+		 
+			
+			{% load verbatim %}
+			<!-- ICanHaz templates -->
+			{% comment %}
+			Mustache and django both use {{}} tags for templates, so we need to use
+			a custom template tag to output the mustache template exactly as it is.
+			{% endcomment %}
+			{% verbatim %}
+			<script id="OfferRowTpl" type="text/html">
+				<tr>
+					<td>
+						<!-- <a href="api/offers/{{ offer_id }}" target="_blank"> -->
+							{{ title }}
+						<!-- </a> -->
+					</td>
+					<td>
+						<a href="{{ listing }}" target="_blank">
+							{{ listing }}
+						</a>
+					</td>
+					<td>
+						<a href="{{ user }}" target="_blank">
+							{{user}}
+						</a>
+					</td>
+					<td>{{ description }}</td>
+					<td>{{ date_created }}</td>
+				</tr>
+			</script>
+			{% endverbatim %}
+		{% endblock %}
+
+		</div>
+	</body>
 </html>
