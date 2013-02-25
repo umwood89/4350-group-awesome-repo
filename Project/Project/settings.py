@@ -1,3 +1,4 @@
+#
 import os
 # Django settings for Project project.
 
@@ -5,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    # ('Your Name', 'your_email@example.coOHMYGODm'),
 )
 
 MANAGERS = ADMINS
