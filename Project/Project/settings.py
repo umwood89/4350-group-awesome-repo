@@ -59,7 +59,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/opt/bitnami/apps/django/django_projects/Project/Images'
+MEDIA_ROOT = 'C:/Users/Wally/Documents/GitHub/4350-group-awesome-repo/Project/Images'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
