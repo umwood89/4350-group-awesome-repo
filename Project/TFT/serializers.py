@@ -1,12 +1,29 @@
 from rest_framework import serializers
-from TFT.models import User, Country
+from django.contrib.auth.models import User, Group, Permission
+from TFT.models import Listing, Offer
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'groups')
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    permissions = serializers.ManySlugRelatedField(
+        slug_field='codename',
+        queryset=Permission.objects.all()
+    )
+    
+    class Meta:
+        model = Group
+        fields = ('url', 'name', 'permissions')
 
 class ListingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Listing
-        fields = ('listing_id','title','description','user','photo','trade_completed','date_created','date_completed')
+        fields = ('title','description','user','photo','trade_completed','date_created','date_completed')
+
         
 class OfferSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Offer
-        fields = ('offer_id','listing','title','description','user','photo','offer_accepted','date_created','date_accepted')
+        fields = ('listing','title','description','user','photo','offer_accepted','date_created','date_accepted')

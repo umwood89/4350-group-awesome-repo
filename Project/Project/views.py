@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.template import Template, Context, RequestContext
 from django.template.loader import get_template
-from TFT.models import User
+#from TFT.models import User
 #from django.contrib.auth.models import User
-from TFT.models import Country
+#from TFT.models import Country
 
 import datetime
 
