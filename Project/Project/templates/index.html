@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trades</title>
-    <!-- Bootstrap -->
-    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" media="screen">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/json2.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/underscore-min.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/backbone-min.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/offers.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/listings.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/ICanHaz.min.js"></script>
-	<script src="{{ STATIC_URL }}js/bootstrap.js"></script>  
-    <script src="/js/bootstrap.js"></script>
-	<script src="/js/bootstrap-carousel.js"></script>
-	<script src="/js/application.js" rel="stylesheet"></script>
-	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="/css/styles.css" rel="stylesheet">
-  </head>
-  <body>  
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Trades</title>
+		<!-- Bootstrap -->
+		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" media="screen">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/json2.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/underscore-min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/backbone-min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/offers.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/listings.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/ICanHaz.min.js"></script>
+		<script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+		<script src="/js/bootstrap.js"></script>
+		<script src="/js/bootstrap-carousel.js"></script>
+		<script src="/js/application.js" rel="stylesheet"></script>
+		<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
 		<!-- TOP BAR -->
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
 					<a class="brand" href="#"><div id="brandlogo"></div></a></a>
 					<div class="nav-collapse collapse">
 						<form class="navbar-search pull-left" >
 							<input type="text" class="search-query" placeholder="Search"/>
 						</form>
 						<form class="navbar-form pull-right">
-						  <input class="span2" type="text" placeholder="Email">
-						  <input class="span2" type="password" placeholder="Password">
-						  <button type="submit" class="btn">Sign in</button>
+							<input class="span2" type="text" placeholder="Email">
+							<input class="span2" type="password" placeholder="Password">
+							<button type="submit" class="btn">
+								Sign in
+							</button>
 						</form>
 						<ul class="nav pull-right">
-							<li><a href="#reg-modal" role="button" data-toggle="modal">Sign up</a></li>
+							<li>
+								<a href="#reg-modal" role="button" data-toggle="modal">Sign up</a>
+							</li>
 							<li class="divider-vertical" />
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="reg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					×
+				</button>
 				<h3 id="myModalLabel">Create an account</h3>
 			</div>
 			<div class="modal-body">
@@ -67,14 +69,14 @@
 							<input type="text" id="inLastName" placeholder="Last Name">
 						</div>
 					</div>
-					
+
 					<div class="control-group">
 						<label class="control-label" for="inEmail">Email Address</label>
 						<div class="controls">
 							<input type="text" id="inEmail" placeholder="Email Address">
 						</div>
 					</div>
-					
+
 					<div class="control-group">
 						<label class="control-label" for="inPassword">Password</label>
 						<div class="controls">
@@ -83,94 +85,130 @@
 					</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">Create account</button>
+				<button type="submit" class="btn btn-primary">
+					Create account
+				</button>
 				</form>
 			</div>
 		</div>
 		<!-- END TOP BAR -->
-	
+
 		<!-- MAIN CONTENT AREA -->
 		<div class="container">
-			<h1>Trade your stuff. For free. </h1><br/>
+			<h1>Trade your stuff. For free. </h1>
+			<br/>
 			<h2>10 most recent listings</h2>
 			<div id="carouselRecentListings" class="carousel slide">
 				<ol class="carousel-indicators">
 					{% for listing in listings %}
-						{% if forloop.counter0 == 0 %}
-							<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-						{% else %}
-							<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}"></li>
-						{% endif %}
+					{% if forloop.counter0 == 0 %}
+					<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+					{% else %}
+					<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}"></li>
+					{% endif %}
 					{% endfor %}
 				</ol>
 				<!-- Carousel items -->
 				<div class="carousel-inner">
 					{% for listing in listings %}
-						{% if forloop.counter0 == 0 %}
-							<div class="active item">
+					{% if forloop.counter0 == 0 %}
+					<div class="active item">
 						{% else %}
-							<div class="item">
-						{% endif %}
+						<div class="item">
+							{% endif %}
 							<img id="carouselImage" src="{{ MEDIA_ROOT }}{{ listing.photo }}" alt="" />
 							<div class="carousel-caption">
 								<h4>{{ listing.title }}</h4>
-								<p>{{ listing.description }}</p>
+								<p>
+									{{ listing.description }}
+								</p>
 							</div>
 						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
+					<!-- Carousel nav -->
+					<a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
 				</div>
-				<!-- Carousel nav -->
-				<a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>
-				<a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
 			</div>
-		</div>
-		<div>
-		{% block content %}
-			<h1 class="page-header">Offers</h1>
-			<table class="table table-striped" id="app">
-				<thead>
-				  <tr>
-					<th>Title</th>
-					<th>Listing</th>
-					<th>User id</th>
-					<th>description</th>
-					<th>date created</th>
-				  </tr>
-				</thead>
-			</table>
-		 
-			
-			{% load verbatim %}
-			<!-- ICanHaz templates -->
-			{% comment %}
-			Mustache and django both use {{}} tags for templates, so we need to use
-			a custom template tag to output the mustache template exactly as it is.
-			{% endcomment %}
-			{% verbatim %}
-			<script id="OfferRowTpl" type="text/html">
-				<tr>
+			<div>
+				{% block content %}
+				<h1 class="page-header">Offers</h1>
+				<table class="table table-striped" id="offers">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Listing</th>
+							<th>User id</th>
+							<th>description</th>
+							<th>date created</th>
+						</tr>
+					</thead>
+				</table>
+
+				{% load verbatim %}
+				<!-- ICanHaz templates -->
+				{% comment %}
+				Mustache and django both use {{}} tags for templates, so we need to use
+				a custom template tag to output the mustache template exactly as it is.
+				{% endcomment %}
+				{% verbatim %}
+				<script id="OfferRowTpl" type="text/html">
+					<tr>
 					<td>
-						<!-- <a href="api/offers/{{ offer_id }}" target="_blank"> -->
-							{{ title }}
-						<!-- </a> -->
+					<!-- <a href="api/offers/{{ offer_id }}" target="_blank"> -->
+					{{ title }}
+					<!-- </a> -->
 					</td>
 					<td>
-						<a href="{{ listing }}" target="_blank">
-							{{ listing }}
-						</a>
+					<a href="{{ listing }}" target="_blank">
+					{{ listing }}
+					</a>
 					</td>
 					<td>
-						<a href="{{ user }}" target="_blank">
-							{{user}}
-						</a>
+					<a href="{{ user }}" target="_blank">
+					{{user}}
+					</a>
 					</td>
 					<td>{{ description }}</td>
 					<td>{{ date_created }}</td>
-				</tr>
-			</script>
-			{% endverbatim %}
-		{% endblock %}
-		
-		</div>
+					</tr>
+				</script>
+				{% endverbatim %}
+
+				<h1 class="page-header">Listings</h1>
+				<table class="table table-striped" id="listings">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Desciption</th>
+							<th>User id</th>
+							<th>Photo</th>
+							<th>Date posted</th>
+						</tr>
+					</thead>
+				</table>
+
+				{% verbatim %}
+				<script id="ListingRowTpl" type="text/html">
+					<tr>
+					<td>
+					{{ title }}
+					</td>
+					<td>
+					{{ description }}
+					</td>
+					<td>
+					{{user}}
+					</td>
+					<td>{{ photo }}</td>
+					<td>{{ date_created }}</td>
+					</tr>
+				</script>
+				{% endverbatim %}
+
+				{% endblock %}
+
+			</div>
 	</body>
 </html>
