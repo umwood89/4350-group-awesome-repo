@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Trade your stuff. For free. </h1><br/>
-<h2>10 most recent listings</h2>
+<div class="container">
+      <div class="hero-unit">
+        <h2>Trade your stuff. For free!</h2>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a href="#reg-modal" role="button" data-toggle="modal" class="btn btn-primary btn-large">Sign up »</a></p>
+      </div>
+
+      <div class="row">
+		<div class="span4">
+          <h3>Sign up!</h3>
+          <p>Sign up is quick and easy. Just need your name, email address, and we're ready to go!</p>
+          <p><a class="btn" href="#reg-modal" data-toggle="modal">Sign Up »</a></p>
+        </div>
+        <div class="span4">
+          <h3>Have something to trade?</h3>
+          <p>If you have something that you would like to get rid of, or something you just don't need anymore, upload it onto ThisForThat for others to see and offer you stuff for it!</p>
+          <p><a class="btn" href="#">Upload an item »</a></p>
+        </div>
+        <div class="span4">
+          <h3>Make an offer!</h3>
+          <p>Find something you like? Make an offer! You never know, another persons trash can be your treasure!</p>
+          <p><a class="btn" href="#">Browse Listings»</a></p>
+       </div>
+      </div>
+      <hr>
+      <footer>
+        <p>© ThisForThat</p>
+      </footer>
+</div>
+		
+<!-- 
 <div id="carouselRecentListings" class="carousel slide">
 	<ol class="carousel-indicators">
 		{% for listing in listings %}
@@ -13,7 +42,7 @@
 			{% endif %}
 		{% endfor %}
 	</ol>
-	<!-- Carousel items -->
+	<!~~ Carousel items ~~>
 	<div class="carousel-inner">
 		{% for listing in listings %}
 			{% if forloop.counter0 == 0 %}
@@ -29,8 +58,9 @@
 			</div>
 		{% endfor %}
 	</div>
-	<!-- Carousel nav -->
+	<!~~ Carousel nav ~~>
 	<a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>
 	<a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
 </div>
+ -->
 {% endblock %}
