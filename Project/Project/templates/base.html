@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Trades{% endblock %}</title>
+    <!-- Bootstrap -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/bootstrap.js"></script>
+	<script src="/js/bootstrap-carousel.js"></script>
+	<script src="/js/application.js" rel="stylesheet"></script>
+	<link href="/css/bootstrap.css" rel="stylesheet" media="screen"> 
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+  </head>
+  <body>  
+		<!-- TOP BAR -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#"><div id="brandlogo"></div></a></a>
+					<div class="nav-collapse collapse">
+						<form class="navbar-search pull-left" >
+							<input type="text" class="search-query" placeholder="Search"/>
+						</form>
+						<form class="navbar-form pull-right">
+						  <input class="span2" type="text" placeholder="Email">
+						  <input class="span2" type="password" placeholder="Password">
+						  <button type="submit" class="btn">Sign in</button>
+						</form>
+						<ul class="nav pull-right">
+							<li><a href="#reg-modal" role="button" data-toggle="modal">Sign up</a></li>
+							<li class="divider-vertical" />
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="reg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Create an account</h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="inFirstName">First Name</label>
+						<div class="controls">
+							<input type="text" id="inFirstName" placeholder="First Name">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inLastName">Last Name</label>
+						<div class="controls">
+							<input type="text" id="inLastName" placeholder="Last Name">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="inEmail">Email Address</label>
+						<div class="controls">
+							<input type="text" id="inEmail" placeholder="Email Address">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="inPassword">Password</label>
+						<div class="controls">
+							<input type="password" id="inPassword" placeholder="Password">
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">Create account</button>
+				</form>
+			</div>
+		</div>
+		<!-- END TOP BAR -->
+	
+		<!-- MAIN CONTENT AREA -->
+		<div class="container">
+		{% block content %}
+		{% endblock %}
+		</div>
+		<!-- END MAIN CONTENT AREA -->
+		
+		<!-- FOOTER -->
+		{% block footer %}
+		{% endblock %}
+		<!-- END FOOTER -->
+  </body>
+</html>
