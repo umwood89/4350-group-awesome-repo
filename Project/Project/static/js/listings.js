@@ -22,7 +22,6 @@ $(function(){
     // main app
     var AppView = Backbone.View.extend({
         tagName: 'tbody',
-
         initialize: function() {
             // instantiate a Listing collection
             this.Listings = new ListingCollection();
@@ -31,6 +30,7 @@ $(function(){
         },
 
         render: function () {
+        	 this.$el.html("");
             // template with ICanHaz.js (ich)
             this.Listings.each(function (Listing) {
                 $(this.el).append(new ListingView({model: Listing}).render().el);
@@ -43,4 +43,3 @@ $(function(){
     var app = new AppView();
     $('#listings').append(app.render().el);
 });
-

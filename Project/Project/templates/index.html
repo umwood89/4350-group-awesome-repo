@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="{{ STATIC_URL }}js/listings.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}js/ICanHaz.min.js"></script>
 		<script src="{{ STATIC_URL }}js/bootstrap.js"></script>
-		<script src="/js/bootstrap.js"></script>
+		<!-- <script src="/js/bootstrap.js"></script> -->
 		<script src="/js/bootstrap-carousel.js"></script>
 		<script src="/js/application.js" rel="stylesheet"></script>
 		<link href="/css/bootstrap-responsive.css" rel="stylesheet">
@@ -154,6 +154,7 @@
 				{% endcomment %}
 				{% verbatim %}
 				<script id="OfferRowTpl" type="text/html">
+					
 					<tr>
 					<td>
 					<!-- <a href="api/offers/{{ offer_id }}" target="_blank"> -->
@@ -173,7 +174,7 @@
 					<td>{{ description }}</td>
 					<td>{{ date_created }}</td>
 					</tr>
-				</script>
+									</script>
 				{% endverbatim %}
 
 				<h1 class="page-header">Listings</h1>
@@ -192,23 +193,16 @@
 				{% verbatim %}
 				<script id="ListingRowTpl" type="text/html">
 					<tr>
-					<td>
-					{{ title }}
-					</td>
-					<td>
-					{{ description }}
-					</td>
-					<td>
-					{{user}}
-					</td>
-					<td>{{ photo }}</td>
-					<td>{{ date_created }}</td>
+						<td>{{ title }}</td>
+						<td>{{ description }}</td>
+						<td>{{user}}</td>
+						<td>{{ photo }}</td>
+						<td>{{ date_created }}</td>
 					</tr>
 				</script>
 				{% endverbatim %}
 
 				{% endblock %}
-
 			</div>
 	</body>
 </html>

@@ -25,6 +25,6 @@ class Offer(models.Model):
 	photo = models.ImageField(upload_to='offer_photos/')
 	offer_accepted = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
-	date_accepted = models.DateTimeField()
+	date_accepted = models.DateTimeField(blank=True,null=True)
 	def __unicode__(self):
 		return self.title

@@ -26,6 +26,7 @@ $(function(){
  
         render: function () {
             // template with ICanHaz.js (ich)
+            this.$el.html("");
             this.Offers.each(function (Offer) {
                 $(this.el).append(new OfferView({model: Offer}).render().el);
             }, this);
@@ -35,6 +36,6 @@ $(function(){
     });
  
     var app = new AppView();
-    $('#app').append(app.render().el);
+    $('#offers').append(app.render().el);
 });
 
