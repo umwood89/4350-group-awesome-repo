@@ -41,6 +41,6 @@ $(function(){
     });
 
     var app = new AppView();
-    $('#app').append(app.render().el);
+    $('#listings').append(app.render().el);
 });
 
