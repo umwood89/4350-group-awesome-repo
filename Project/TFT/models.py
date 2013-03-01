@@ -12,7 +12,7 @@ class Listing(models.Model):
 	photo = models.ImageField(upload_to='listing_photos/')
 	trade_completed = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
-	date_completed = models.DateTimeField()
+	date_completed = models.DateTimeField(blank=True)
 	def __unicode__(self):
 		return self.title
 	

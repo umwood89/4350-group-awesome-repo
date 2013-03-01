@@ -3,9 +3,11 @@ from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
 from django.contrib.auth.models import User, Group, Permission
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
 from TFT.models import Listing, Offer
-
+from forms import ListingForm
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -53,6 +55,7 @@ class Listings(generics.ListCreateAPIView):
     API endpoint that represents a list of Trades.
     """
     model = Listing
+    
     serializer_class = ListingSerializer
     
 class ListingDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -76,3 +79,10 @@ class OfferDetail(generics.RetrieveUpdateDestroyAPIView):
     model = Offer
     serializer_class = OfferSerializer
     
+######################################################
+
+def ListingsList(request):
+    context = RequestContext(request)
+    form = ListingForm()
+    context.update({'form' : form})
+    return render_to_response('templates/index.html', context) 
