@@ -216,3 +216,17 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+Project/Project/__init__.pyc
+
+Project/Project/settings.pyc
+
+*.pyc
+
+*.pyc
+
+Project/TFT/models.pyc
+
+Project/TFT/__init__.pyc
+
+Project/Project/settings.py
