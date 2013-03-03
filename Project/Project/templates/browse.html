@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	<h2>Browse Listings</h2>
+	<table class="table table-striped" id="listings"> 
+		<thead>
+			<tr>
+				<th>Photo</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Date Posted</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="span2"><img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=7217430" /></td>
+				<td>Trading Gameboy Colour!</td>
+				<td class="span4">Selling my mint condition purple GBC! Looking for anything cool. Maybe a PS4 or something! :P</td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			<tr>
+				<td class="span2"><img src="http://uk.playstation.com/media/ueEZwXFI/ps_vita_beauty.png" /></td>
+				<td>Trade PS Vita </td>
+				<td class="span4">I don't like my Vita anymore. I'll trade you for a 3DS or something! </td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			
+		</tbody>
+		
+	</table>   
+</div>
+{% endblock %}

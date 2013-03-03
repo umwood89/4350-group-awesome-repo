@@ -10,3 +10,14 @@ def home(request):
 	c = Context({"listings": listings})
 	html = t.render(c)
 	return HttpResponse(html)
+
+def browse(request):
+	t = get_template('browse.html')
+	html = t.render(Context())
+	return HttpResponse(html)
+
+def listing(request):
+	t = get_template('listing.html')
+	html = t.render(Context())
+	return HttpResponse(html)
+

@@ -7,16 +7,14 @@
 			<img src="yourimage.jpg" height="100px" width="100px"></img>
 		</div>
 		<div style="float:justified;">			
-			<div id="titlediv" style="float:justified;height:25px;">
-				<h2>Title</h2>
+			<div id="titlediv" style="float:justified;height:25px; style="margin-bottom: 10px"">
+				<h2 id="lblTitle">listingtitle</h2>
 			</div>
-			<div id="descdiv" style="text-align:left;float:justified;align:left;">
-				<p>The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy
-				dog The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog
-				The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog The 
-				quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog The quick
-				brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog  The quick brown
-				fox jumps over the lazy dog The quick brown</p>
+			<div id="descdiv" style="text-align:left;float:justified;align:left; margin-top: 20px">
+				<p>listing desc listing desc listing desc listing desc listing desc listing desc listing desc 
+				listing desc listing desc listing desc listing desc listing desc listing desc listing desc 
+				listing desc listing desc listing desc listing desc listing desc 
+				listing desc listing desc listing desc listing desc listing desc listing desc listing desc </p>
 			</div>
 		</div>
 	</div>
@@ -25,26 +23,40 @@
 		<table>
 			<tr>
 				<td>
-					<div id="userinfodiv" style="width:400px">
-						<h2>Contact Information</h2>
+					<h2>Contact Information</h2>
+					<div id="userinfodiv" style="width:400px float: left;">
 						<p>Username: twentyfivecharactersiswhy</p>
-						<p>Email Address: emailaddressisfiftycharactersscrewflanders@aol.com</p>
+						<p>Email Address: email@aol.com</p>
 					</div>
 				</td>
 				<td>
-					<div id="offerdiv">
-						<h2>Offers</h2>
-						<p>Offer1</p>
-						<p>Offer2</p>
-						<p>Offer3</p>
+					<h2>Offers</h2>
+					<div id="offerdiv" class="span3">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Username</th>
+									<th>Description</th>
+									<th>Date Offered</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>chrisvee</td>
+									<td>Offered Fire Emblem for 3DS!</td>
+									<td>March 02, 2013</td>
+								</tr>
+								<tr>
+									<td>umshuk</td>
+									<td>Offered wireless mouse.</td>
+									<td>March 03, 2013</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
-	<hr>
-	<footer>
-		<p>ThisForThat</p>
-	</footer>
 </div>
 {% endblock %}

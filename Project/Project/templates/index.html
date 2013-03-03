@@ -24,45 +24,9 @@
         <div class="span4">
           <h3>Make an offer!</h3>
           <p>Find something you like? Make an offer! You never know, another persons trash can be your treasure!</p>
-          <p><a class="btn" href="#">Browse Listings»</a></p>
+          <p><a class="btn" href="/browse">Browse Listings»</a></p>
        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© ThisForThat</p>
-      </footer>
 </div>
-		
-<!-- 
-<div id="carouselRecentListings" class="carousel slide">
-	<ol class="carousel-indicators">
-		{% for listing in listings %}
-			{% if forloop.counter0 == 0 %}
-				<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-			{% else %}
-				<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}"></li>
-			{% endif %}
-		{% endfor %}
-	</ol>
-	<!~~ Carousel items ~~>
-	<div class="carousel-inner">
-		{% for listing in listings %}
-			{% if forloop.counter0 == 0 %}
-				<div class="active item">
-			{% else %}
-				<div class="item">
-			{% endif %}
-				<img id="carouselImage" src="{{ MEDIA_ROOT }}{{ listing.photo }}" alt="" />
-				<div class="carousel-caption">
-					<h4>{{ listing.title }}</h4>
-					<p>{{ listing.description }}</p>
-				</div>
-			</div>
-		{% endfor %}
-	</div>
-	<!~~ Carousel nav ~~>
-	<a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>
-	<a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
-</div>
- -->
+
 {% endblock %}
