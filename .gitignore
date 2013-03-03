@@ -189,8 +189,6 @@ $RECYCLE.BIN/
 
 *.py[co]
 *.pyc
-settings.py
-
 
 # Packages
 *.egg
@@ -228,5 +226,3 @@ Project/Project/settings.pyc
 Project/TFT/models.pyc
 
 Project/TFT/__init__.pyc
-
-Project/Project/settings.py
