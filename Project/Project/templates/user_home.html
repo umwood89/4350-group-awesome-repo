@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+	<div class="row">
+    <div class="span4">
+      <h3>Have something to trade?</h3>
+      <p>If you have something that you would like to get rid of, or something you just don't need anymore, upload it onto ThisForThat for others to see and offer you stuff for it!</p>
+      <p><a class="btn" href="#addlisting-modal" data-toggle="modal">Upload an item »</a></p>
+    </div>
+    <div class="span4 offset3">
+      <h3>Make an offer!</h3>
+      <p>Find something you like? Make an offer! You never know, another persons trash can be your treasure!</p>
+      <p><a class="btn" href="/browse">Browse Listings»</a></p>
+    </div>
+    </div>
+    <br>
+    
+    <div class="hero-unit">
+	<h2>My Listings</h2>
+	<table class="table table-striped" id="listings"> 
+		<thead>
+			<tr>
+				<th>Photo</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Date Posted</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="span2"><img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=7217430" /></td>
+				<td>Trading Gameboy Colour!</td>
+				<td class="span4">Selling my mint condition purple GBC! Looking for anything cool. Maybe a PS4 or something! :P</td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			<tr>
+				<td class="span2"><img src="http://uk.playstation.com/media/ueEZwXFI/ps_vita_beauty.png" /></td>
+				<td>Trade PS Vita </td>
+				<td class="span4">I don't like my Vita anymore. I'll trade you for a 3DS or something! </td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			<tr>
+				<td class="span2"><img src="http://uk.playstation.com/media/ueEZwXFI/ps_vita_beauty.png" /></td>
+				<td>Trade PS Vita </td>
+				<td class="span4">I don't like my Vita anymore. I'll trade you for a 3DS or something! </td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			
+		</tbody>
+		
+	</table>
+	<br>
+	<h2>My Offerings</h2>
+	<table class="table table-striped" id="listings"> 
+		<thead>
+			<tr>
+				<th>Photo</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Date Posted</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="span2"><img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=7217430" /></td>
+				<td>Trading Gameboy Colour!</td>
+				<td class="span4">Selling my mint condition purple GBC! Looking for anything cool. Maybe a PS4 or something! :P</td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			<tr>
+				<td class="span2"><img src="http://uk.playstation.com/media/ueEZwXFI/ps_vita_beauty.png" /></td>
+				<td>Trade PS Vita </td>
+				<td class="span4">I don't like my Vita anymore. I'll trade you for a 3DS or something! </td>
+				<td>March 02, 2013</td>
+				<td><a href="#">View Details</a></td>
+			</tr>
+			
+		</tbody>
+		
+	</table>
+	</div>   
+</div>
+{% endblock %}
