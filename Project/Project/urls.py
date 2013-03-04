@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-from views import home, browse, listing
+from views import home, browse, listing, userhome
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
     url(r'^browse/$', browse),
-    url(r'^listing/$', listing)
+    url(r'^listing/$', listing),
+    url(r'^userhome/$', userhome)
 )

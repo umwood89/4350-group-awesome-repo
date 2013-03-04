@@ -21,3 +21,7 @@ def listing(request):
 	html = t.render(Context())
 	return HttpResponse(html)
 
+def userhome(request):
+	t = get_template('user_home.html')
+	html = t.render(Context())
+	return HttpResponse(html)
