@@ -146,6 +146,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'TFT',
+    'rest_framework',
+    'django_verbatim'
 )
 
 # A sample logging configuration. The only tangible logging
