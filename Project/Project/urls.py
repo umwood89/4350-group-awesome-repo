@@ -1,9 +1,12 @@
 from django.conf.urls import patterns, include, url
+from rest_framework.urlpatterns import format_suffix_patterns
+from views import home, browse, listing, userhome, listings, api_root, ListingDetail, OfferDetail, UserList, UserDetail, GroupList, GroupDetail, Listings, Offers
+
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-from views import home, browse, listing, userhome
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -18,5 +21,20 @@ urlpatterns = patterns('',
     url(r'^$', home),
     url(r'^browse/$', browse),
     url(r'^listing/$', listing),
-    url(r'^userhome/$', userhome)
+    url(r'^userhome/$', userhome),
+    
+    ##### API URLS ######
+    #url(r'^api/$', 'TFT.views',name='api_root'),
+    url(r'^api/users/$', UserList.as_view(), name='user-list'),
+    url(r'^api/users/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),\
+    
+    url(r'^api/groups/$', GroupList.as_view(), name='group-list'),
+    url(r'^api/groups/(?P<pk>\d+)/$', GroupDetail.as_view(), name='group-detail'),
+    
+    url(r'^api/listings/$', Listings.as_view(), name="listing-list"),
+    url(r'^api/listings/(?P<pk>\d+)/$', ListingDetail.as_view(), name="listing-detail"),
+    
+    url(r'^api/offers/$', Offers.as_view(), name="offer-list"),
+    url(r'^api/offers/(?P<pk>\d+)/$', OfferDetail.as_view(), name="offer-detail"),
+    
 )

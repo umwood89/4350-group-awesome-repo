@@ -22,7 +22,6 @@ class ListingSerializer(serializers.HyperlinkedModelSerializer):
         model = Listing
         fields = ('title','description','user','photo','trade_completed','date_created','date_completed')
         
-
         
 class OfferSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
