@@ -16,10 +16,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'thisforthat',
-        'HOST': '/opt/bitnami/mysql/tmp/mysql.sock',
+        'HOST': 'devdb.hackshack.ca',
         'PORT': '',
-        'USER': 'root',
-        'PASSWORD': 'bitnami'
+        'USER': 'thisforthat',
+        'PASSWORD': 'thisforthat'
     }
 }
 
