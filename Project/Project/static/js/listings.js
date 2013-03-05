@@ -16,7 +16,7 @@ $(function(){
     // define the collection of Listings
     var ListingCollection = Backbone.Collection.extend({
         model: Listing,
-        url: '/api/listings/'
+        url: '/api/listings'
     });
 
     // main app

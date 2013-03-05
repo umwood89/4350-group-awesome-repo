@@ -12,7 +12,7 @@ $(function(){
     // define the collection of Offers
     var OfferCollection = Backbone.Collection.extend({
         model: Offer,
-        url: '/api/offers/'
+        url: '/api/offers'
     });
     // main app
     var AppView = Backbone.View.extend({
