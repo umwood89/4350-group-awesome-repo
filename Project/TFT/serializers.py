@@ -18,9 +18,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'name', 'permissions')
 
 class ListingSerializer(serializers.HyperlinkedModelSerializer):
+    listing_id = serializers.Field()
     class Meta:
         model = Listing
-        fields = ('title','description','user','photo','trade_completed','date_created','date_completed')
+        fields = ('listing_id', 'title','description','user','photo','trade_completed','date_created','date_completed')
         
         
 class OfferSerializer(serializers.HyperlinkedModelSerializer):
