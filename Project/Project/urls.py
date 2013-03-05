@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from views import home, browse, listing, userhome, listings, api_root, ListingDetail, OfferDetail, UserList, UserDetail, GroupList, GroupDetail, Listings, Offers
+from views import home, browse, listingdetails, userhome, api_root, ListingDetail, OfferDetail, UserList, UserDetail, GroupList, GroupDetail, Listings, Offers
 
 
 # Uncomment the next two lines to enable the admin:
@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
     url(r'^browse/$', browse),
-    url(r'^listing/$', listing),
+    url(r'^listingdetails/$', listingdetails),
     url(r'^userhome/$', userhome),
     
     ##### API URLS ######
