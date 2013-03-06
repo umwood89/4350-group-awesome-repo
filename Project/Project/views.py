@@ -1,3 +1,5 @@
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import Template, Context, RequestContext
 from django.template.loader import get_template
@@ -8,6 +10,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User, Group, Permission
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
+from TFT.forms import UserRegistrationForm
 import datetime
 
 def home(request):
@@ -36,6 +39,22 @@ def userhome(request):
 	t = get_template('user_home.html')
 	html = t.render(Context())
 	return HttpResponse(html)
+
+
+####################################################################
+# Registration and authentication
+####################################################################
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/browse")
+    else:
+        form = UserRegistrationForm()
+    return render_to_response("register.html", {
+        'form': form,
+    })
 
 ####################################################################
 # DJANGO RESTFUL API views 
