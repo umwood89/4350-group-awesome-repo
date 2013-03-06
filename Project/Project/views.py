@@ -25,13 +25,8 @@ def browse(request):
 	html = t.render(Context())
 	return HttpResponse(html)
 
-def listings(request):
-	t = get_template('listings.html')
-	html = t.render(Context())
-	return HttpResponse(html)
-
-def listing(request):
-	t = get_template('listing.html')
+def listingdetails(request):
+	t = get_template('listing_details.html')
 	html = t.render(Context())
 	return HttpResponse(html)
 

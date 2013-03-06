@@ -1,8 +1,7 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from views import home, browse, listing, userhome, listings, api_root, ListingDetail, OfferDetail, UserList, UserDetail, GroupList, GroupDetail, Listings, Offers
-from views import register
-# from django.contrib.auth.views import login, logout
+from views import home, browse, listingdetails, userhome, api_root, ListingDetail, OfferDetail, UserList, UserDetail, GroupList, GroupDetail, Listings, Offers
+
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -21,12 +20,8 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home),
     url(r'^browse/$', browse),
-    url(r'^listing/$', listing),
+    url(r'^listingdetails/$', listingdetails),
     url(r'^userhome/$', userhome),
-    
-    #### Authentication and registration ### 
-    url(r'^register/$', register),
-    
     
     ##### API URLS ######
     #url(r'^api/$', 'TFT.views',name='api_root'),
