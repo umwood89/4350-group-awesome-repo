@@ -7,14 +7,15 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 
 class UserRegistrationForm(forms.Form):
-    username = forms.CharField(max_length=30)
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    email=forms.EmailField(required=False)
-    password1=forms.CharField(max_length=30,widget=forms.PasswordInput()) #render_value=False
-    password2=forms.CharField(max_length=30,widget=forms.PasswordInput())
+    username = forms.CharField(max_length=30, widget=forms.TextInput(), label=("User Name"))
+    
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email=forms.EmailField(max_length=30)
+    password1=forms.CharField(max_length=30,widget=forms.PasswordInput(),label=("Password")) #render_value=False
+    password2=forms.CharField(max_length=30,widget=forms.PasswordInput(),label=("Verify Password"))
 
-    def clean_username(self): # check if username dos not exist before
+    def clean_username(self): # check if username dos not exist beforeyeah
         try:
             User.objects.get(username=self.cleaned_data['username']) #get user from user model
         except User.DoesNotExist :
