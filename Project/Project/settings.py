@@ -147,7 +147,6 @@ INSTALLED_APPS = (
     'TFT',
     'rest_framework',
     'django_verbatim',
-    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging
