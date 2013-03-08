@@ -73,7 +73,7 @@ MEDIA_URL = '/static/media/'
 STATIC_ROOT = '/opt/bitnami/apps/django/django_projects/Project/Project/static/contrib/'
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = '/static/contrib/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -147,7 +147,6 @@ INSTALLED_APPS = (
     'TFT',
     'rest_framework',
     'django_verbatim',
-    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging
