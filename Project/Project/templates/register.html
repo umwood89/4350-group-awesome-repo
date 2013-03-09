@@ -1,15 +1,76 @@
-{% extends "base.html" %}
-
-{% block title %}Create an account{% endblock %}
-
 {% block content %}
-  <h1>Create an account</h1>
-  <form action="" method="post">{% csrf_token %}
-      {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.label_tag }} {{ field }} {% for error in field.errors %}<span style="color:red;">{{error}}</span><br>{% endfor %}
-        </div>
-    {% endfor %}
-      <input type="submit" class="btn btn-primary" value="          Register          ">
+<form id="regform" action="/register/" method="post">
+	{% csrf_token %}	
+	<div class="fieldWrapper">
+		<label for="username">Username</label>
+		{{ form.username }}{% if form.username.errors %} <span style="color:red;">{% for error in form.username.errors %}
+        {{ error }}{% endfor %}</span> {% endif %}
+	</div>
+			<table border="0">
+			<tr>
+			<td>
+				<label for="first_name">First Name{% if form.first_name.errors %} <span style="color:red;">*Required</span> {% endif %}</label>
+			</td>
+			<td width="10"></td>
+			<td>
+				<label for="last_name">Last Name{% if form.last_name.errors %} <span style="color:red;">*Required</span> {% endif %}</label>
+			</td></tr>
+			<tr>
+			<td>
+				{{ form.first_name }}
+			</td>
+			<td></td>	
+			<td>
+				{{ form.last_name }}
+			</td></tr>
+		</table>
+
+		<div class="fieldWrapper">
+		<label for="email">Email</label>
+		{{ form.email }}{% if form.email.errors %} <span style="color:red;">{% for error in form.email.errors %}
+        {{ error|escape }}{% endfor %}</span> {% endif %}
+	</div>		
+	
+	<table boder="0">
+		<tr>
+			<td>
+		<label for="password1">Password{% if form.password1.errors %} <span style="color:red;">*Required</span> {% endif %}</label></td>
+			<td width="10"></td>
+			<td>
+		<label for="password2">Verify Password{% if form.password2.errors %} <span style="color:red;">*Required</span> {% endif %}</label></td>
+		</tr>	
+		<tr>
+			<td>{{ form.password1 }}</td>
+			<td></td>
+			<td>{{ form.password2 }}</td>
+		</tr>
+	</table>
+	
+      <input type="submit" class="btn btn-primary" value="     Register     "> <span style="color:red;">{{ form.non_field_errors }}</span>
+
   </form>
 {% endblock %}
+
+<script type="text/javascript">
+	$(function() {
+	$("#regform").submit(function(e) {
+		e.preventDefault();
+
+		dataString = $("#regform").serialize();
+
+		$.ajax({
+			type : "POST",
+			url : "/register/",
+			data : dataString,
+			success : function(data) {
+				$('#registrationform').html(data)
+			},
+			failure : function(errMsg) {
+				$('#registrationform').html("Request failed. Please try again later.");
+			},
+		});
+
+	});
+});
+	
+</script>
