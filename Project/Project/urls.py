@@ -4,8 +4,8 @@ from views import home, browse, listingdetails, userhome, api_root, ListingDetai
 from views import login, register, JSONcheckpassword, logout
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 
 urlpatterns = patterns('',
@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     
     ###### Application base functionality ######
     url(r'^$', home),
@@ -32,7 +32,7 @@ urlpatterns = patterns('',
     (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     #(r'^logout/$', logout),
     url(r'^JSONcheckpassword/$', JSONcheckpassword),
-    
+
     url(r'^register/$', register),
     
     ##### API URLS ######

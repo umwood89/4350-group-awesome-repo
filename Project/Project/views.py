@@ -51,6 +51,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
+            auth.login(request, new_user)
             return render_to_response("thanks.html")
     else:
         form = UserRegistrationForm()

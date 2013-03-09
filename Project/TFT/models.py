@@ -14,7 +14,7 @@ class Listing(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_completed = models.DateTimeField()
 	def __unicode__(self):
-		return self.listing_id
+		return self.title
 	
 class Offer(models.Model):
 	offer_id = models.AutoField(primary_key=True)
@@ -27,4 +27,4 @@ class Offer(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_accepted = models.DateTimeField()
 	def __unicode__(self):
-		return self.offer_id
+		return self.title
