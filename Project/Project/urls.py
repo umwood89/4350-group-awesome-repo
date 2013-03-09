@@ -17,13 +17,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-<<<<<<< HEAD
     url(r'^admin/', include(admin.site.urls)),
-    
-=======
-    # url(r'^admin/', include(admin.site.urls))
-      
->>>>>>> Gave up trying backbone, using built-in django stuff. Pretty successful
     ###### Application base functionality ######
     url(r'^$', home),
     url(r'^browse/$', browse),
