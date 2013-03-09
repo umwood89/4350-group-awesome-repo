@@ -33,27 +33,7 @@
 	</table>	
 </div>
 
-<script type="text/javascript">
-	$(function() {
-	$("#add_listing").submit(function(e) {
-		e.preventDefault();
 
-		dataString = $("#add_listing").serialize();
-
-		$.ajax({
-			type : "POST",
-			url : "/new_listing/",
-			data : dataString,
-			success : function(data) {
-				$('#addListingModalBody').html(data)
-			},
-			failure : function(errMsg) {
-				$('#addListingModalBody').html("Request failed. Please try again later.");
-			},
-		});
-
-	});
-});
 	
 </script>
 

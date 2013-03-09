@@ -6,7 +6,11 @@ $(document).ready(function() {
 	// Populate the registration form in our modal
 	$.get('/register/', function(data) {
 		$('#registrationform').html(data);
-	});	
+	});
+	// Populate the registration form in our modal
+	$.get('/new_listing/', function(data) {
+		$('#addListingModalBody').html(data);
+	});		
 });
 
 $(function() {

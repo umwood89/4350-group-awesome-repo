@@ -113,7 +113,7 @@ def newListing(request):
             return render_to_response("thanks.html")
     else:
         form = ListingForm() # An unbound form
-    return render_to_response("browse.html", {
+    return render_to_response("new_listing.html", {
         'form': form,})
     			     
 
