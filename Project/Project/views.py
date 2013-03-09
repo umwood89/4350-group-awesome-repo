@@ -13,25 +13,31 @@ from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
 from TFT.forms import UserRegistrationForm
 import datetime
+from django.utils import simplejson
 
 def home(request):
+	user=request.user
 	listings = Listing.objects.order_by('date_created')[:10]
 	t = get_template('index.html')
-	c = Context({"listings": listings})
+	c = Context({"listings": listings, "user":user} )
 	html = t.render(c)
 	return HttpResponse(html)
 
 def browse(request):
+	user=request.user
 	t = get_template('browse.html')
-	html = t.render(Context())
+	c = Context({"user":user} )
+	html = t.render(c)
 	return HttpResponse(html)
 
 def listingdetails(request):
+	user=request.user
 	t = get_template('listing_details.html')
 	html = t.render(Context())
 	return HttpResponse(html)
 
 def userhome(request):
+	user=request.user
 	t = get_template('user_home.html')
 	html = t.render(Context())
 	return HttpResponse(html)
@@ -45,7 +51,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            return HttpResponseRedirect("/browse")
+            return render_to_response("thanks.html")
     else:
         form = UserRegistrationForm()
     return render_to_response("register.html", {
@@ -53,40 +59,66 @@ def register(request):
     })
     
    
+# JSON method for logging in 
+def JSONcheckpassword(request):
+	try:
+		username = request.POST.get('username', '')
+		password = request.POST.get('password', '')
+		
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				#login(user)
+				result = 'success'
+				return HttpResponse(simplejson.dumps({'result': result}))						
+	except:
+		result = 'error'
+	result = 'fail'
+	return HttpResponse(simplejson.dumps({'result': result}))
+    
+# Set browser session via cookies
+def login(request):
+	try:
+		username = request.POST['username']
+		password = request.POST['password']
+		
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return render_to_response('browse.html')
+				
+	except:
+		return render_to_response("index.html")
 
-#def login(request):
-#    username = request.POST['username']
-#    password = request.POST['password']
-#    user = authenticate(username=username, password=password)
-#    if user is not None:
-#        if user.is_active:
-#            login(request, user)
-#            # Redirect to a success page.
-#    #    else:
-#            # Return a 'disabled account' error message
-#    # else:
-#        # Return an 'invalid login' error message.
-#    return HttpResponseRedirect("/browse")
+def logout(request):
+	try:
+		logout(user)
+	except:
+		return render_to_response("index.html")
+	return render_to_response("index.html")
+
+	
 
 
-def login(request):                                                                                                                         
-    if request.method == 'POST':                                                                                                            
-        request.session.set_test_cookie()                                                                                                   
-        login_form = AuthenticationForm(request, request.POST)                                                                              
-        if login_form.is_valid():                                                                                                           
-            if request.is_ajax:                                                                                                             
-                user = django_login(request, login_form.get_user())                                                                         
-                if user is not None:                                                                                                        
-                    return HttpResponse(request.REQUEST.get('next', '/'))   
-        return HttpResponseForbidden() # catch invalid ajax and all non ajax                                                        
-    else:                                                                                                                                   
-        login_form = AuthenticationForm()                                                                                                                                        
-    c = Context({                                                                                                                           
-        'next': request.REQUEST.get('next'),                                                                                                
-        'login_form': login_form,                                                                                                                         
-        'request':request,                                                                                                                  
-    })                                                                                                                                      
-    return render_to_response('login.html', c, context_instance=RequestContext(request))
+#def login(request):                                                                                                                         
+#    if request.method == 'POST':                                                                                                            
+#        request.session.set_test_cookie()                                                                                                   
+#        login_form = AuthenticationForm(request, request.POST)                                                                              
+#        if login_form.is_valid():                                                                                                           
+#            if request.is_ajax:                                                                                                             
+#                user = django_login(request, login_form.get_user())                                                                         
+#                if user is not None:                                                                                                        
+#                    return HttpResponse(request.REQUEST.get('next', '/'))   
+#        return HttpResponseForbidden() # catch invalid ajax and all non ajax                                                        
+#    else:                                                                                                                                   
+#        login_form = AuthenticationForm()                                                                                                                                        
+#    c = Context({                                                                                                                           
+#        'next': request.REQUEST.get('next'),                                                                                                
+#        'login_form': login_form,                                                                                                                         
+#        'request':request,                                                                                                                  
+#    })                                                                                                                                      
+#    return render_to_response('login.html', c, context_instance=RequestContext(request))
 
 
 ####################################################################
