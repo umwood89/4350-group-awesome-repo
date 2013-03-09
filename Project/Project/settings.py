@@ -11,6 +11,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+LOGIN_REDIRECT_URL = '/browse/'
 
 DATABASES = {
     'default': {
@@ -119,6 +120,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Project.disable.DisableCSRF', 
 )
 
 ROOT_URLCONF = 'Project.urls'
@@ -148,6 +150,9 @@ INSTALLED_APPS = (
     'rest_framework',
     'django_verbatim',
 )
+
+AUTH_USER_MODEL = 'auth.User'
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
