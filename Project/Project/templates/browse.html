@@ -1,10 +1,9 @@
 {% extends "base.html" %}
-{% load verbatim %}
-
 {% block content %}
-<div class="container">
+<div id="app" class="container">
 	<h2>Browse Listings</h2>
-	<table class="table table-striped" id="listings">
+	
+	<table class="table table-striped" id="listings_table">
 		<thead>
 			<tr>
 				<th>Photo</th>
@@ -13,19 +12,52 @@
 				<th>Date Posted</th>
 			</tr>
 		</thead>
-		<tbody>
-			{% verbatim %}
-			<script id="ListingRowTpl" type="text/html">
-				<tr>
-					<td><img src="/static/{{ photo }}"></td>
-					<td>{{ title }}</td>
-					<td>{{ description }}</td>
-					<td>{{ date_created }}</td>
-					<td><a href="/api/listings/{{listing_id}}">View Details</a></td>
-				</tr>
-			</script>
-			{% endverbatim %}
-		</tbody>
+		<tr>
+			{% for listing in listings %}
+				<td><img src="/static/media/{{ listing.photo }}"></td>
+				<td>{{ listing.title }}</td>
+				<td>{{ listing.description }}</td>
+				<td>{{ listing.date_created }}</td>
+				<td><a href="/api/listings/{{listing.listing_id}}">View</a></td>
+				<td>
+					<a href="#" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+					<a href="#" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
+				</td>
+		</tr>
+			{% endfor %}
+		
 	</table>
+
+	<tfoot>
+			<tr>
+				<td colspan="5"><button class="btn btn-primary" href="#addListingModal" data-toggle="modal">Add new listing</button></td>
+			</tr>
+		</tfoot>
+	</table>
+	
+	<div id="addListingModal" class="modal hide fade" >
+		<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Add Listing</h3>
+		</div>
+		<div class="modal-header">
+			<form  action="new_listing" enctype="multipart/form-data" method="post">
+			{{listingForm.as_p}}
+			<input type="submit" value="Submit">
+		</form>
+		</div>	
+	</div>
+	
 </div>
+
+
+			
+	
+	
+	
+	
+
 {% endblock %}
+
+
+

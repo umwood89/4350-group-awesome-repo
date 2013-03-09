@@ -99,27 +99,17 @@ def logout(request):
 		return render_to_response("index.html")
 	return render_to_response("index.html")
 
-	
-
-
-#def login(request):                                                                                                                         
-#    if request.method == 'POST':                                                                                                            
-#        request.session.set_test_cookie()                                                                                                   
-#        login_form = AuthenticationForm(request, request.POST)                                                                              
-#        if login_form.is_valid():                                                                                                           
-#            if request.is_ajax:                                                                                                             
-#                user = django_login(request, login_form.get_user())                                                                         
-#                if user is not None:                                                                                                        
-#                    return HttpResponse(request.REQUEST.get('next', '/'))   
-#        return HttpResponseForbidden() # catch invalid ajax and all non ajax                                                        
-#    else:                                                                                                                                   
-#        login_form = AuthenticationForm()                                                                                                                                        
-#    c = Context({                                                                                                                           
-#        'next': request.REQUEST.get('next'),                                                                                                
-#        'login_form': login_form,                                                                                                                         
-#        'request':request,                                                                                                                  
-#    })                                                                                                                                      
-#    return render_to_response('login.html', c, context_instance=RequestContext(request))
+####################################################################
+# FORM POSTING VIEWS
+####################################################################
+def newListing(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = ListingForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            form.save();
+    	else:
+        	form = ListingForm() # An unbound form
+    return HttpResponse("hello")
 
 
 ####################################################################
@@ -194,3 +184,4 @@ class OfferDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     model = Offer
     serializer_class = OfferSerializer
+

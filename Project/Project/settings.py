@@ -34,11 +34,15 @@ EXAMPLE_DATABASES = {
     }
 }
 
+
+APPEND_SLASH = False
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'America/Winnipeg'
+
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -70,18 +74,19 @@ MEDIA_URL = '/static/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/opt/bitnami/apps/django/django_projects/Project/Project/static/contrib/'
+
+STATIC_ROOT = '/opt/bitnami/apps/django/django_projects/Project/Project/static/'
+
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/contrib/'
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    '/opt/bitnami/apps/django/django_projects/Project/Project/static',
-)
+    # Don't forget to use absolute paths, not relative paths.    "/opt/bitnami/apps/django/django_projects/Project/Project/static/static_files_dir",
+    )
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -120,6 +125,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'Project.disable.DisableCSRF', 
+
 )
 
 ROOT_URLCONF = 'Project.urls'
@@ -152,6 +158,7 @@ INSTALLED_APPS = (
 
 AUTH_USER_MODEL = 'auth.User'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
