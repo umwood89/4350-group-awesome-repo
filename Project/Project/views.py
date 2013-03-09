@@ -11,22 +11,26 @@ from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import authenticate, login
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
-from TFT.forms import UserRegistrationForm
+from TFT.forms import UserRegistrationForm,ListingForm
 import datetime
 from django.utils import simplejson
 
+listings = Listing.objects.order_by('date_created')[:10]
+offers = Offer.objects.order_by('date_created')[:10]
+listingForm = ListingForm
+c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )
+
 def home(request):
 	user=request.user
-	listings = Listing.objects.order_by('date_created')[:10]
 	t = get_template('index.html')
-	c = Context({"listings": listings, "user":user} )
+	c["user"] = user
 	html = t.render(c)
 	return HttpResponse(html)
 
 def browse(request):
 	user=request.user
 	t = get_template('browse.html')
-	c = Context({"user":user} )
+	c["user"] = user
 	html = t.render(c)
 	return HttpResponse(html)
 
@@ -106,9 +110,12 @@ def newListing(request):
         form = ListingForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
             form.save();
-    	else:
-        	form = ListingForm() # An unbound form
-    return HttpResponse("hello")
+            return render_to_response("thanks.html")
+    else:
+        form = ListingForm() # An unbound form
+    return render_to_response("browse.html", {
+        'form': form,})
+    			     
 
 
 ####################################################################

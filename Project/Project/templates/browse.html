@@ -25,31 +25,37 @@
 				</td>
 		</tr>
 			{% endfor %}
-		
-	</table>
-
-	<tfoot>
+		<tfoot>
 			<tr>
 				<td colspan="5"><button class="btn btn-primary" href="#addListingModal" data-toggle="modal">Add new listing</button></td>
 			</tr>
 		</tfoot>
-	</table>
-	
-	<div id="addListingModal" class="modal hide fade" >
-		<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">Add Listing</h3>
-		</div>
-		<div class="modal-header">
-			<form  action="new_listing" enctype="multipart/form-data" method="post">
-			{{listingForm.as_p}}
-			<input type="submit" value="Submit">
-		</form>
-		</div>	
-	</div>
-	
+	</table>	
 </div>
 
+<script type="text/javascript">
+	$(function() {
+	$("#add_listing").submit(function(e) {
+		e.preventDefault();
+
+		dataString = $("#add_listing").serialize();
+
+		$.ajax({
+			type : "POST",
+			url : "/new_listing/",
+			data : dataString,
+			success : function(data) {
+				$('#addListingModalBody').html(data)
+			},
+			failure : function(errMsg) {
+				$('#addListingModalBody').html("Request failed. Please try again later.");
+			},
+		});
+
+	});
+});
+	
+</script>
 
 			
 	

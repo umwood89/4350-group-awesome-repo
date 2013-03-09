@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-
 # Create your models here.
 
 class Listing(models.Model):
@@ -12,9 +11,9 @@ class Listing(models.Model):
 	photo = models.ImageField(upload_to='listing_photos/')
 	trade_completed = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
-	date_completed = models.DateTimeField()
+	date_completed = models.DateTimeField(blank = True, null = True)
 	def __unicode__(self):
-		return self.title
+		return self.listing_id
 	
 class Offer(models.Model):
 	offer_id = models.AutoField(primary_key=True)
@@ -25,6 +24,6 @@ class Offer(models.Model):
 	photo = models.ImageField(upload_to='offer_photos/')
 	offer_accepted = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
-	date_accepted = models.DateTimeField()
+	date_accepted = models.DateTimeField(blank = True, null = True)
 	def __unicode__(self):
-		return self.title
+		return self.offer_id

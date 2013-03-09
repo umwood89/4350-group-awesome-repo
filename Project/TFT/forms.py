@@ -5,7 +5,13 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from TFT.models import Listing
 
+
+class ListingForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        
 class UserRegistrationForm(forms.Form):
     username = forms.CharField(max_length=30, widget=forms.TextInput(), label=("User Name"))
     

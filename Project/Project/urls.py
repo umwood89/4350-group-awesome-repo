@@ -49,7 +49,7 @@ urlpatterns = patterns('',
     url(r'^api/offers/(?P<pk>\d+)/$', OfferDetail.as_view(), name="offer-detail"),
     
     ##### FORM URLS ######
-    url(r'^new_listing$', newListing),
+    url(r'^new_listing/$', newListing),
     
     
     #url(r'^api/$', 'TFT.views',name='api_root'),
