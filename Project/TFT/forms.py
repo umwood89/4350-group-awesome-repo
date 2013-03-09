@@ -21,13 +21,13 @@ class UserRegistrationForm(forms.Form):
         except User.DoesNotExist :
             return self.cleaned_data['username']
     
-        raise forms.ValidationError("this user exist already")
+        raise forms.ValidationError("Username already taken.")
     
     
     def clean(self): # check if password 1 and password2 match each other
         if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:#check if both pass first validation
             if self.cleaned_data['password1'] != self.cleaned_data['password2']: # check if they match each other
-                raise forms.ValidationError("passwords dont match each other")
+                raise forms.ValidationError("Passwords do not match.")
     
         return self.cleaned_data
     
