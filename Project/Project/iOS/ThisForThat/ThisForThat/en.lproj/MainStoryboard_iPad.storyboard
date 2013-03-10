@@ -4,72 +4,53 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - Login-->
-        <scene sceneID="11">
+        <!--Listings Table View Controller - Listings-->
+        <scene sceneID="prf-Aw-wHa">
             <objects>
-                <viewController id="2" customClass="FirstViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
+                <tableViewController id="Z7R-56-qaV" userLabel="Listings Table View Controller - Listings" customClass="ListingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XgN-3U-n01">
                         <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20">
-                                <items/>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="20" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="21X-Fc-h5m"/>
-                            <constraint firstItem="20" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="82v-FK-dPD"/>
-                            <constraint firstItem="20" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="i7B-V8-9lR"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Login" image="first" id="7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableFooterView" contentMode="scaleToFill" barStyle="blackOpaque" id="lEf-Fj-dUq">
+                            <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Listings" id="Ybb-AS-AXc"/>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kbZ-R9-QEV">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Z7R-56-qaV" id="Rrq-XO-vHx"/>
+                            <outlet property="delegate" destination="Z7R-56-qaV" id="vb8-Uc-mgH"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Listings" id="Hu7-4f-dEb"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="9SB-4t-1rK" id="Irk-yf-jvQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i56-Ik-Jqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="9SB-4t-1rK">
+                    <connections>
+                        <outlet property="delegate" destination="Z7R-56-qaV" id="EZb-cN-jTR"/>
+                        <outlet property="searchContentsController" destination="Z7R-56-qaV" id="StL-Z0-KuD"/>
+                        <outlet property="searchResultsDataSource" destination="Z7R-56-qaV" id="BDf-l8-73V"/>
+                        <outlet property="searchResultsDelegate" destination="Z7R-56-qaV" id="mLe-BG-c1P"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3029" y="142"/>
-        </scene>
-        <!--Listings View Controller - Listing-->
-        <scene sceneID="X3l-vr-1uW">
-            <objects>
-                <viewController id="Mzo-2P-d0j" customClass="listingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kbf-EJ-Wqa">
-                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Listing" image="first" id="A5v-HF-zc3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L94-wF-UKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4149" y="150"/>
-        </scene>
-        <!--Second View Controller - Offers-->
-        <scene sceneID="13">
-            <objects>
-                <viewController id="3" customClass="SecondViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23">
-                                <items>
-                                    <navigationItem id="24"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="23" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="YQd-P8-ET5"/>
-                            <constraint firstItem="23" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="eH6-Me-VTD"/>
-                            <constraint firstItem="23" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="kTD-uS-vbp"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Offers" image="second" id="6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3042" y="1284"/>
+            <point key="canvasLocation" x="3039" y="103"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gae-wv-hqW">
@@ -168,23 +149,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="28"/>
-                        <segue destination="Mzo-2P-d0j" kind="relationship" relationship="viewControllers" id="ifB-EV-urc"/>
+                        <segue destination="Z7R-56-qaV" kind="relationship" relationship="viewControllers" id="4Jo-sm-TUG"/>
+                        <segue destination="6x0-do-5xs" kind="relationship" relationship="viewControllers" id="nFc-cG-vhO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="718"/>
         </scene>
+        <!--Offers Table View Controller - Offers-->
+        <scene sceneID="8VJ-cD-jHw">
+            <objects>
+                <tableViewController id="6x0-do-5xs" customClass="OffersTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sYY-18-GKk">
+                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableFooterView" contentMode="scaleToFill" barStyle="blackOpaque" id="ldl-EX-LzT">
+                            <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Offers" id="oDV-Yd-cMN"/>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dz1-Tb-1rO">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6x0-do-5xs" id="QL1-ww-kFh"/>
+                            <outlet property="delegate" destination="6x0-do-5xs" id="IAR-28-YAe"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Offers" id="dIV-eu-doC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-aD-8gC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3041" y="1302"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
-    </resources>
     <classes>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+        <class className="ListingsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
@@ -195,11 +208,8 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="SecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
-        </class>
-        <class className="listingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/listingsViewController.h"/>
+        <class className="OffersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
