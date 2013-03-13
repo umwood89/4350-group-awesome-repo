@@ -120,14 +120,34 @@
 }
 
 - (IBAction)makeItHappen:(id)sender {
-    self.test = @"test";
-    self.testtextbox.text = self.test;
-    NSURL *url = [NSURL URLWithString:@"http://allseeing-i.com"];
+    //self.test = @"test";
+    //self.testtextbox.text = self.test;
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/api/listings"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
     NSError *error = [request error];
     if (!error) {
         NSString *response = [request responseString];
+        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *e = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: data options :NSJSONReadingMutableContainers error: &e];
+        
+        if (!jsonArray) {
+            NSLog(@"Error parsing JSON: %@", e);
+        } else {
+            for(NSDictionary *item in jsonArray) {
+                //NSLog(@"Item: %@", item);
+                self.testtextbox.text = [NSString stringWithFormat:@"%@ %@", self.testtextbox.text, item.allValues];
+            }
+        }
+        
+        
+        
+      //  self.testtextbox.text = response;
+        
+    } else {
+        self.test = @"error";
+        self.testtextbox.text = self.test;
     }
 }
 @end

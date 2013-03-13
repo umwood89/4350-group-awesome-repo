@@ -19,8 +19,8 @@
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="hi im a text box" translatesAutoresizingMaskIntoConstraints="NO" id="RZ3-kJ-NPb">
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="34" id="Imv-Km-Ihq"/>
-                                        <constraint firstAttribute="width" constant="341" id="yac-5m-AyQ"/>
+                                        <constraint firstAttribute="height" constant="263" id="LEY-S8-jsg"/>
+                                        <constraint firstAttribute="width" constant="419" id="XTj-Nr-gop"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -47,10 +47,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="RZ3-kJ-NPb" firstAttribute="top" secondItem="YFS-F6-dBs" secondAttribute="top" constant="15" id="LfG-XL-EfG"/>
+                                <constraint firstItem="RZ3-kJ-NPb" firstAttribute="centerY" secondItem="Jbj-hl-O3m" secondAttribute="centerY" type="default" id="V1B-mv-OAo"/>
                                 <constraint firstItem="Jbj-hl-O3m" firstAttribute="leading" secondItem="YFS-F6-dBs" secondAttribute="leading" constant="25" id="Xgd-fi-0oR"/>
-                                <constraint firstItem="Jbj-hl-O3m" firstAttribute="top" secondItem="YFS-F6-dBs" secondAttribute="top" constant="117" id="rUP-Ws-r08"/>
-                                <constraint firstItem="RZ3-kJ-NPb" firstAttribute="leading" secondItem="YFS-F6-dBs" secondAttribute="leading" constant="373" id="ra1-Cg-p3m"/>
+                                <constraint firstItem="RZ3-kJ-NPb" firstAttribute="top" secondItem="YFS-F6-dBs" secondAttribute="top" constant="7" id="mC6-1j-qoq"/>
+                                <constraint firstItem="RZ3-kJ-NPb" firstAttribute="leading" secondItem="YFS-F6-dBs" secondAttribute="leading" constant="296" id="xxA-1P-V1H"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -235,6 +235,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="makeItHappen:"/>
+                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
