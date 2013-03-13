@@ -7,6 +7,7 @@
 //
 
 #import "ListingsTableViewController.h"
+#import "ASIHTTPRequest.h"
 
 @interface ListingsTableViewController ()
 
@@ -118,4 +119,15 @@
      */
 }
 
+- (IBAction)makeItHappen:(id)sender {
+    self.test = @"test";
+    self.testtextbox.text = self.test;
+    NSURL *url = [NSURL URLWithString:@"http://allseeing-i.com"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString *response = [request responseString];
+    }
+}
 @end
