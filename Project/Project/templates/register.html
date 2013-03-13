@@ -1,5 +1,5 @@
 {% block content %}
-<form id="regform" action="/register/" method="post">
+<form id="regform" action="/register" method="post">
 	{% csrf_token %}	
 	<div class="fieldWrapper">
 		<label for="username">Username</label>
@@ -65,7 +65,7 @@
 
 		$.ajax({
 			type : "POST",
-			url : "/register/",
+			url : "/register",
 			data : dataString,
 			success : function(data) {
 				$('#registrationform').html(data)

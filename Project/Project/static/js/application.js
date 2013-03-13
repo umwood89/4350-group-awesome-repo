@@ -4,7 +4,7 @@ $(document).ready(function() {
 		interval : 4000
 	});
 	// Populate the registration form in our modal
-	$.get('/register/', function(data) {
+	$.get('/register', function(data) {
 		$('#registrationform').html(data);
 	});
 	// Populate the registration form in our modal
