@@ -29,6 +29,8 @@
 		1D41921316F03D12003C1798 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F216F03AE7003C1798 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41921416F03D12003C1798 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F616F03AE7003C1798 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41921516F03D12003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DC447CC16F1711F004666F4 /* ListingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CB16F1711F004666F4 /* ListingData.m */; };
+		1DC447CF16F17130004666F4 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CE16F17130004666F4 /* OfferData.m */; };
 		E244FF8416E7F6EB00031AC8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E244FF8316E7F6EB00031AC8 /* icon.png */; };
 		E264EAE116EBD5A200D1566C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264EAE016EBD5A200D1566C /* LoginViewController.m */; };
 		E27FA86D16ED0A8D0062DB01 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA86C16ED0A8D0062DB01 /* ListingsTableViewController.m */; };
@@ -95,6 +97,10 @@
 		1D41920716F03C1F003C1798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1D41920916F03C2C003C1798 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1D41920B16F03C4B003C1798 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1DC447CA16F1711F004666F4 /* ListingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingData.h; sourceTree = "<group>"; };
+		1DC447CB16F1711F004666F4 /* ListingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingData.m; sourceTree = "<group>"; };
+		1DC447CD16F17130004666F4 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferData.h; sourceTree = "<group>"; };
+		1DC447CE16F17130004666F4 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferData.m; sourceTree = "<group>"; };
 		E244FF8316E7F6EB00031AC8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E264EADF16EBD5A200D1566C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E264EAE016EBD5A200D1566C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -191,6 +197,17 @@
 			name = ASIHTTP;
 			sourceTree = "<group>";
 		};
+		1DC447C916F1710A004666F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DC447CA16F1711F004666F4 /* ListingData.h */,
+				1DC447CB16F1711F004666F4 /* ListingData.m */,
+				1DC447CD16F17130004666F4 /* OfferData.h */,
+				1DC447CE16F17130004666F4 /* OfferData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E2DA75B416E701F1005DACB7 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +247,7 @@
 		E2DA75C616E701F2005DACB7 /* ThisForThat */ = {
 			isa = PBXGroup;
 			children = (
+				1DC447C916F1710A004666F4 /* Model */,
 				E2DA75D816E701F2005DACB7 /* MainStoryboard_iPhone.storyboard */,
 				E2DA75CF16E701F2005DACB7 /* AppDelegate.h */,
 				E2DA75D016E701F2005DACB7 /* AppDelegate.m */,
@@ -420,6 +438,8 @@
 				E264EAE116EBD5A200D1566C /* LoginViewController.m in Sources */,
 				E27FA86D16ED0A8D0062DB01 /* ListingsTableViewController.m in Sources */,
 				E27FA87016ED0B230062DB01 /* OffersTableViewController.m in Sources */,
+				1DC447CC16F1711F004666F4 /* ListingData.m in Sources */,
+				1DC447CF16F17130004666F4 /* OfferData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
