@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ListingsTableViewController : UITableViewController
-//- (IBAction)makeItHappen:(id)sender;
-//@property (weak, nonatomic) IBOutlet UITextView *textboxtest;
+
+// RS: Testing button and textview
 - (IBAction)makeItHappen:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *testtextbox;
 @property (copy, nonatomic) NSString *test;
+
+
+// RS: Listings array used to populate the tableview
+@property (strong) NSMutableArray *listings;
+
 @end

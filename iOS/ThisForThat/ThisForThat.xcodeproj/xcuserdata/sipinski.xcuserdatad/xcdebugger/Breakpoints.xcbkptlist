@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ThisForThat/ListingsTableViewController.h"
-         timestampString = "384841623.082797"
+         timestampString = "384924677.947869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "17"
-         endingLineNumber = "17"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
          landmarkName = "@interface ListingsTableViewController"
          landmarkType = "2">
       </FileBreakpoint>

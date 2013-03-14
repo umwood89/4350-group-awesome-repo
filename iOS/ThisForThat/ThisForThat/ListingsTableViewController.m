@@ -8,12 +8,17 @@
 
 #import "ListingsTableViewController.h"
 #import "ASIHTTPRequest.h"
+#import "ListingData.h"  // RS: our listing model object
 
 @interface ListingsTableViewController ()
 
 @end
 
 @implementation ListingsTableViewController
+
+
+//RS: synthesize listings data
+@synthesize listings = _listings;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +38,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //RS: Add a title
+    self.title = @"Listings";
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,15 +62,23 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    //return 0;
+    // RS: return number of sections from our array holding our super data
+    return _listings.count;
 }
 
+// RS: Modified below section to load up listingsdata
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //static NSString *CellIdentifier = @"Cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:@"ListingTableCell"];
+    ListingData *listing = [self.listings objectAtIndex:indexPath.row];
+    cell.textLabel.text = listing.title;
+    //cell.imageView.image = bug.thumbImage;
     
     return cell;
 }
@@ -149,5 +165,30 @@
         self.test = @"error";
         self.testtextbox.text = self.test;
     }
+    
+    // Testing: addingn a couple of things to a listingsview
+//    
+    ListingData *list1 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
+    ListingData *list2 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
+//    
+//    
+//    
+    self.listings = [NSMutableArray arrayWithObjects:list1,list2, nil];
+    
+    UINavigationController * navController = (UINavigationController *) self.parentViewController.presentedViewController;//    .rootViewController;
+    
+    
+    ListingsTableViewController * listingController = [navController.viewControllers objectAtIndex:0];
+    
+    listingController.listings = self.listings;
+    
+//    
+//    UINavigationController * navController = (UINavigationController *)  .window.rootViewController;
+//    
+//    ListingsTableViewController * listingController = [navController.viewControllers objectAtIndex:0];
+//    //listingController.listings = self.listings;
+    
+    
+ 
 }
 @end

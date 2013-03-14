@@ -7,11 +7,21 @@
 //
 
 #import "AppDelegate.h"
+//#import "ListingsTableViewController.h" //RS
+//#import "ListingData.h" //RS
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    ListingData *list1 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
+//    ListingData *list2 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
+//    NSMutableArray *listings = [NSMutableArray arrayWithObjects:list1,list2, nil];
+////
+////    UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
+////    ListingsTableViewController * listingController = [navController.viewControllers objectAtIndex:0];
+////    listingController.listings = listings;
+    
     // Override point for customization after application launch.
     return YES;
 }
