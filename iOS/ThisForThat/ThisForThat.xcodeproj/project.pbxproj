@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2BA7A916F303CF000FD570 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BA7A816F303CF000FD570 /* OfferData.m */; };
 		1D4191FA16F03AE7003C1798 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191E716F03AE7003C1798 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D4191FB16F03AE7003C1798 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EA16F03AE7003C1798 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D4191FC16F03AE7003C1798 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EC16F03AE7003C1798 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -64,7 +65,6 @@
 		E2DA75FD16E701F2005DACB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75FB16E701F2005DACB7 /* InfoPlist.strings */; };
 		E2DA760016E701F3005DACB7 /* ThisForThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F268932116F300AE003B2C59 /* JSONInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = F268932016F300AE003B2C59 /* JSONInterface.m */; };
-		F268932416F30119003B2C59 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = F268932316F30119003B2C59 /* OfferData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2BA7A716F303CF000FD570 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferData.h; sourceTree = "<group>"; };
+		1D2BA7A816F303CF000FD570 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferData.m; sourceTree = "<group>"; };
 		1D4191E616F03AE7003C1798 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		1D4191E716F03AE7003C1798 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		1D4191E816F03AE7003C1798 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -147,8 +149,6 @@
 		E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThisForThatTests.m; sourceTree = "<group>"; };
 		F268931F16F300AE003B2C59 /* JSONInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONInterface.h; sourceTree = "<group>"; };
 		F268932016F300AE003B2C59 /* JSONInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONInterface.m; sourceTree = "<group>"; };
-		F268932216F30119003B2C59 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfferData.h; path = "../../../../4350-group-awesome-repo copy/iOS/ThisForThat/ThisForThat/OfferData.h"; sourceTree = "<group>"; };
-		F268932316F30119003B2C59 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfferData.m; path = "../../../../4350-group-awesome-repo copy/iOS/ThisForThat/ThisForThat/OfferData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +216,9 @@
 		1DC447C916F1710A004666F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F268932216F30119003B2C59 /* OfferData.h */,
-				F268932316F30119003B2C59 /* OfferData.m */,
 				1DC447CA16F1711F004666F4 /* ListingData.h */,
+				1D2BA7A716F303CF000FD570 /* OfferData.h */,
+				1D2BA7A816F303CF000FD570 /* OfferData.m */,
 				1DC447CB16F1711F004666F4 /* ListingData.m */,
 			);
 			name = Model;
@@ -461,7 +461,6 @@
 				1DC447CC16F1711F004666F4 /* ListingData.m in Sources */,
 				1DF5085516F2B0A3003DC0D8 /* AddListingViewController.m in Sources */,
 				F268932116F300AE003B2C59 /* JSONInterface.m in Sources */,
-				F268932416F30119003B2C59 /* OfferData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +478,7 @@
 				1D41920016F03AE7003C1798 /* ASIInputStream.m in Sources */,
 				1D41920116F03AE7003C1798 /* ASINetworkQueue.m in Sources */,
 				1D41920416F03B01003C1798 /* Reachability.m in Sources */,
+				1D2BA7A916F303CF000FD570 /* OfferData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
