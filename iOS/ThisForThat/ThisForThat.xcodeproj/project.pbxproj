@@ -30,7 +30,6 @@
 		1D41921416F03D12003C1798 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F616F03AE7003C1798 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41921516F03D12003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC447CC16F1711F004666F4 /* ListingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CB16F1711F004666F4 /* ListingData.m */; };
-		1DC447CF16F17130004666F4 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CE16F17130004666F4 /* OfferData.m */; };
 		1DF5084B16F29D80003DC0D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C416E701F2005DACB7 /* CoreGraphics.framework */; };
 		1DF5084C16F29D85003DC0D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920916F03C2C003C1798 /* MobileCoreServices.framework */; };
 		1DF5084D16F29D90003DC0D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920716F03C1F003C1798 /* SystemConfiguration.framework */; };
@@ -64,6 +63,8 @@
 		E2DA75F516E701F2005DACB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C216E701F2005DACB7 /* Foundation.framework */; };
 		E2DA75FD16E701F2005DACB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75FB16E701F2005DACB7 /* InfoPlist.strings */; };
 		E2DA760016E701F3005DACB7 /* ThisForThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F268932116F300AE003B2C59 /* JSONInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = F268932016F300AE003B2C59 /* JSONInterface.m */; };
+		F268932416F30119003B2C59 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = F268932316F30119003B2C59 /* OfferData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +106,6 @@
 		1D41920B16F03C4B003C1798 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1DC447CA16F1711F004666F4 /* ListingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingData.h; sourceTree = "<group>"; };
 		1DC447CB16F1711F004666F4 /* ListingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingData.m; sourceTree = "<group>"; };
-		1DC447CD16F17130004666F4 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferData.h; sourceTree = "<group>"; };
-		1DC447CE16F17130004666F4 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferData.m; sourceTree = "<group>"; };
 		1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddListingViewController.h; path = ../AddListingViewController.h; sourceTree = "<group>"; };
 		1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddListingViewController.m; path = ../AddListingViewController.m; sourceTree = "<group>"; };
 		E244FF8316E7F6EB00031AC8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -146,6 +145,10 @@
 		E2DA75FC16E701F2005DACB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2DA75FE16E701F2005DACB7 /* ThisForThatTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThisForThatTests.h; sourceTree = "<group>"; };
 		E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThisForThatTests.m; sourceTree = "<group>"; };
+		F268931F16F300AE003B2C59 /* JSONInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONInterface.h; sourceTree = "<group>"; };
+		F268932016F300AE003B2C59 /* JSONInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONInterface.m; sourceTree = "<group>"; };
+		F268932216F30119003B2C59 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfferData.h; path = "../../../../4350-group-awesome-repo copy/iOS/ThisForThat/ThisForThat/OfferData.h"; sourceTree = "<group>"; };
+		F268932316F30119003B2C59 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfferData.m; path = "../../../../4350-group-awesome-repo copy/iOS/ThisForThat/ThisForThat/OfferData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,10 +216,10 @@
 		1DC447C916F1710A004666F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F268932216F30119003B2C59 /* OfferData.h */,
+				F268932316F30119003B2C59 /* OfferData.m */,
 				1DC447CA16F1711F004666F4 /* ListingData.h */,
 				1DC447CB16F1711F004666F4 /* ListingData.m */,
-				1DC447CD16F17130004666F4 /* OfferData.h */,
-				1DC447CE16F17130004666F4 /* OfferData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,8 @@
 				E2DA75CF16E701F2005DACB7 /* AppDelegate.h */,
 				E2DA75D016E701F2005DACB7 /* AppDelegate.m */,
 				1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */,
+				F268931F16F300AE003B2C59 /* JSONInterface.h */,
+				F268932016F300AE003B2C59 /* JSONInterface.m */,
 				1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */,
 				E2DA75DB16E701F2005DACB7 /* MainStoryboard_iPad.storyboard */,
 				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
@@ -454,8 +459,9 @@
 				E27FA86D16ED0A8D0062DB01 /* ListingsTableViewController.m in Sources */,
 				E27FA87016ED0B230062DB01 /* OffersTableViewController.m in Sources */,
 				1DC447CC16F1711F004666F4 /* ListingData.m in Sources */,
-				1DC447CF16F17130004666F4 /* OfferData.m in Sources */,
 				1DF5085516F2B0A3003DC0D8 /* AddListingViewController.m in Sources */,
+				F268932116F300AE003B2C59 /* JSONInterface.m in Sources */,
+				F268932416F30119003B2C59 /* OfferData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

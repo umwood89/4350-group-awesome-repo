@@ -13,7 +13,7 @@
 @synthesize title = _title;
 @synthesize description = _description;
 
-- (id)initWithTitle:(NSString*)title description:(NSString *)description {
+- (id)initWithData:(NSString*)title description:(NSString *)description {
     if ((self = [super init])) {
         self.title = title;
         self.description = description;

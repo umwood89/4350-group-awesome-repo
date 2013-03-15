@@ -13,6 +13,6 @@
 @property (strong) NSString *title;
 @property (weak) NSString *description;
 
--(id)initWithTitle:(NSString*)title description:(NSString*)description;
+-(id)initWithData:(NSString*)title description:(NSString*)description;
 
 @end

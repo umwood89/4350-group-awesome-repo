@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface OfferData : NSObject
-
-<<<<<<< HEAD
-=======
 @property (strong) NSString *title;
 @property (strong) NSString *description;
 @property (strong) NSURL *photo;
@@ -23,5 +20,4 @@
 
 - (id) initWithData:(NSString*)title description:(NSString*)description;
 
->>>>>>> Got our TableListView to show listing data! Finished some more of our static JSONInterface. Actual Progress!!!!
 @end
