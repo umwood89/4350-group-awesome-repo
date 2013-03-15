@@ -14,10 +14,11 @@
 @property (strong) NSURL *photo;
 @property (assign) BOOL offer_accepted;
 @property (strong) NSDate *date_created;
-@property (strong) NSDate *date_completed;
+@property (strong) NSDate *date_accepted;
 
 
 
-- (id) initWithData:(NSString*)title description:(NSString*)description;
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo
+	offer_accepted:(BOOL)offer_accepted date_created:(NSDate *)date_created date_completed:(NSDate *)date_completed;
 
 @end
