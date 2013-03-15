@@ -7,10 +7,15 @@
 //
 
 #import "OffersTableViewController.h"
+<<<<<<< HEAD
 
 @interface OffersTableViewController ()
 
 @end
+=======
+#import "OfferData.h"
+#import "JSONInterface.h"
+>>>>>>> Got our TableListView to show listing data! Finished some more of our static JSONInterface. Actual Progress!!!!
 
 @implementation OffersTableViewController
 
@@ -26,12 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+=======
+    self.title = @"Offers";
+>>>>>>> Got our TableListView to show listing data! Finished some more of our static JSONInterface. Actual Progress!!!!
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +62,11 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
+<<<<<<< HEAD
     return 0;
+=======
+    return JSONInterface.offers.count;
+>>>>>>> Got our TableListView to show listing data! Finished some more of our static JSONInterface. Actual Progress!!!!
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +74,15 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+<<<<<<< HEAD
     // Configure the cell...
+=======
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OfferTableCell"];
+    
+    OfferData *offer = [JSONInterface.offers objectAtIndex: indexPath.row];
+    
+    cell.textLabel.text = offer.title;
+>>>>>>> Got our TableListView to show listing data! Finished some more of our static JSONInterface. Actual Progress!!!!
     
     return cell;
 }

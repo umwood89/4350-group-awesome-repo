@@ -9,16 +9,13 @@
 #import "ListingsTableViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ListingData.h"  // RS: our listing model object
+#import "JSONInterface.h"
 
 @interface ListingsTableViewController ()
 
 @end
 
 @implementation ListingsTableViewController
-
-
-//RS: synthesize listings data
-@synthesize listings = _listings;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,14 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //RS: Add a title
     self.title = @"Listings";
 }
 
@@ -53,18 +42,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     //return 0;
     // RS: return number of sections from our array holding our super data
-    return _listings.count;
+    return JSONInterface.listings.count;
 }
 
 // RS: Modified below section to load up listingsdata
@@ -76,7 +63,7 @@
     // Configure the cell...
     UITableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"ListingTableCell"];
-    ListingData *listing = [self.listings objectAtIndex:indexPath.row];
+    ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
     cell.textLabel.text = listing.title;
     //cell.imageView.image = bug.thumbImage;
     
@@ -168,8 +155,8 @@
     
     // Testing: addingn a couple of things to a listingsview
 //    
-    ListingData *list1 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
-    ListingData *list2 = [[ListingData alloc] initWithTitle:@"Yellow duck" description:@"duck description"];
+    ListingData *list1 = [[ListingData alloc] initWithData:@"Yellow duck" description:@"duck description"];
+    ListingData *list2 = [[ListingData alloc] initWithData:@"Yellow duck" description:@"duck description"];
 //    
 //    
 //    
