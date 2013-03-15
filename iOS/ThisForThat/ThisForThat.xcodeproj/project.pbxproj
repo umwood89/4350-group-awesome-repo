@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D4191FA16F03AE7003C1798 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191E716F03AE7003C1798 /* ASIAuthenticationDialog.m */; };
-		1D4191FB16F03AE7003C1798 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EA16F03AE7003C1798 /* ASIDataCompressor.m */; };
-		1D4191FC16F03AE7003C1798 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EC16F03AE7003C1798 /* ASIDataDecompressor.m */; };
-		1D4191FD16F03AE7003C1798 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EE16F03AE7003C1798 /* ASIDownloadCache.m */; };
-		1D4191FE16F03AE7003C1798 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F016F03AE7003C1798 /* ASIFormDataRequest.m */; };
-		1D4191FF16F03AE7003C1798 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F216F03AE7003C1798 /* ASIHTTPRequest.m */; };
-		1D41920016F03AE7003C1798 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F616F03AE7003C1798 /* ASIInputStream.m */; };
-		1D41920116F03AE7003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; };
-		1D41920416F03B01003C1798 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D41920316F03B01003C1798 /* Reachability.m */; };
+		1D4191FA16F03AE7003C1798 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191E716F03AE7003C1798 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D4191FB16F03AE7003C1798 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EA16F03AE7003C1798 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D4191FC16F03AE7003C1798 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EC16F03AE7003C1798 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D4191FD16F03AE7003C1798 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191EE16F03AE7003C1798 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D4191FE16F03AE7003C1798 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F016F03AE7003C1798 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D4191FF16F03AE7003C1798 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F216F03AE7003C1798 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D41920016F03AE7003C1798 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F616F03AE7003C1798 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D41920116F03AE7003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D41920416F03B01003C1798 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D41920316F03B01003C1798 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41920616F03C0D003C1798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920516F03C0D003C1798 /* CFNetwork.framework */; };
 		1D41920816F03C1F003C1798 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920716F03C1F003C1798 /* SystemConfiguration.framework */; };
 		1D41920A16F03C2C003C1798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920916F03C2C003C1798 /* MobileCoreServices.framework */; };
@@ -31,6 +31,12 @@
 		1D41921516F03D12003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC447CC16F1711F004666F4 /* ListingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CB16F1711F004666F4 /* ListingData.m */; };
 		1DC447CF16F17130004666F4 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CE16F17130004666F4 /* OfferData.m */; };
+		1DF5084B16F29D80003DC0D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C416E701F2005DACB7 /* CoreGraphics.framework */; };
+		1DF5084C16F29D85003DC0D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920916F03C2C003C1798 /* MobileCoreServices.framework */; };
+		1DF5084D16F29D90003DC0D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920716F03C1F003C1798 /* SystemConfiguration.framework */; };
+		1DF5084E16F29D9D003DC0D8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920516F03C0D003C1798 /* CFNetwork.framework */; };
+		1DF5084F16F29DAD003DC0D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920B16F03C4B003C1798 /* libz.dylib */; };
+		1DF5085516F2B0A3003DC0D8 /* AddListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */; };
 		E244FF8416E7F6EB00031AC8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E244FF8316E7F6EB00031AC8 /* icon.png */; };
 		E264EAE116EBD5A200D1566C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264EAE016EBD5A200D1566C /* LoginViewController.m */; };
 		E27FA86D16ED0A8D0062DB01 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA86C16ED0A8D0062DB01 /* ListingsTableViewController.m */; };
@@ -57,7 +63,7 @@
 		E2DA75F416E701F2005DACB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C016E701F2005DACB7 /* UIKit.framework */; };
 		E2DA75F516E701F2005DACB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C216E701F2005DACB7 /* Foundation.framework */; };
 		E2DA75FD16E701F2005DACB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75FB16E701F2005DACB7 /* InfoPlist.strings */; };
-		E2DA760016E701F3005DACB7 /* ThisForThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */; };
+		E2DA760016E701F3005DACB7 /* ThisForThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,8 @@
 		1DC447CB16F1711F004666F4 /* ListingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingData.m; sourceTree = "<group>"; };
 		1DC447CD16F17130004666F4 /* OfferData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferData.h; sourceTree = "<group>"; };
 		1DC447CE16F17130004666F4 /* OfferData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferData.m; sourceTree = "<group>"; };
+		1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddListingViewController.h; path = ../AddListingViewController.h; sourceTree = "<group>"; };
+		1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddListingViewController.m; path = ../AddListingViewController.m; sourceTree = "<group>"; };
 		E244FF8316E7F6EB00031AC8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E264EADF16EBD5A200D1566C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E264EAE016EBD5A200D1566C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -159,6 +167,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF5084F16F29DAD003DC0D8 /* libz.dylib in Frameworks */,
+				1DF5084E16F29D9D003DC0D8 /* CFNetwork.framework in Frameworks */,
+				1DF5084D16F29D90003DC0D8 /* SystemConfiguration.framework in Frameworks */,
+				1DF5084C16F29D85003DC0D8 /* MobileCoreServices.framework in Frameworks */,
+				1DF5084B16F29D80003DC0D8 /* CoreGraphics.framework in Frameworks */,
 				E2DA75F316E701F2005DACB7 /* SenTestingKit.framework in Frameworks */,
 				E2DA75F416E701F2005DACB7 /* UIKit.framework in Frameworks */,
 				E2DA75F516E701F2005DACB7 /* Foundation.framework in Frameworks */,
@@ -251,6 +264,8 @@
 				E2DA75D816E701F2005DACB7 /* MainStoryboard_iPhone.storyboard */,
 				E2DA75CF16E701F2005DACB7 /* AppDelegate.h */,
 				E2DA75D016E701F2005DACB7 /* AppDelegate.m */,
+				1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */,
+				1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */,
 				E2DA75DB16E701F2005DACB7 /* MainStoryboard_iPad.storyboard */,
 				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
 				E27FA86F16ED0B230062DB01 /* OffersTableViewController.m */,
@@ -440,6 +455,7 @@
 				E27FA87016ED0B230062DB01 /* OffersTableViewController.m in Sources */,
 				1DC447CC16F1711F004666F4 /* ListingData.m in Sources */,
 				1DC447CF16F17130004666F4 /* OfferData.m in Sources */,
+				1DF5085516F2B0A3003DC0D8 /* AddListingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
