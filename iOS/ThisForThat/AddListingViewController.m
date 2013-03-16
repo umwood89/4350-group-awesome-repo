@@ -37,4 +37,7 @@
 
 - (IBAction)createListing:(id)sender {
 }
+- (IBAction)cancelButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

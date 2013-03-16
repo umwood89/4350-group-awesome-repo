@@ -18,5 +18,6 @@
 
 // RS: Listings array used to populate the tableview
 @property (strong) NSMutableArray *listings;
+- (IBAction)logoutButton:(id)sender;
 
 @end

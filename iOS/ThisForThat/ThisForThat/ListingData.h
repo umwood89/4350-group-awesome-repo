@@ -11,7 +11,7 @@
 @interface ListingData : NSObject
 
 @property (strong) NSString *title;
-@property (weak) NSString *description;
+@property (strong) NSString *description;
 
 -(id)initWithData:(NSString*)title description:(NSString*)description;
 

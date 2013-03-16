@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *addListingTitleTextBox;
 @property (weak, nonatomic) IBOutlet UITextView *addListingDescriptionTextBox;
 
+- (IBAction)cancelButton:(id)sender;
 
 
 @end

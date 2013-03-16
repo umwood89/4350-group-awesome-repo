@@ -122,4 +122,9 @@
      */
 }
 
+- (IBAction)logoutButton:(id)sender {
+    
+    // Pop this view. Head back to login screen.
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

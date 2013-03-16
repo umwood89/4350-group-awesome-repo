@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface OfferData : NSObject
 @property (strong) NSString *title;
 @property (strong) NSString *description;
@@ -16,9 +17,10 @@
 @property (strong) NSDate *date_created;
 @property (strong) NSDate *date_accepted;
 
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo offer_accepted:(BOOL)offer_accepted date_created:(NSDate *)date_created date_completed:(NSDate *)date_completed;
+
+- (id)initWithData:(NSString*)title description:(NSString *)description;
 
 
-- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo
-	offer_accepted:(BOOL)offer_accepted date_created:(NSDate *)date_created date_completed:(NSDate *)date_completed;
 
 @end

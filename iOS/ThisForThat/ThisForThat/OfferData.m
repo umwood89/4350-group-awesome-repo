@@ -10,15 +10,24 @@
 
 
 @implementation OfferData
+
 @synthesize title = _title;
-@synthesize descriptions = _description;
+@synthesize description = _description;
 @synthesize photo = _photo;
 @synthesize offer_accepted = _offer_accepted;
 @synthesize date_created = _date_created;
 @synthesize date_accepted = _date_accepted;
 
-- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo
-	offer_accepted:(BOOL)offer_accepted date_created:(NSDate *)date_created date_accepted:(NSDate *)date_accepted
+
+- (id)initWithData:(NSString*)title description:(NSString *)description {
+    if ((self = [super init])) {
+        self.title = title;
+        self.description = description;
+    }
+    return self;
+}
+
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo offer_accepted:(BOOL)offer_accepted date_created:(NSDate *)date_created date_accepted:(NSDate *)date_accepted
 {
 	self.title = title;
 	self.description = description;
@@ -27,4 +36,6 @@
 	self.date_created = date_created;
 	self.date_accepted = date_accepted;
 }
+
+
 @end
