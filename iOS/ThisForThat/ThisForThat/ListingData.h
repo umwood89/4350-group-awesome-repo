@@ -12,7 +12,12 @@
 
 @property (strong) NSString *title;
 @property (strong) NSString *description;
+@property (strong) NSString *photo;
+@property (strong) NSDate *date_created;
 
--(id)initWithData:(NSString*)title description:(NSString*)description;
+
+- (id)initWithData:(NSString*)title description:(NSString*)description;
+
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo date_created:(NSString*)date_created;
 
 @end

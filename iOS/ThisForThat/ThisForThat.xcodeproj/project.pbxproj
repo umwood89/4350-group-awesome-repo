@@ -242,9 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				1DC447CA16F1711F004666F4 /* ListingData.h */,
+				1DC447CB16F1711F004666F4 /* ListingData.m */,
 				1D2BA7A716F303CF000FD570 /* OfferData.h */,
 				1D2BA7A816F303CF000FD570 /* OfferData.m */,
-				1DC447CB16F1711F004666F4 /* ListingData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
