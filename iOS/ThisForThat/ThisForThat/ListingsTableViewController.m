@@ -121,9 +121,11 @@
      // ...
      // Pass the selected object to the new view controller.
     
-    ListingDetailsViewController *detailsView = [[ListingDetailsViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:detailsView animated:YES];
-     
+    //ListingDetailsViewController *detailsView = [[ListingDetailsViewController alloc] initWithNibName:@"ListingDetailViewController" bundle:nil];
+
+    //[self.navigationController pushViewController:detailsView animated:YES];
+
+    
 }
 
 - (IBAction)logoutButton:(id)sender {
@@ -131,4 +133,17 @@
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showListingDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ListingDetailsViewController *destViewController = segue.destinationViewController;
+        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        
+        destViewController.listingTitle = listing.title;
+        destViewController.listingDescription = listing.description;
+    }
+}
+
+
 @end

@@ -94,17 +94,16 @@
         <!--Listing Details View Controller-->
         <scene sceneID="bce-4x-QCe">
             <objects>
-                <viewController storyboardIdentifier="ListingDetails" id="jpm-1P-iEd" customClass="ListingDetailsViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="" storyboardIdentifier="" id="jpm-1P-iEd" customClass="ListingDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IBr-VD-qy4">
                         <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="bqL-qh-No8">
-                                <rect key="frame" x="4" y="53" width="760" height="120"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Title" id="bqL-qh-No8" userLabel="ListingDetailsViewController">
+                                <rect key="frame" x="4" y="53" width="760" height="43"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repr</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="cAK-OS-bDv">
@@ -112,39 +111,40 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Listing Details" id="3P7-WY-jYj">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iiE-29-TL1"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="BO4-4Q-ALO">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iiE-29-TL1">
                                             <connections>
-                                                <action selector="createListing:" destination="pEE-PD-ooG" id="YL2-kl-4h1"/>
+                                                <action selector="backButton:" destination="jpm-1P-iEd" id="5cO-nw-96n"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="xWa-tj-6UY">
-                                <rect key="frame" x="0.0" y="228" width="738" height="181"/>
+                                <rect key="frame" x="4" y="96" width="738" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jdc-dM-Jkf">
-                                <rect key="frame" x="10" y="199" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="yNM-aF-qxb">
-                                <rect key="frame" x="10" y="389" width="586" height="427"/>
+                                <rect key="frame" x="13" y="285" width="586" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="sGh-8d-Nfb"/>
+                    <attributedString key="userComments">
+                        <fragment content="ListingDetails">
+                            <attributes>
+                                <font key="NSFont" metaFont="toolTip"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <connections>
+                        <outlet property="DescriptionText" destination="xWa-tj-6UY" id="jtG-h4-JwM"/>
                         <outlet property="ListingImage" destination="yNM-aF-qxb" id="AWD-E7-sRi"/>
                         <outlet property="TitleText" destination="bqL-qh-No8" id="0iG-IK-Ca7"/>
                     </connections>
@@ -258,6 +258,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="jpm-1P-iEd" kind="push" identifier="showListingDetails" id="YJ7-M2-2rT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -271,7 +274,6 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="9SB-4t-1rK" id="Irk-yf-jvQ"/>
                         <outlet property="testtextbox" destination="RZ3-kJ-NPb" id="Lei-ri-ptQ"/>
-                        <segue destination="jpm-1P-iEd" kind="push" identifier="listingDetailView" id="LlM-cX-LsG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i56-Ik-Jqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,7 +286,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3077" y="72"/>
+            <point key="canvasLocation" x="3079" y="60"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gae-wv-hqW">
@@ -500,6 +502,46 @@
     <resources>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
+    <classes>
+        <class className="AddListingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButton:"/>
+                <relationship kind="action" name="createListing:"/>
+                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddOfferViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
+        </class>
+        <class className="ListingDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ListingsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButton:"/>
+                <relationship kind="action" name="makeItHappen:"/>
+                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+            </relationships>
+        </class>
+        <class className="OffersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

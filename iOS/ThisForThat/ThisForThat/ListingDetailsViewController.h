@@ -10,7 +10,16 @@
 
 @interface ListingDetailsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *TitleText;
-@property (weak, nonatomic) IBOutlet UIImageView *ListingImage;
+@property (strong, nonatomic) IBOutlet UITextView *TitleText;
+@property (strong, nonatomic) IBOutlet UIImageView *ListingImage;
+@property (strong, nonatomic) IBOutlet UITextView *DescriptionText;
+
+@property (nonatomic, strong) NSString *listingTitle;
+@property (nonatomic, strong) NSString *listingDescription;
+@property (nonatomic, strong) NSString *listingPhoto;
+@property (nonatomic, strong) NSString *listingCreateDate;
+
+
+- (IBAction)backButton:(id)sender;
 
 @end

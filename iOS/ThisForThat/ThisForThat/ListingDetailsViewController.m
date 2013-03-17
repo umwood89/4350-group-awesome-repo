@@ -10,11 +10,16 @@
 #import <UIKit/UIImageView.h>
 #import <UIKit/UIImage.h>
 
-@interface ListingDetailsViewController ()
-
-@end
 
 @implementation ListingDetailsViewController
+
+@synthesize TitleText;
+@synthesize ListingImage;
+@synthesize listingTitle;
+@synthesize listingDescription;
+@synthesize listingPhoto;
+@synthesize listingCreateDate;
+@synthesize DescriptionText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +40,9 @@
     
     //CGSize size = img.size;
     
+    TitleText.text = listingTitle;
+    DescriptionText.text = listingDescription;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,4 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:NO];
+}
 @end

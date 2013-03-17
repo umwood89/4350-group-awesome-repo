@@ -20,4 +20,6 @@
 @property (strong) NSMutableArray *listings;
 - (IBAction)logoutButton:(id)sender;
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+
 @end
