@@ -383,6 +383,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="A01-Ly-fuM"/>
                     <connections>
+                        <outlet property="passwordBox" destination="mWd-Bf-sAp" id="Z7G-3E-2vC"/>
+                        <outlet property="usernameBox" destination="aJi-UQ-Mdc" id="vrC-jc-j3D"/>
                         <segue destination="4" kind="push" identifier="tabBarController" id="0vE-qd-AGA"/>
                     </connections>
                 </viewController>
@@ -565,6 +567,8 @@
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="loginButton:"/>
                 <relationship kind="action" name="registerButton:"/>
+                <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="OffersTableViewController" superclassName="UITableViewController">
