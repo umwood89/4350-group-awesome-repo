@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "ListingData.h"  // RS: our listing model object
 #import "JSONInterface.h"
+#import "ListingDetailsViewController.h"
 
 @interface ListingsTableViewController ()
 
@@ -65,6 +66,7 @@
                              dequeueReusableCellWithIdentifier:@"ListingTableCell"];
     ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
     cell.textLabel.text = listing.title;
+    cell.detailTextLabel.text = listing.description;
     //cell.imageView.image = bug.thumbImage;
     
     return cell;
@@ -114,12 +116,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+   //  <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    ListingDetailsViewController *detailsView = [[ListingDetailsViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:detailsView animated:YES];
+     
 }
 
 - (IBAction)logoutButton:(id)sender {
