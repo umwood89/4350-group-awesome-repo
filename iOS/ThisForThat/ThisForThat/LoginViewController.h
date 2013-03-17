@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+- (IBAction)loginButton:(id)sender;
+- (IBAction)registerButton:(id)sender;
+- (IBAction)guestButton:(id)sender;
+
 
 @end

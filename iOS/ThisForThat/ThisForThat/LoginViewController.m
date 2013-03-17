@@ -40,12 +40,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)login:(id)sender {
+- (IBAction)loginButton:(id)sender {
     
-    //[self.childViewControllers.];
-    //[self.childViewControllers.load];
-    //[self.navigationController popViewControllerAnimated:YES];
-     [self performSegueWithIdentifier:@"tabBarController" sender:self];
-    
+    [self performSegueWithIdentifier:@"tabBarController" sender:self];
+
+}
+
+- (IBAction)registerButton:(id)sender {
+}
+
+- (IBAction)guestButton:(id)sender {
+
+    [self performSegueWithIdentifier:@"tabBarController" sender:self];
 }
 @end

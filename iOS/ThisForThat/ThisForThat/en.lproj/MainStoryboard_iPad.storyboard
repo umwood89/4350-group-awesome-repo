@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg5-LY-0xZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3977" y="72"/>
+            <point key="canvasLocation" x="4093" y="88"/>
         </scene>
         <!--Listing Details View Controller-->
         <scene sceneID="bce-4x-QCe">
@@ -131,13 +131,22 @@
                                 <rect key="frame" x="389" y="53" width="359" height="294"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Image URL" id="yVK-9j-Ifg">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Image URL" id="yVK-9j-Ifg">
                                 <rect key="frame" x="389" y="355" width="369" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bl-3l-AH4">
+                                <rect key="frame" x="389" y="393" width="359" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Make an offer!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -159,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ul9-II-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3977" y="-1077"/>
+            <point key="canvasLocation" x="4093" y="-1061"/>
         </scene>
         <!--Add Offer View Controller-->
         <scene sceneID="GqO-7q-VtE">
@@ -174,21 +183,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dQ-hB-Twf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3967" y="1288"/>
+            <point key="canvasLocation" x="4093" y="1260"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Jnj-vL-g1u">
             <objects>
                 <viewController id="FUs-fv-lJf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YII-Wp-Ag8">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rUW-ic-Vqn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mum-So-jnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3959" y="2414"/>
+            <point key="canvasLocation" x="4093" y="2434"/>
         </scene>
         <!--Listings Table View Controller - Listings-->
         <scene sceneID="prf-Aw-wHa">
@@ -202,7 +212,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="768" height="88"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Current Listings" id="RZ3-kJ-NPb">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Current Listings" id="RZ3-kJ-NPb">
                                     <rect key="frame" x="0.0" y="44" width="768" height="44"/>
                                     <color key="backgroundColor" red="0.96935730200000003" green="1" blue="0.95138569380000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -294,13 +304,13 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3079" y="60"/>
+            <point key="canvasLocation" x="3041" y="52"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gae-wv-hqW">
             <objects>
                 <viewController id="kVx-72-vDU" customClass="LoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R1h-NN-Dsb">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="R1h-NN-Dsb">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -326,7 +336,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="kVx-72-vDU" eventType="touchUpInside" id="SXH-6Q-FoK"/>
+                                    <action selector="loginButton:" destination="kVx-72-vDU" eventType="touchUpInside" id="FUX-My-D67"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pBu-cH-KKd">
@@ -339,6 +349,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButton:" destination="kVx-72-vDU" eventType="touchUpInside" id="6rG-NP-DwX"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo_horiz.png" id="08m-Gh-AL8">
                                 <rect key="frame" x="35" y="166" width="698" height="100"/>
@@ -354,6 +367,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="guestButton:" destination="kVx-72-vDU" eventType="touchUpInside" id="UyF-S0-dXU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Trade your stuff. For Free." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kqw-R2-7TZ">
                                 <rect key="frame" x="225" y="274" width="377" height="21"/>
@@ -367,7 +383,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="A01-Ly-fuM"/>
                     <connections>
-                        <segue destination="4" kind="push" identifier="tabBarController" id="gRz-Jf-5Yy"/>
+                        <segue destination="4" kind="push" identifier="tabBarController" id="0vE-qd-AGA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4f-7x-TxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -491,6 +507,7 @@
                     <tabBarItem key="tabBarItem" title="Offers" id="dIV-eu-doC"/>
                     <connections>
                         <segue destination="jgw-q9-BRf" kind="push" id="UCp-iQ-5Bk"/>
+                        <segue destination="FUs-fv-lJf" kind="push" id="ngG-l7-rkQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-aD-8gC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -510,6 +527,50 @@
     <resources>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
+    <classes>
+        <class className="AddListingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButton:"/>
+                <relationship kind="action" name="createListing:"/>
+                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddOfferViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
+        </class>
+        <class className="ListingDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="URLText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ListingsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButton:"/>
+                <relationship kind="action" name="makeItHappen:"/>
+                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="guestButton:"/>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="loginButton:"/>
+                <relationship kind="action" name="registerButton:"/>
+            </relationships>
+        </class>
+        <class className="OffersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
