@@ -22,6 +22,7 @@
 @synthesize listingCreateDate;
 @synthesize DescriptionText;
 @synthesize URLText;
+@synthesize DateCreated;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +55,7 @@
     
     TitleText.text = listingTitle;
     DescriptionText.text = listingDescription;
+    DateCreated.text = [listingCreateDate substringWithRange:NSMakeRange(0, 10)];
     
 }
 

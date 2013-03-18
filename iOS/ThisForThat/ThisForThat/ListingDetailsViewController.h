@@ -14,12 +14,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *ListingImage;
 @property (strong, nonatomic) IBOutlet UITextView *DescriptionText;
 @property (strong, nonatomic) IBOutlet UITextView *URLText;
+@property (strong, nonatomic) IBOutlet UILabel *DateCreated;
 
 @property (nonatomic, strong) NSString *listingTitle;
 @property (nonatomic, strong) NSString *listingDescription;
 @property (nonatomic, strong) NSString *listingPhoto;
 @property (nonatomic, strong) NSString *listingCreateDate;
 @property (nonatomic, strong) NSString *listingURL;
+
 
 - (IBAction)backButton:(id)sender;
 

@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
 @property (weak, nonatomic) IBOutlet UITextField *passwordBox;
+@property (weak, nonatomic) IBOutlet UILabel *loginStatus;
 
 - (IBAction)loginButton:(id)sender;
 - (IBAction)registerButton:(id)sender;

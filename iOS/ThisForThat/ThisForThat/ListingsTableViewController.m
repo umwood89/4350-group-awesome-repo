@@ -143,6 +143,7 @@
         destViewController.listingTitle = listing.title;
         destViewController.listingDescription = listing.description;
         destViewController.listingPhoto = listing.photo;
+        destViewController.listingCreateDate = listing.date_created;
     }
 }
 

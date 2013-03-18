@@ -119,8 +119,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="xWa-tj-6UY">
-                                <rect key="frame" x="4" y="96" width="369" height="181"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="xWa-tj-6UY">
+                                <rect key="frame" x="4" y="125" width="369" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -128,18 +128,18 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="yNM-aF-qxb">
-                                <rect key="frame" x="389" y="53" width="359" height="294"/>
+                                <rect key="frame" x="389" y="96" width="379" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Image URL" id="yVK-9j-Ifg">
-                                <rect key="frame" x="389" y="355" width="369" height="30"/>
+                                <rect key="frame" x="391" y="414" width="375" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bl-3l-AH4">
-                                <rect key="frame" x="389" y="393" width="359" height="44"/>
+                                <rect key="frame" x="391" y="481" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal" title="Make an offer!">
@@ -147,6 +147,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Listed for trade on:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bOt-19-iPa">
+                                <rect key="frame" x="15" y="85" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V6g-MB-Tls">
+                                <rect key="frame" x="144" y="85" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -160,6 +174,7 @@
                         </fragment>
                     </attributedString>
                     <connections>
+                        <outlet property="DateCreated" destination="V6g-MB-Tls" id="axR-Td-PJa"/>
                         <outlet property="DescriptionText" destination="xWa-tj-6UY" id="jtG-h4-JwM"/>
                         <outlet property="ListingImage" destination="yNM-aF-qxb" id="AWD-E7-sRi"/>
                         <outlet property="TitleText" destination="bqL-qh-No8" id="0iG-IK-Ca7"/>
@@ -323,10 +338,10 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" id="mWd-Bf-sAp">
                                 <rect key="frame" x="276" y="404" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="75s-rZ-Isl">
-                                <rect key="frame" x="293" y="460" width="167" height="44"/>
+                                <rect key="frame" x="293" y="491" width="167" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pBu-cH-KKd">
-                                <rect key="frame" x="293" y="520" width="167" height="44"/>
+                                <rect key="frame" x="293" y="551" width="167" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -358,7 +373,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Utl-Df-xRz">
-                                <rect key="frame" x="293" y="579" width="167" height="44"/>
+                                <rect key="frame" x="293" y="610" width="167" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Guest">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -378,11 +393,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ABH-iP-qjt">
+                                <rect key="frame" x="254" y="448" width="261" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96935730197123549" green="1" blue="0.95138569381587124" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="A01-Ly-fuM"/>
                     <connections>
+                        <outlet property="loginStatus" destination="ABH-iP-qjt" id="fcq-95-Yf9"/>
                         <outlet property="passwordBox" destination="mWd-Bf-sAp" id="Z7G-3E-2vC"/>
                         <outlet property="usernameBox" destination="aJi-UQ-Mdc" id="vrC-jc-j3D"/>
                         <segue destination="4" kind="push" identifier="tabBarController" id="0vE-qd-AGA"/>
@@ -546,6 +569,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
@@ -567,6 +591,7 @@
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="loginButton:"/>
                 <relationship kind="action" name="registerButton:"/>
+                <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
             </relationships>

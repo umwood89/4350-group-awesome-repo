@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface AddListingViewController : UIViewController
-- (IBAction)createListing:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UITextField *addListingTitleTextBox;
 @property (weak, nonatomic) IBOutlet UITextView *addListingDescriptionTextBox;
 
 - (IBAction)cancelButton:(id)sender;
-
+- (IBAction)createListing:(id)sender;
 
 @end

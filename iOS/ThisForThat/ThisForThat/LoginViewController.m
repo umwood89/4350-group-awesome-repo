@@ -42,13 +42,16 @@
 }
 
 - (IBAction)loginButton:(id)sender {
+    @try {
     NSString *username = self.usernameBox.text;
     NSString *password = self.passwordBox.text;
     
+    // Check to see if password is correct
+    self.loginStatus.text = @"Checking username and password...";
     NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/JSONcheckpassword/"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request addRequestHeader:@"Accept" value:@"application/json"];
-    [request addRequestHeader:@"Content-Type" value:@"application/json; encoding=utf-8"];
+    //[request addRequestHeader:@"Content-Type" value:@"application/json; encoding=utf-8"];
      
     NSString *dataContent = [NSString stringWithFormat:@"username=%@&password=%@", username, password];
     NSLog(@"dataContent: %@", dataContent);\
@@ -57,18 +60,38 @@
     [request startSynchronous];
     
     NSString *response = [request responseString];
-    
     NSLog(@"JSONLogin response: %@", response);
     
-    [self performSegueWithIdentifier:@"tabBarController" sender:self];
+    if([response isEqualToString:@"{\"result\": \"success\"}"] ) {
+        
+        url = [NSURL URLWithString:@"http://hackshack.ca/login/"];
+        request = [ASIHTTPRequest requestWithURL:url];
+        [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
+        [request setRequestMethod:@"POST"];
+        [request startSynchronous];
+        
+        // Password was correct
+        self.loginStatus.text = @"";
+        
+        [self performSegueWithIdentifier:@"tabBarController" sender:self];
+    }
+    else {
+        // Incorrect Password
+        self.loginStatus.text = @"Invalid username or password";
+        
+    }
+    }@catch (NSException *e) {
+      NSLog(@"Exception: %@", e);   
+    }    
 
 }
 
 - (IBAction)registerButton:(id)sender {
+    self.loginStatus.text = @"lol";
 }
 
 - (IBAction)guestButton:(id)sender {
-
+    self.loginStatus.text = @"";
     [self performSegueWithIdentifier:@"tabBarController" sender:self];
 }
 @end
