@@ -70,6 +70,7 @@
 		E2DA75FD16E701F2005DACB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75FB16E701F2005DACB7 /* InfoPlist.strings */; };
 		E2DA760016E701F3005DACB7 /* ThisForThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F268932116F300AE003B2C59 /* JSONInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = F268932016F300AE003B2C59 /* JSONInterface.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F298AEEC16F6CBEF006DBD66 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = F298AEEB16F6CBEF006DBD66 /* UserData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,8 @@
 		E2DA75FF16E701F3005DACB7 /* ThisForThatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThisForThatTests.m; sourceTree = "<group>"; };
 		F268931F16F300AE003B2C59 /* JSONInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONInterface.h; sourceTree = "<group>"; };
 		F268932016F300AE003B2C59 /* JSONInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONInterface.m; sourceTree = "<group>"; };
+		F298AEEA16F6CBEF006DBD66 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		F298AEEB16F6CBEF006DBD66 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,8 @@
 		1DC447C916F1710A004666F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F298AEEA16F6CBEF006DBD66 /* UserData.h */,
+				F298AEEB16F6CBEF006DBD66 /* UserData.m */,
 				1DC447CA16F1711F004666F4 /* ListingData.h */,
 				1DC447CB16F1711F004666F4 /* ListingData.m */,
 				1D2BA7A716F303CF000FD570 /* OfferData.h */,
@@ -298,9 +303,9 @@
 				1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */,
 				1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */,
 				F268931F16F300AE003B2C59 /* JSONInterface.h */,
+				E27FA86F16ED0B230062DB01 /* OffersTableViewController.m */,
 				F268932016F300AE003B2C59 /* JSONInterface.m */,
 				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
-				E27FA86F16ED0B230062DB01 /* OffersTableViewController.m */,
 				1DB2B6BA16F540AB00C8C186 /* OfferDetailsViewController.h */,
 				1DB2B6BB16F540AB00C8C186 /* OfferDetailsViewController.m */,
 				E27FA86B16ED0A8D0062DB01 /* ListingsTableViewController.h */,
@@ -493,6 +498,7 @@
 				1DD1BAF016F53C2600BD2180 /* AddOfferViewController.m in Sources */,
 				1DB2B6B916F53F6100C8C186 /* ListingDetailsViewController.m in Sources */,
 				1DB2B6BC16F540AB00C8C186 /* OfferDetailsViewController.m in Sources */,
+				F298AEEC16F6CBEF006DBD66 /* UserData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
