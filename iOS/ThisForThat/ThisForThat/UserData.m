@@ -10,4 +10,17 @@
 
 @implementation UserData
 
+@synthesize uid = _uid;
+@synthesize username = _username;
+@synthesize email = _email;
+
+- (id)initWithData:(NSString *)uid username:(NSString*)username email:(NSString *)email {
+    if ((self = [super init])) {
+        self.uid = uid;
+        self.username = username;
+        self.email = email;
+    }
+    return self;
+}
+
 @end
