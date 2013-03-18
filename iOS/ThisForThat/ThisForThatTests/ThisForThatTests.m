@@ -17,8 +17,7 @@
 - (void)setUp
 {
     [super setUp];
-    [JSONInterface init];
-    
+
 }
 
 - (void)tearDown

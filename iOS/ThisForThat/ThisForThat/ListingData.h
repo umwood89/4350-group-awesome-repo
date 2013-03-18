@@ -21,6 +21,6 @@
 
 - (id)initWithData:(NSString*)title description:(NSString*)description;
 
-- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo trade_completed:(BOOL) trade_completed date_created:(NSString*)date_created date_completed:(NSSTRING *)date_completed;
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo trade_completed:(BOOL) trade_completed date_created:(NSString*)date_created date_completed:(NSString *)date_completed;
 
 @end

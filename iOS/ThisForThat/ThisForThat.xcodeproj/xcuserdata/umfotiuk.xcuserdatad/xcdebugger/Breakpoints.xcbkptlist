@@ -32,11 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ThisForThat/JSONInterface.m"
-         timestampString = "385264469.556366"
+         timestampString = "385269953.564982"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
          landmarkName = "+initFromJSON:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -56,12 +56,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ThisForThat/JSONInterface.m"
-         timestampString = "385264469.556366"
+         timestampString = "385269953.564982"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "+addDataToList:list:item:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ThisForThatTests/ThisForThatTests.m"
+         timestampString = "385270035.452532"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
+         landmarkName = "-testGetListing"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

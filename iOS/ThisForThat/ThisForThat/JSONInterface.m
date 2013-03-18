@@ -13,17 +13,13 @@
 
 @implementation JSONInterface
 
-+ (void) init
-{
-    [self offers];
-    [self listings];
-    [self users];
-    
-}
+static NSMutableArray *offersList = nil;
+static NSMutableArray *listingsList = nil;
+static NSMutableArray *usersList = nil;
+
+
 + (NSMutableArray *)offers
 {
-    static NSMutableArray *offersList = nil;
-    
     if(offersList == nil)
     {
         offersList = [self initFromJSON:@"offers" ];
@@ -34,8 +30,6 @@
 
 + (NSMutableArray *)listings
 {
-    static NSMutableArray *listingsList = nil;
-    
     if(listingsList == nil)
     {
         listingsList = [self initFromJSON:@"listings" ];
@@ -46,8 +40,6 @@
 
 + (NSMutableArray *)users
 {
-    static NSMutableArray *usersList = nil;
-    
     if(usersList == nil)
     {
         usersList = [self initFromJSON:@"users" ];

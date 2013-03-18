@@ -17,7 +17,6 @@
 + (NSMutableArray *)listings;
 + (NSMutableArray *)users;
 
-+ (void) init;
 + (NSMutableArray *)initFromJSON:(NSString *)url;
 + (void) addDataToList:(NSString *)type list:(NSMutableArray *) list item:(NSDictionary *) item;
 
