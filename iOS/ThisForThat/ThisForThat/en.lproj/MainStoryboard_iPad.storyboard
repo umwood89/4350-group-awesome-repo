@@ -75,7 +75,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pqp-Db-lNx">
-                                <rect key="frame" x="20" y="456" width="720" height="528"/>
+                                <rect key="frame" x="92" y="443" width="633" height="459"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
