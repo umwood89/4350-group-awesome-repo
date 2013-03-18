@@ -99,7 +99,7 @@ static NSMutableArray *usersList = nil;
         NSString *description = [item objectForKey:@"description"];
         NSString *photo = [item objectForKey:@"photo"];
         NSDate *date_created = [item objectForKey:@"date_created"];
-        ListingData *data = [[ListingData alloc] initWithData:title description:description photo:photo date_created:date_created ];
+        ListingData *data = [[ListingData alloc] initWithData:title description:description ];
         [list addObject:data];
     }
     else if([type isEqualToString: @"users"])
