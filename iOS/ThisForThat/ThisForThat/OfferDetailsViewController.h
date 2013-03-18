@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OfferData.h"
 
 @interface OfferDetailsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextView *TitleText;
@@ -14,12 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *DescriptionText;
 @property (strong, nonatomic) IBOutlet UITextView *URLText;
 @property (strong, nonatomic) IBOutlet UILabel *DateCreated;
-
-@property (nonatomic, strong) NSString *offerTitle;
-@property (nonatomic, strong) NSString *offerDescription;
-@property (nonatomic, strong) NSString *offerPhoto;
-@property (nonatomic, strong) NSString *offerCreateDate;
-@property (nonatomic, strong) NSString *offerURL;
+@property (nonatomic, strong) OfferData *offer;
 
 
 - (IBAction)backButton:(id)sender;

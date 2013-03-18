@@ -137,10 +137,7 @@
         ListingDetailsViewController *destViewController = segue.destinationViewController;
         ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
         
-        destViewController.listingTitle = listing.title;
-        destViewController.listingDescription = listing.description;
-        destViewController.listingPhoto = listing.photo;
-        destViewController.listingCreateDate = listing.date_created;
+        destViewController.listing = listing;
     }
 }
 

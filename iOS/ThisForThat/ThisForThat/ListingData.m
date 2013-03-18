@@ -19,6 +19,7 @@
 
 
 
+
 - (id)initWithData:(NSString*)title description:(NSString *)description {
     if ((self = [super init])) {
         self.title = title;

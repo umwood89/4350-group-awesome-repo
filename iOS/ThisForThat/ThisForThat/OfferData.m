@@ -17,6 +17,7 @@
 @synthesize offer_accepted = _offer_accepted;
 @synthesize date_created = _date_created;
 @synthesize date_accepted = _date_accepted;
+@synthesize listing = _listing;
 
 
 - (id)initWithData:(NSString*)title description:(NSString *)description {
@@ -27,7 +28,7 @@
     return self;
 }
 
-- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted
+- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(NSString *)listing
 {
     self.oid = oid;
 	self.title = title;
@@ -36,6 +37,7 @@
 	self.offer_accepted = offer_accepted;
 	self.date_created = date_created;
 	self.date_accepted = date_accepted;
+    self.listing = listing;
     
     return self;
 }

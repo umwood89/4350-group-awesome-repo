@@ -16,13 +16,10 @@
 
 @synthesize TitleText;
 @synthesize ListingImage;
-@synthesize listingTitle;
-@synthesize listingDescription;
-@synthesize listingPhoto;
-@synthesize listingCreateDate;
 @synthesize DescriptionText;
 @synthesize URLText;
 @synthesize DateCreated;
+@synthesize listing;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +35,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSString *photoLocation = [NSString stringWithFormat:@"http://hackshack.ca/static/media/%@", listingPhoto];
+    NSString *photoLocation = [NSString stringWithFormat:@"http://hackshack.ca/static/media/%@", listing.photo];
 
     NSURL *url = [NSURL URLWithString:photoLocation];
     NSData *data;
@@ -53,9 +50,9 @@
         URLText.text = @"Photo not available.";
     }
     
-    TitleText.text = listingTitle;
-    DescriptionText.text = listingDescription;
-    DateCreated.text = [listingCreateDate substringWithRange:NSMakeRange(0, 10)];
+    TitleText.text = listing.title;
+    DescriptionText.text = listing.description;
+    DateCreated.text = [listing.date_created substringWithRange:NSMakeRange(0, 10)];
     
 }
 

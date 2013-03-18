@@ -123,10 +123,7 @@
         OfferDetailsViewController *destViewController = segue.destinationViewController;
         OfferData *offer = [JSONInterface.offers objectAtIndex:indexPath.row];
         
-        destViewController.offerTitle = offer.title;
-        destViewController.offerDescription = offer.description;
-        destViewController.offerPhoto = offer.photo;
-        destViewController.offerCreateDate = offer.date_created;
+        destViewController.offer = offer;
     }
 }
 

@@ -7,16 +7,15 @@
 //
 
 #import "OfferDetailsViewController.h"
+#import "JSONInterface.h"
+#import "ListingDetailsViewController.h"
 
 
 @implementation OfferDetailsViewController
 
 @synthesize TitleText;
 @synthesize OfferImage;
-@synthesize offerTitle;
-@synthesize offerDescription;
-@synthesize offerPhoto;
-@synthesize offerCreateDate;
+@synthesize offer;
 @synthesize DescriptionText;
 @synthesize URLText;
 @synthesize DateCreated;
@@ -35,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSString *photoLocation = [NSString stringWithFormat:@"http://hackshack.ca/static/media/%@", offerPhoto];
+    NSString *photoLocation = [NSString stringWithFormat:@"http://hackshack.ca/static/media/%@", offer.photo];
     
     NSURL *url = [NSURL URLWithString:photoLocation];
     NSData *data;
@@ -50,9 +49,9 @@
         URLText.text = @"Photo not available.";
     }
     
-    TitleText.text = offerTitle;
-    DescriptionText.text = offerDescription;
-    DateCreated.text = [offerCreateDate substringWithRange:NSMakeRange(0, 10)];
+    TitleText.text = offer.title;
+    DescriptionText.text = offer.description;
+    DateCreated.text = [offer.date_created substringWithRange:NSMakeRange(0, 10)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +62,15 @@
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showListingDetails2"]) {
+        ListingDetailsViewController *destViewController = segue.destinationViewController;
+        ListingData *listing = [JSONInterface getListingByID:offer.listing.integerValue];
+        
+        destViewController.listing = listing;
+    }
 }
 
 @end

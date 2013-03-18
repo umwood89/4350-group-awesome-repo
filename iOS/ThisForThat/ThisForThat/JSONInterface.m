@@ -95,8 +95,9 @@ static NSMutableArray *users = nil;
         NSString *offer_accepted = [item objectForKey:@"offer_accepted"];
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_accepted = [item objectForKey:@"date_accepted"];
+        NSString *listing = [item objectForKey:@"listing"];
         
-        OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted];
+        OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted listing:listing];
     
         [list addObject:data];
     }
@@ -109,7 +110,8 @@ static NSMutableArray *users = nil;
         NSString *trade_completed = [item objectForKey:@"trade_completed"];
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_completed = [item objectForKey:@"date_completed"];
-        ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo trade_completed:trade_completed date_created:date_created date_completed:date_completed ];
+        
+        ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo trade_completed:trade_completed date_created:date_created date_completed:date_completed];
         [list addObject:data];
     }
     else if([type isEqualToString: @"users"])
