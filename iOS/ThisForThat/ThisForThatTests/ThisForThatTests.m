@@ -10,7 +10,7 @@
 #import "JSONInterface.h"
 #import "ListingData.h"
 #import "OfferData.h"
-//#import "UserData.h"
+#import "UserData.h"
 
 @implementation ThisForThatTests
 
