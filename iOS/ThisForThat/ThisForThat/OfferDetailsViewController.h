@@ -20,4 +20,7 @@
 @property (nonatomic, strong) NSString *offerPhoto;
 @property (nonatomic, strong) NSString *offerCreateDate;
 @property (nonatomic, strong) NSString *offerURL;
+
+
+- (IBAction)backButton:(id)sender;
 @end

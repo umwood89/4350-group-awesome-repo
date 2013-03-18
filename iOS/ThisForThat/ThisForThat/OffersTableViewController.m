@@ -118,15 +118,15 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showListingDetails"]) {
+    if ([segue.identifier isEqualToString:@"showOfferDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         OfferDetailsViewController *destViewController = segue.destinationViewController;
-        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        OfferData *offer = [JSONInterface.offers objectAtIndex:indexPath.row];
         
-        destViewController.offerTitle = listing.title;
-        destViewController.offerDescription = listing.description;
-        destViewController.offerPhoto = listing.photo;
-        destViewController.offerCreateDate = listing.date_created;
+        destViewController.offerTitle = offer.title;
+        destViewController.offerDescription = offer.description;
+        destViewController.offerPhoto = offer.photo;
+        destViewController.offerCreateDate = offer.date_created;
     }
 }
 
