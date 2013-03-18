@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="JFX-wS-68f">
-                                <rect key="frame" x="114" y="410" width="471" height="30"/>
+                                <rect key="frame" x="453" y="410" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -75,9 +75,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pqp-Db-lNx">
-                                <rect key="frame" x="92" y="443" width="633" height="459"/>
+                                <rect key="frame" x="87" y="457" width="633" height="478"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uh9-XV-0Lj">
+                                <rect key="frame" x="98" y="410" width="137" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Pick Photo">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="choosePictureButton:" destination="pEE-PD-ooG" eventType="touchUpInside" id="ZXi-mc-Ngm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sjn-6j-Y5D">
+                                <rect key="frame" x="250" y="410" width="137" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePictureButton:" destination="pEE-PD-ooG" eventType="touchUpInside" id="ZoM-Lf-0YG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86678879590092084" green="0.98568485750179935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -85,6 +115,7 @@
                     <connections>
                         <outlet property="addListingDescriptionTextBox" destination="Hhr-q2-Vj6" id="Rob-jP-xFj"/>
                         <outlet property="addListingTitleTextBox" destination="nRq-6q-Cdj" id="by3-CW-OhP"/>
+                        <outlet property="imageBox" destination="pqp-Db-lNx" id="w9z-CA-4PW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg5-LY-0xZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,6 +583,57 @@
     <resources>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
+    <classes>
+        <class className="AddListingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButton:"/>
+                <relationship kind="action" name="choosePictureButton:"/>
+                <relationship kind="action" name="createListing:"/>
+                <relationship kind="action" name="takePictureButton:"/>
+                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="AddOfferViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
+        </class>
+        <class className="ListingDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="URLText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ListingsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButton:"/>
+                <relationship kind="action" name="makeItHappen:"/>
+                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="guestButton:"/>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="loginButton:"/>
+                <relationship kind="action" name="registerButton:"/>
+                <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="OffersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
