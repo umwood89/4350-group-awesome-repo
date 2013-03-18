@@ -7,6 +7,7 @@
 //
 
 #import "OffersTableViewController.h"
+#import "OfferDetailsViewController.h"
 #import "OfferData.h"
 #import "JSONInterface.h"
 
@@ -108,6 +109,25 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (IBAction)logoutButton:(id)sender {
+    
+    // Pop this view. Head back to login screen.
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showListingDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        OfferDetailsViewController *destViewController = segue.destinationViewController;
+        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        
+        destViewController.offerTitle = listing.title;
+        destViewController.offerDescription = listing.description;
+        destViewController.offerPhoto = listing.photo;
+        destViewController.offerCreateDate = listing.date_created;
+    }
 }
 
 @end

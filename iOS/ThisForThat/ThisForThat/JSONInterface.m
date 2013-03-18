@@ -163,6 +163,8 @@ static NSMutableArray *users = nil;
 {
     [listings addObject:toAdd];
     //json adding magic
+    
+    return nil;
 }
 
 
@@ -172,6 +174,8 @@ static NSMutableArray *users = nil;
     [offers addObject:toAdd];
     //json adding magic
     
+    return nil;
+    
 }
 
 
@@ -180,6 +184,8 @@ static NSMutableArray *users = nil;
     
     [users addObject:toAdd];
     //json adding magic
+    
+    return nil;
     
 }
 

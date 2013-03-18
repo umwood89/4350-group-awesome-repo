@@ -12,9 +12,6 @@
 #import "JSONInterface.h"
 #import "ListingDetailsViewController.h"
 
-@interface ListingsTableViewController ()
-
-@end
 
 @implementation ListingsTableViewController
 

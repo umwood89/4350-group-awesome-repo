@@ -10,4 +10,7 @@
 
 @interface OffersTableViewController : UITableViewController
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+- (IBAction)logoutButton:(id)sender;
+
 @end
