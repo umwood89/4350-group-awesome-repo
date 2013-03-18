@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ListingData.h"
 #import "OfferData.h"
+#import "UserData.h"
 //#import "UserData.h"
 
 @interface JSONInterface : NSObject
@@ -22,8 +23,10 @@
 
 + (ListingData *) getListingByID:(int)id;
 + (OfferData *) getOfferByID:(int)id;
-//+ (UserData *) getUserByID:(int)id;
++ (UserData *) getUserByID:(int)id;
 
-
++ (ListingData *) addListing:(ListingData *)toAdd;
++ (OfferData *) addOffer:(OfferData *)toAdd;
++ (UserData *) addUser:(UserData *)toAdd;
 
 @end

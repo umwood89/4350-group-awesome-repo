@@ -27,8 +27,9 @@
     return self;
 }
 
-- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(BOOL)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted
+- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted
 {
+    self.oid = oid;
 	self.title = title;
 	self.description = description;
 	self.photo = photo;
