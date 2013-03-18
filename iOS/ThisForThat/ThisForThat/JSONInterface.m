@@ -13,6 +13,13 @@
 
 @implementation JSONInterface
 
++ (void) init
+{
+    [self offers];
+    [self listings];
+    [self users];
+    
+}
 + (NSMutableArray *)offers
 {
     static NSMutableArray *offersList = nil;
@@ -113,5 +120,43 @@
     }
 }
 
+/*
+
++ (ListingData *) getListingByID:(int)id
+{
+    for (ListingData *listing in self.listings)
+    {
+        if (listing.id == id)
+            return listing;
+    }
+    
+    return nil;
+}
+
++ (OfferData *)getOfferByID:(int)id
+{
+    for (OfferData *offer in self.offers)
+    {
+        if (offer.id == id)
+            return offer;
+    }
+    
+    return nil;
+}
+
++ (UserData *)getUserByID:(int)id
+{
+    for (UserData *user in self.users)
+    {
+        if (user.id == id)
+            return user;
+    }
+    
+    return nil;
+}
+
+*/
+ 
+ 
 
 @end

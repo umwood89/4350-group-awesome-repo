@@ -13,11 +13,14 @@
 @property (strong) NSString *title;
 @property (strong) NSString *description;
 @property (strong) NSString *photo;
-@property (strong) NSDate *date_created;
+@property (assign) BOOL trade_completed;
+@property (strong) NSString *date_created;
+@property (strong) NSString *date_completed;
+
 
 
 - (id)initWithData:(NSString*)title description:(NSString*)description;
 
-- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo date_created:(NSString*)date_created;
+- (id) initWithData:(NSString*)title description:(NSString*)description photo:(NSURL *)photo trade_completed:(BOOL) trade_completed date_created:(NSString*)date_created date_completed:(NSSTRING *)date_completed;
 
 @end
