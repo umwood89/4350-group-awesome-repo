@@ -199,7 +199,7 @@
                     <attributedString key="userComments">
                         <fragment content="ListingDetails">
                             <attributes>
-                                <font key="NSFont" metaFont="toolTip"/>
+                                <font key="NSFont" metaFont="smallSystem"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                             </attributes>
                         </fragment>
@@ -485,79 +485,80 @@
         <scene sceneID="8VJ-cD-jHw">
             <objects>
                 <tableViewController id="6x0-do-5xs" customClass="OffersTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sYY-18-GKk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mRQ-WS-exC">
                         <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Q9N-x5-jzz">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="49"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="kR6-Dq-YeH">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="88"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="M2e-80-zet">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Current Offers" id="5fh-9G-Acz">
+                                    <rect key="frame" x="0.0" y="44" width="768" height="44"/>
+                                    <color key="backgroundColor" red="0.96935730200000003" green="1" blue="0.95138569380000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Z7R-56-qaV" id="rUN-NI-RDV"/>
+                                    </connections>
+                                </textView>
+                                <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="IQG-A2-UGC">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <items>
-                                        <barButtonItem title="Logout" id="6P0-Gc-Ww5">
+                                        <barButtonItem title="Logout" id="Qi5-2X-VtL">
                                             <connections>
-                                                <action selector="logoutButton:" destination="Z7R-56-qaV" id="Ulx-aR-muS"/>
+                                                <action selector="logoutButton:" destination="Z7R-56-qaV" id="aIF-5f-H9s"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem title="Search" style="plain" id="Qrh-6t-1Ic">
-                                            <searchBar key="customView" contentMode="redraw" barStyle="blackOpaque" id="1Na-Pi-2pP">
+                                        <barButtonItem title="Search" style="plain" id="evl-st-3Wr">
+                                            <searchBar key="customView" contentMode="redraw" barStyle="blackOpaque" id="GA4-7O-7M7">
                                                 <rect key="frame" x="78" y="0.0" width="400" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                         </barButtonItem>
-                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BIj-7S-qXq"/>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="U8U-2j-KNi"/>
+                                        <barButtonItem title="Add Listing" id="yTB-MQ-OjG" propertyAccessControl="none"/>
                                     </items>
                                 </toolbar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <sections>
-                            <tableViewSection id="6Uh-P3-sjC">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="8eT-AY-27D">
-                                        <rect key="frame" x="0.0" y="49" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="OfferTableCell" textLabel="5OD-2H-uO2" detailTextLabel="KfU-ee-TjW" style="IBUITableViewCellStyleSubtitle" id="b5y-Al-GHY">
+                                <rect key="frame" x="0.0" y="110" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5OD-2H-uO2">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES" staticText="YES" summaryElement="YES"/>
+                                            </accessibility>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KfU-ee-TjW">
+                                            <rect key="frame" x="10" y="24" width="36" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="ldl-EX-LzT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="678" height="44"/>
-                                                    <items>
-                                                        <navigationItem title="Offers" id="oDV-Yd-cMN"/>
-                                                    </items>
-                                                </navigationBar>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" textLabel="QhN-q4-T4t" style="IBUITableViewCellStyleDefault" id="ZO4-Qt-YxZ">
-                                        <rect key="frame" x="0.0" y="93" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="TitleaSDAd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QhN-q4-T4t">
-                                                    <rect key="frame" x="10" y="0.0" width="748" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="6x0-do-5xs" id="QL1-ww-kFh"/>
-                            <outlet property="delegate" destination="6x0-do-5xs" id="IAR-28-YAe"/>
+                            <outlet property="dataSource" destination="6x0-do-5xs" id="yN9-uy-THu"/>
+                            <outlet property="delegate" destination="6x0-do-5xs" id="Kzm-n6-g9i"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Offers" id="dIV-eu-doC"/>
@@ -583,57 +584,6 @@
     <resources>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
-    <classes>
-        <class className="AddListingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createListing:"/>
-                <relationship kind="action" name="takePictureButton:"/>
-                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AddOfferViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
-        </class>
-        <class className="ListingDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="URLText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ListingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-                <relationship kind="action" name="makeItHappen:"/>
-                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="guestButton:"/>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="loginButton:"/>
-                <relationship kind="action" name="registerButton:"/>
-                <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="OffersTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

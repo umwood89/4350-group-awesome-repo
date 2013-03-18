@@ -10,42 +10,43 @@
 #import "ASIHTTPRequest.h"
 #import "OfferData.h"
 #import "ListingData.h"
+#import "UserData.h"
 
 @implementation JSONInterface
 
-static NSMutableArray *offersList = nil;
-static NSMutableArray *listingsList = nil;
-static NSMutableArray *usersList = nil;
+static NSMutableArray *offers = nil;
+static NSMutableArray *listings = nil;
+static NSMutableArray *users = nil;
 
 
 + (NSMutableArray *)offers
 {
-    if(offersList == nil)
+    if(offers == nil)
     {
-        offersList = [self initFromJSON:@"offers" ];
+        offers = [self initFromJSON:@"offers" ];
     }
     
-    return offersList;
+    return offers;
 }
 
 + (NSMutableArray *)listings
 {
-    if(listingsList == nil)
+    if(listings == nil)
     {
-        listingsList = [self initFromJSON:@"listings" ];
+        listings = [self initFromJSON:@"listings" ];
     }
     
-    return listingsList;
+    return listings;
 }
 
 + (NSMutableArray *)users
 {
-    if(usersList == nil)
+    if(users == nil)
     {
-        usersList = [self initFromJSON:@"users" ];
+        users = [self initFromJSON:@"users" ];
     }
     
-    return usersList;
+    return users;
 }
 
 
@@ -87,24 +88,37 @@ static NSMutableArray *usersList = nil;
 {
     if([type isEqualToString: @"offers"])
     {
+        NSString *oid = [item objectForKey:@"offer_id"];
         NSString *title = [item objectForKey:@"title"];
         NSString *description = [item objectForKey:@"description"];
+        NSString *photo = [item objectForKey:@"photo"];
+        NSString *offer_accepted = [item objectForKey:@"offer_accepted"];
+        NSString *date_created = [item objectForKey:@"date_created"];
+        NSString *date_accepted = [item objectForKey:@"date_accepted"];
         
-        OfferData *data = [[OfferData alloc] initWithData:title description:description];
+        OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted];
+    
         [list addObject:data];
     }
     else if([type isEqualToString: @"listings"])
     {
+        NSString *lid = [item objectForKey:@"listing_id"];
         NSString *title = [item objectForKey:@"title"];
         NSString *description = [item objectForKey:@"description"];
         NSString *photo = [item objectForKey:@"photo"];
-        NSDate *date_created = [item objectForKey:@"date_created"];
-        ListingData *data = [[ListingData alloc] initWithData:title description:description ];
+        NSString *trade_completed = [item objectForKey:@"trade_completed"];
+        NSString *date_created = [item objectForKey:@"date_created"];
+        NSString *date_completed = [item objectForKey:@"date_completed"];
+        ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo trade_completed:trade_completed date_created:date_created date_completed:date_completed ];
         [list addObject:data];
     }
     else if([type isEqualToString: @"users"])
     {
-        return; //for now
+        NSString* uid  = [item objectForKey:@"id"];
+        NSString *username = [item objectForKey:@"username"];
+        NSString *email = [item objectForKey:@"email"];
+        UserData *data = [[UserData alloc] initWithData:uid username:username email:email ];
+        [list addObject:data];
     }
     else
     {
@@ -112,42 +126,63 @@ static NSMutableArray *usersList = nil;
     }
 }
 
-/*
-
-+ (ListingData *) getListingByID:(int)id
++ (ListingData *) getListingByID:(int)lid
 {
     for (ListingData *listing in self.listings)
     {
-        if (listing.id == id)
+        if (listing.lid.integerValue == lid)
             return listing;
     }
     
     return nil;
 }
 
-+ (OfferData *)getOfferByID:(int)id
++ (OfferData *)getOfferByID:(int)oid
 {
     for (OfferData *offer in self.offers)
     {
-        if (offer.id == id)
+        if (offer.oid.integerValue == oid)
             return offer;
     }
     
     return nil;
 }
 
-+ (UserData *)getUserByID:(int)id
++ (UserData *)getUserByID:(int)uid
 {
     for (UserData *user in self.users)
     {
-        if (user.id == id)
+        if (user.uid.integerValue == uid)
             return user;
     }
     
     return nil;
 }
 
-*/
++ (ListingData *) addListing:(ListingData *)toAdd
+{
+    [listings addObject:toAdd];
+    //json adding magic
+}
+
+
++ (OfferData *) addOffer:(OfferData *)toAdd
+{
+    
+    [offers addObject:toAdd];
+    //json adding magic
+    
+}
+
+
++ (UserData *) addUser:(UserData *)toAdd
+{
+    
+    [users addObject:toAdd];
+    //json adding magic
+    
+}
+
  
  
 
