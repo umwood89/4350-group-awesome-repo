@@ -7,6 +7,8 @@
 //
 
 #import "ListingDetailsViewController.h"
+#import "AddOfferViewController.h"
+#import "JSONInterface.h"
 #import <UIKit/UIImageView.h>
 #import <UIKit/UIImage.h>
 
@@ -64,5 +66,13 @@
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"addOfferFromListing"]) {
+        AddOfferViewController *destViewController = segue.destinationViewController;
+        destViewController.listing = listing;
+    }
 }
 @end
