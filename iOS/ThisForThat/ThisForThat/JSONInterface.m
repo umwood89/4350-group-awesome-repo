@@ -242,6 +242,7 @@ static UserData  *user_logged_in = nil;
     [request setPostValue:toAdd.title forKey:@"title"];
     [request setPostValue:toAdd.description forKey:@"description"];
     [request setPostValue:toAdd.user forKey:@"user"];
+    [request setPostValue:toAdd.listing forKey:@"listing"];
     [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
     [request startSynchronous];
     
