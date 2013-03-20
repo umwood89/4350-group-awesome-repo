@@ -60,25 +60,6 @@
     return hash;
 }
 
-- (NSString *)generateHashValueForString:(NSString *)toBeHashed
-{
-    NSString *hashedString = nil;
-    
-    NSString *stringToBeHashed = [NSString stringWithFormat:@"%@%@", toBeHashed, SALT]; //SALT is a NSString #define elsewhere
-    
-    unsigned char digest[CC_SHA1_DIGEST_LENGTH];
-    
-    NSData *stringBytes = [stringToBeHashed dataUsingEncoding:NSASCIIStringEncoding];
-    if (CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {
-        
-        hashedString = [[[NSString alloc] initWithBytes:digest length:sizeof(digest) encoding:NSASCIIStringEncoding] autorelease];
-        
-    }
-    
-    return hashedString;
-    
-}
-
 
 
 @end
