@@ -1032,11 +1032,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dwd-AV-ZDV"/>
-        <segue reference="9Fj-3S-4ic"/>
+        <segue reference="miV-t9-uEO"/>
         <segue reference="YJ7-M2-2rT"/>
         <segue reference="CPH-S9-sup"/>
-        <segue reference="miV-t9-uEO"/>
         <segue reference="7TV-H6-gZo"/>
     </inferredMetricsTieBreakers>
 </document>
