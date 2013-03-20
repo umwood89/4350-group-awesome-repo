@@ -83,7 +83,8 @@
 }
 
 - (IBAction)registerButton:(id)sender {
-    self.loginStatus.text = @"lol";
+    self.loginStatus.text = @"";
+    [self performSegueWithIdentifier:@"registerSegue" sender:self];
 }
 
 - (IBAction)guestButton:(id)sender {

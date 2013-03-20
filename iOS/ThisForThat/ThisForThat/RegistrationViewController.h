@@ -9,5 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface RegistrationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *emailAddress;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextField *verifyPassword;
+
+
+- (IBAction)registerButton:(id)sender;
+
+-(NSString*) sha256:(NSString *)clear;
 
 @end

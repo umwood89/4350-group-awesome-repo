@@ -36,6 +36,7 @@
 		1DC447CC16F1711F004666F4 /* ListingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC447CB16F1711F004666F4 /* ListingData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DD1BAED16F5354900BD2180 /* OfferData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BA7A816F303CF000FD570 /* OfferData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DD1BAF016F53C2600BD2180 /* AddOfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1BAEF16F53C2600BD2180 /* AddOfferViewController.m */; };
+		1DDB5C9816F9573A00C7CEA6 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDB5C9716F9573A00C7CEA6 /* RegistrationViewController.m */; };
 		1DF5084B16F29D80003DC0D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75C416E701F2005DACB7 /* CoreGraphics.framework */; };
 		1DF5084C16F29D85003DC0D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920916F03C2C003C1798 /* MobileCoreServices.framework */; };
 		1DF5084D16F29D90003DC0D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D41920716F03C1F003C1798 /* SystemConfiguration.framework */; };
@@ -119,6 +120,8 @@
 		1DC447CB16F1711F004666F4 /* ListingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingData.m; sourceTree = "<group>"; };
 		1DD1BAEE16F53C2600BD2180 /* AddOfferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOfferViewController.h; sourceTree = "<group>"; };
 		1DD1BAEF16F53C2600BD2180 /* AddOfferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOfferViewController.m; sourceTree = "<group>"; };
+		1DDB5C9616F9573A00C7CEA6 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		1DDB5C9716F9573A00C7CEA6 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddListingViewController.h; path = ../AddListingViewController.h; sourceTree = "<group>"; };
 		1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddListingViewController.m; path = ../AddListingViewController.m; sourceTree = "<group>"; };
 		E244FF8316E7F6EB00031AC8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 			children = (
 				E264EADF16EBD5A200D1566C /* LoginViewController.h */,
 				E264EAE016EBD5A200D1566C /* LoginViewController.m */,
+				1DDB5C9616F9573A00C7CEA6 /* RegistrationViewController.h */,
+				1DDB5C9716F9573A00C7CEA6 /* RegistrationViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				1DB2B6B916F53F6100C8C186 /* ListingDetailsViewController.m in Sources */,
 				1DB2B6BC16F540AB00C8C186 /* OfferDetailsViewController.m in Sources */,
 				F298AEEC16F6CBEF006DBD66 /* UserData.m in Sources */,
+				1DDB5C9816F9573A00C7CEA6 /* RegistrationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

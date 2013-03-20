@@ -7,6 +7,7 @@
 //
 
 #import "RegistrationViewController.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface RegistrationViewController ()
 
@@ -34,5 +35,50 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)registerButton:(id)sender {
+    
+    NSString *password = self.password.text;
+    
+    NSString *hash = [self sha256:password];
+    
+    NSLog(@"%@",hash);
+    
+}
+
+-(NSString*) sha256:(NSString *)clear{
+    const char *s=[clear cStringUsingEncoding:NSASCIIStringEncoding];
+    NSData *keyData=[NSData dataWithBytes:s length:strlen(s)];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH]={0};
+    CC_SHA1(keyData.bytes, keyData.length, digest);
+    NSData *out=[NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
+    NSString *hash=[out description];
+    hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
+    hash = [hash stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    hash = [hash stringByReplacingOccurrencesOfString:@">" withString:@""];
+    return hash;
+}
+
+- (NSString *)generateHashValueForString:(NSString *)toBeHashed
+{
+    NSString *hashedString = nil;
+    
+    NSString *stringToBeHashed = [NSString stringWithFormat:@"%@%@", toBeHashed, SALT]; //SALT is a NSString #define elsewhere
+    
+    unsigned char digest[CC_SHA1_DIGEST_LENGTH];
+    
+    NSData *stringBytes = [stringToBeHashed dataUsingEncoding:NSASCIIStringEncoding];
+    if (CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {
+        
+        hashedString = [[[NSString alloc] initWithBytes:digest length:sizeof(digest) encoding:NSASCIIStringEncoding] autorelease];
+        
+    }
+    
+    return hashedString;
+    
+}
+
+
 
 @end
