@@ -58,10 +58,8 @@
 		E2DA75D716E701F2005DACB7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75D616E701F2005DACB7 /* Default-568h@2x.png */; };
 		E2DA75DA16E701F2005DACB7 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75D816E701F2005DACB7 /* MainStoryboard_iPhone.storyboard */; };
 		E2DA75DD16E701F2005DACB7 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75DB16E701F2005DACB7 /* MainStoryboard_iPad.storyboard */; };
-		E2DA75E016E701F2005DACB7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75DF16E701F2005DACB7 /* FirstViewController.m */; };
 		E2DA75E216E701F2005DACB7 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75E116E701F2005DACB7 /* first.png */; };
 		E2DA75E416E701F2005DACB7 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75E316E701F2005DACB7 /* first@2x.png */; };
-		E2DA75E716E701F2005DACB7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DA75E616E701F2005DACB7 /* SecondViewController.m */; };
 		E2DA75E916E701F2005DACB7 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75E816E701F2005DACB7 /* second.png */; };
 		E2DA75EB16E701F2005DACB7 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DA75EA16E701F2005DACB7 /* second@2x.png */; };
 		E2DA75F316E701F2005DACB7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DA75F216E701F2005DACB7 /* SenTestingKit.framework */; };
@@ -146,12 +144,8 @@
 		E2DA75D616E701F2005DACB7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E2DA75D916E701F2005DACB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		E2DA75DC16E701F2005DACB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		E2DA75DE16E701F2005DACB7 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		E2DA75DF16E701F2005DACB7 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		E2DA75E116E701F2005DACB7 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = ThisForThat/first.png; sourceTree = "<group>"; };
 		E2DA75E316E701F2005DACB7 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "ThisForThat/first@2x.png"; sourceTree = "<group>"; };
-		E2DA75E516E701F2005DACB7 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		E2DA75E616E701F2005DACB7 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		E2DA75E816E701F2005DACB7 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = ThisForThat/second.png; sourceTree = "<group>"; };
 		E2DA75EA16E701F2005DACB7 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "ThisForThat/second@2x.png"; sourceTree = "<group>"; };
 		E2DA75F116E701F2005DACB7 /* ThisForThatTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThisForThatTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,31 +287,15 @@
 		E2DA75C616E701F2005DACB7 /* ThisForThat */ = {
 			isa = PBXGroup;
 			children = (
+				F2E6A99B16F93F6E0016978E /* View Pages */,
+				F2E6A99A16F93F590016978E /* Storyboard */,
+				F2E6A99916F93F420016978E /* JSON Interface */,
+				F2E6A99816F93E8D0016978E /* Login */,
+				F2E6A99716F93E6B0016978E /* Details Pages */,
+				F2E6A99616F93E5F0016978E /* Adding Pages */,
 				1DC447C916F1710A004666F4 /* Model */,
-				E2DA75DB16E701F2005DACB7 /* MainStoryboard_iPad.storyboard */,
-				E2DA75D816E701F2005DACB7 /* MainStoryboard_iPhone.storyboard */,
 				E2DA75CF16E701F2005DACB7 /* AppDelegate.h */,
 				E2DA75D016E701F2005DACB7 /* AppDelegate.m */,
-				1DD1BAEE16F53C2600BD2180 /* AddOfferViewController.h */,
-				1DD1BAEF16F53C2600BD2180 /* AddOfferViewController.m */,
-				1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */,
-				1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */,
-				F268931F16F300AE003B2C59 /* JSONInterface.h */,
-				E27FA86F16ED0B230062DB01 /* OffersTableViewController.m */,
-				F268932016F300AE003B2C59 /* JSONInterface.m */,
-				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
-				1DB2B6BA16F540AB00C8C186 /* OfferDetailsViewController.h */,
-				1DB2B6BB16F540AB00C8C186 /* OfferDetailsViewController.m */,
-				E27FA86B16ED0A8D0062DB01 /* ListingsTableViewController.h */,
-				E27FA86C16ED0A8D0062DB01 /* ListingsTableViewController.m */,
-				1DB2B6B716F53F6100C8C186 /* ListingDetailsViewController.h */,
-				1DB2B6B816F53F6100C8C186 /* ListingDetailsViewController.m */,
-				E264EADF16EBD5A200D1566C /* LoginViewController.h */,
-				E264EAE016EBD5A200D1566C /* LoginViewController.m */,
-				E2DA75DE16E701F2005DACB7 /* FirstViewController.h */,
-				E2DA75DF16E701F2005DACB7 /* FirstViewController.m */,
-				E2DA75E516E701F2005DACB7 /* SecondViewController.h */,
-				E2DA75E616E701F2005DACB7 /* SecondViewController.m */,
 				E2DA75C716E701F2005DACB7 /* Supporting Files */,
 			);
 			path = ThisForThat;
@@ -355,6 +333,66 @@
 				E2DA75FB16E701F2005DACB7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2E6A99616F93E5F0016978E /* Adding Pages */ = {
+			isa = PBXGroup;
+			children = (
+				1DD1BAEE16F53C2600BD2180 /* AddOfferViewController.h */,
+				1DD1BAEF16F53C2600BD2180 /* AddOfferViewController.m */,
+				1DF5085316F2B0A3003DC0D8 /* AddListingViewController.h */,
+				1DF5085416F2B0A3003DC0D8 /* AddListingViewController.m */,
+			);
+			name = "Adding Pages";
+			sourceTree = "<group>";
+		};
+		F2E6A99716F93E6B0016978E /* Details Pages */ = {
+			isa = PBXGroup;
+			children = (
+				1DB2B6B716F53F6100C8C186 /* ListingDetailsViewController.h */,
+				1DB2B6B816F53F6100C8C186 /* ListingDetailsViewController.m */,
+				1DB2B6BA16F540AB00C8C186 /* OfferDetailsViewController.h */,
+				1DB2B6BB16F540AB00C8C186 /* OfferDetailsViewController.m */,
+			);
+			name = "Details Pages";
+			sourceTree = "<group>";
+		};
+		F2E6A99816F93E8D0016978E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E264EADF16EBD5A200D1566C /* LoginViewController.h */,
+				E264EAE016EBD5A200D1566C /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		F2E6A99916F93F420016978E /* JSON Interface */ = {
+			isa = PBXGroup;
+			children = (
+				F268932016F300AE003B2C59 /* JSONInterface.m */,
+				F268931F16F300AE003B2C59 /* JSONInterface.h */,
+			);
+			name = "JSON Interface";
+			sourceTree = "<group>";
+		};
+		F2E6A99A16F93F590016978E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E2DA75DB16E701F2005DACB7 /* MainStoryboard_iPad.storyboard */,
+				E2DA75D816E701F2005DACB7 /* MainStoryboard_iPhone.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		F2E6A99B16F93F6E0016978E /* View Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E27FA86F16ED0B230062DB01 /* OffersTableViewController.m */,
+				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
+				E27FA86B16ED0A8D0062DB01 /* ListingsTableViewController.h */,
+				E27FA86C16ED0A8D0062DB01 /* ListingsTableViewController.m */,
+			);
+			name = "View Pages";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,8 +525,6 @@
 				1D41921516F03D12003C1798 /* ASINetworkQueue.m in Sources */,
 				E2DA75CD16E701F2005DACB7 /* main.m in Sources */,
 				E2DA75D116E701F2005DACB7 /* AppDelegate.m in Sources */,
-				E2DA75E016E701F2005DACB7 /* FirstViewController.m in Sources */,
-				E2DA75E716E701F2005DACB7 /* SecondViewController.m in Sources */,
 				E264EAE116EBD5A200D1566C /* LoginViewController.m in Sources */,
 				E27FA86D16ED0A8D0062DB01 /* ListingsTableViewController.m in Sources */,
 				E27FA87016ED0B230062DB01 /* OffersTableViewController.m in Sources */,
