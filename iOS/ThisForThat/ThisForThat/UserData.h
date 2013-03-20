@@ -17,5 +17,7 @@
 
 - (id)initWithData:(NSString *)uid username:(NSString*)username email:(NSString*)email;
 
+- (BOOL)isEmpty;
+
 
 @end

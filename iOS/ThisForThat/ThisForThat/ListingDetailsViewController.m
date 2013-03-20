@@ -22,6 +22,7 @@
 @synthesize DateCreated;
 @synthesize ListedBy;
 @synthesize listing;
+@synthesize makeOffer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +35,10 @@
 
 - (void)viewDidLoad
 {
+    if([[JSONInterface user_logged_in] isEmpty] == TRUE)
+        makeOffer.hidden = YES;
+    else
+        makeOffer.hidden = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     

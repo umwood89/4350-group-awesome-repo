@@ -276,6 +276,7 @@ static UserData  *user_logged_in = nil;
 + (void) changeLoggedInUser:(UserData *)newUser
 {
     user_logged_in = newUser;
+    NSLog(@"User changed: %@",newUser.username);
 }
 
  

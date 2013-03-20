@@ -15,6 +15,8 @@
 
 @implementation ListingsTableViewController
 
+@synthesize addListing;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,6 +30,11 @@
 {
     [super viewDidLoad];
     self.title = @"Listings";
+    
+    if([[JSONInterface user_logged_in] isEmpty] == TRUE)
+        addListing.enabled = NO;
+    else
+        addListing.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,6 +136,7 @@
     
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];
+    [JSONInterface  changeLoggedInUser:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

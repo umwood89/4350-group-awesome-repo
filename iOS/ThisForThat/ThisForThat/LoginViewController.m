@@ -92,5 +92,6 @@
 - (IBAction)guestButton:(id)sender {
     self.loginStatus.text = @"";
     [self performSegueWithIdentifier:@"tabBarController" sender:self];
+    [JSONInterface changeLoggedInUser:nil];
 }
 @end
