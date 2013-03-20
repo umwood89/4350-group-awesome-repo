@@ -7,6 +7,8 @@
 //
 
 #import "AddOfferViewController.h"
+#import "UserData.h"
+#import "JSONInterface.h"
 
 
 
@@ -40,28 +42,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)createListing:(id)sender {
+- (IBAction)createOffer:(id)sender {
+    
     NSString *title = self.addOfferTitleTextBox.text;
     NSString *description = self.addOfferDescriptionTextBox.text;
-    NSInteger user = 3;
-    NSString *photo = @"photopath";
+    NSString *listing = self.addOfferListingTextBox.text;
+    UserData *u = [JSONInterface user_logged_in];
     
-    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/api/listings/"];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    OfferData *toAdd = [[OfferData alloc] initWithData:title description:description user:u.uid listing:listing];
+    NSData *imageData = UIImagePNGRepresentation(self.imageBox.image);
     
-    [request addRequestHeader:@"Accept" value:@"application/json"];
-    [request addRequestHeader:@"Content-Type" value:@"application/json; encoding=utf-8"];
-    
-    //NSString *dataContent = [NSString stringWithFormat:@"username=%@&password=%@", username, password];
-    
-    NSString *dataContent = [NSString stringWithFormat:@"{\"title\": \"%@\", \"description\": \"%@\", \"user\": %d, \"photo\": \"%@\" }", title, description, user, photo];
-    
-    NSLog(@"dataContent: %@", dataContent);
-    [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setRequestMethod:@"POST"];
-    [request startSynchronous];
-    NSString *response = [request responseString];
-    NSLog(@"JSONAddListing response: %@", response);
+    [JSONInterface addOffer:toAdd imageData:imageData];
     
     
 }

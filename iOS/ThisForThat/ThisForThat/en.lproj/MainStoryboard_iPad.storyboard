@@ -815,7 +815,7 @@
             <relationships>
                 <relationship kind="action" name="cancelButton:"/>
                 <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createListing:"/>
+                <relationship kind="action" name="createOffer:"/>
                 <relationship kind="action" name="takePictureButton:"/>
                 <relationship kind="outlet" name="addOfferDescriptionTextBox" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="addOfferListingTextBox" candidateClass="UITextField"/>

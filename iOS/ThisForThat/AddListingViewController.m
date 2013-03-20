@@ -39,6 +39,7 @@
 }
 
 - (IBAction)createListing:(id)sender {
+    
     NSString *title = self.addListingTitleTextBox.text;
     NSString *description = self.addListingDescriptionTextBox.text;
     UserData *u = [JSONInterface user_logged_in];
@@ -48,8 +49,6 @@
     
     [JSONInterface addListing:toAdd imageData:imageData];
     
-    
-
     
 }
 

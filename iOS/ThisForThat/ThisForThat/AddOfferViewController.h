@@ -25,7 +25,7 @@
 @property BOOL newMedia;
 
 - (IBAction)cancelButton:(id)sender;
-- (IBAction)createListing:(id)sender;
+- (IBAction)createOffer:(id)sender;
 
 - (IBAction)choosePictureButton:(id)sender;
 - (IBAction)takePictureButton:(id)sender;

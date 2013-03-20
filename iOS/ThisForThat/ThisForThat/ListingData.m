@@ -16,6 +16,7 @@
 @synthesize trade_completed = _trade_completed;
 @synthesize date_created = _date_created;
 @synthesize date_completed = _date_completed;
+@synthesize user = _user;
 
 
 

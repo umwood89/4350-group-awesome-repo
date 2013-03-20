@@ -232,13 +232,29 @@ static UserData  *user_logged_in = nil;
 }
 
 
-+ (OfferData *) addOffer:(OfferData *)toAdd
++ (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData
 {
+    NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://hackshack.ca/api/offers"]];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request setPostValue:toAdd.title forKey:@"title"];
+    [request setPostValue:toAdd.description forKey:@"description"];
+    [request setPostValue:toAdd.user forKey:@"user"];
+    [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONLogin response: %@", response);
+    
+    NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
+    
+    toAdd.photo = [responseJSON objectForKey:@"photo"];
+    toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    toAdd.oid = [responseJSON objectForKey:@"offer_id"];
     
     [offers addObject:toAdd];
-    //json adding magic
-    
-    return nil;
     
 }
 

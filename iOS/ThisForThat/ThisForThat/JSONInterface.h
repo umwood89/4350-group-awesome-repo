@@ -30,7 +30,7 @@
 + (void) changeLoggedInUser:(UserData *)newUser;
 
 + (ListingData *) addListing:(ListingData *)toAdd imageData:(NSData *)imageData;
-+ (OfferData *) addOffer:(OfferData *)toAdd;
++ (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData;
 + (UserData *) addUser:(UserData *)toAdd;
 
 + (NSDictionary *) getDictionaryFromJSON:(NSString *)json;
