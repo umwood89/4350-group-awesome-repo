@@ -16,6 +16,7 @@
 @synthesize trade_completed = _trade_completed;
 @synthesize date_created = _date_created;
 @synthesize date_completed = _date_completed;
+@synthesize user = _user;
 
 
 
@@ -24,6 +25,16 @@
     if ((self = [super init])) {
         self.title = title;
         self.description = description;
+    }
+    return self;
+}
+
+- (id)initWithData:(NSString*)title description:(NSString*)description user:(NSString *)user
+{
+    if ((self = [super init])) {
+        self.title = title;
+        self.description = description;
+        self.user = user;
     }
     return self;
 }

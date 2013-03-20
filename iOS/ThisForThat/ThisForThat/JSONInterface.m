@@ -11,12 +11,15 @@
 #import "OfferData.h"
 #import "ListingData.h"
 #import "UserData.h"
+#import <stdlib.h>
+#import "ASIFormDataRequest.h"
 
 @implementation JSONInterface
 
 static NSMutableArray *offers = nil;
 static NSMutableArray *listings = nil;
 static NSMutableArray *users = nil;
+static UserData  *user_logged_in = nil;
 
 
 + (NSMutableArray *)offers
@@ -49,7 +52,36 @@ static NSMutableArray *users = nil;
     return users;
 }
 
++ (UserData *)user_logged_in
+{
+    if(user_logged_in == nil)
+    {
+        user_logged_in = [[UserData alloc] init] ;
+    }
+    
+    return user_logged_in;
+}
 
+
++ (NSDictionary *) getDictionaryFromJSON:(NSString *)json
+{
+    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error = nil;
+    NSDictionary *toReturn = [NSJSONSerialization
+                 JSONObjectWithData:data
+                 options:0
+                 error:&error];
+    
+    if(error)
+    {
+        NSLog(@"%@",error);
+        return nil;
+    }
+    else
+        return toReturn;
+    
+}
 //Function that will initialize either listings, users, or offers from the json posted by the webserver
 + (NSMutableArray *)initFromJSON:(NSString *)url
 {
@@ -64,14 +96,10 @@ static NSMutableArray *users = nil;
     NSError *error = [request error];
     if (!error) {
         NSString *response = [request responseString];
-        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *e = nil;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: data options :NSJSONReadingMutableContainers error: &e];
-        
-        if (!jsonArray) {
-            NSLog(@"Error parsing JSON: %@", e);
-        } else {
-            for(NSDictionary *item in jsonArray) {
+        NSDictionary *json = [self getDictionaryFromJSON:response];
+        if (json)
+        {
+            for(NSDictionary *item in json) {
                 [self addDataToList:url list:list item:item];
             }
         }
@@ -162,22 +190,72 @@ static NSMutableArray *users = nil;
     return nil;
 }
 
-+ (ListingData *) addListing:(ListingData *)toAdd
++ (UserData *)getUserByUsername:(NSString *)username
 {
+    for (UserData *user in self.users)
+    {
+        if ([user.username isEqualToString:username])
+            return user;
+    }
+    
+    return nil;
+}
+
++ (ListingData *) addListing:(ListingData *)toAdd imageData:(NSData *)imageData
+{
+    NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    
+    
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://hackshack.ca/api/listings"]];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request setPostValue:toAdd.title forKey:@"title"];
+    [request setPostValue:toAdd.description forKey:@"description"];
+    [request setPostValue:toAdd.user forKey:@"user"];
+    [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONLogin response: %@", response);
+    
+    NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
+    
+    toAdd.photo = [responseJSON objectForKey:@"photo"];
+    toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    toAdd.lid = [responseJSON objectForKey:@"listing_id"];
+    
     [listings addObject:toAdd];
-    //json adding magic
+    
     
     return nil;
 }
 
 
-+ (OfferData *) addOffer:(OfferData *)toAdd
++ (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData
 {
+    NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://hackshack.ca/api/offers"]];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request setPostValue:toAdd.title forKey:@"title"];
+    [request setPostValue:toAdd.description forKey:@"description"];
+    [request setPostValue:toAdd.user forKey:@"user"];
+    [request setPostValue:toAdd.listing forKey:@"listing"];
+    [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONLogin response: %@", response);
+    
+    NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
+    
+    toAdd.photo = [responseJSON objectForKey:@"photo"];
+    toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    toAdd.oid = [responseJSON objectForKey:@"offer_id"];
     
     [offers addObject:toAdd];
-    //json adding magic
-    
-    return nil;
     
 }
 
@@ -190,6 +268,11 @@ static NSMutableArray *users = nil;
     
     return nil;
     
+}
+
++ (void) changeLoggedInUser:(UserData *)newUser
+{
+    user_logged_in = newUser;
 }
 
  

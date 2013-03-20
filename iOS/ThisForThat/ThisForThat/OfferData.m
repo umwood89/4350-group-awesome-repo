@@ -18,6 +18,7 @@
 @synthesize date_created = _date_created;
 @synthesize date_accepted = _date_accepted;
 @synthesize listing = _listing;
+@synthesize user = _user;
 
 
 - (id)initWithData:(NSString*)title description:(NSString *)description {
@@ -39,6 +40,17 @@
 	self.date_accepted = date_accepted;
     self.listing = listing;
     
+    return self;
+}
+
+- (id)initWithData:(NSString*)title description:(NSString *)description user:(NSString *)user listing:(NSString *)listing
+{
+    if ((self = [super init])) {
+        self.title = title;
+        self.description = description;
+        self.user = user;
+        self.listing = listing;
+    }
     return self;
 }
 

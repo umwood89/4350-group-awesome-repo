@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "SecondViewController.h"
 #import "ASIHTTPRequest.h"
+#import "JSONInterface.h"
 
 
 @implementation LoginViewController
@@ -68,6 +69,7 @@
         
         // Password was correct
         self.loginStatus.text = @"";
+        [JSONInterface changeLoggedInUser: [JSONInterface getUserByUsername:username]];
         
         [self performSegueWithIdentifier:@"tabBarController" sender:self];
     }
