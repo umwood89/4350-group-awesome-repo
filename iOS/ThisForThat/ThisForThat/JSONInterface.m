@@ -212,7 +212,7 @@ static UserData  *user_logged_in = nil;
     [request addRequestHeader:@"Accept" value:@"application/json"];
     [request setPostValue:toAdd.title forKey:@"title"];
     [request setPostValue:toAdd.description forKey:@"description"];
-    [request setPostValue:@"3" forKey:@"user"];
+    [request setPostValue:toAdd.user forKey:@"user"];
     [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
     [request startSynchronous];
     

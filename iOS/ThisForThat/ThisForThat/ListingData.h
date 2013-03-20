@@ -23,6 +23,8 @@
 
 - (id)initWithData:(NSString*)title description:(NSString*)description;
 
+- (id)initWithData:(NSString*)title description:(NSString*)description user:(NSString *)user;
+
 - (id) initWithData:(NSString *)lid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo user:(NSString *)user trade_completed:(NSString *) trade_completed date_created:(NSString*)date_created date_completed:(NSString *)date_completed;
 
 @end

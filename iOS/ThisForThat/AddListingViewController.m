@@ -43,7 +43,7 @@
     NSString *description = self.addListingDescriptionTextBox.text;
     UserData *u = [JSONInterface user_logged_in];
     
-    ListingData *toAdd = [[ListingData alloc] initWithData:title description:description];
+    ListingData *toAdd = [[ListingData alloc] initWithData:title description:description user:u.uid];
     NSData *imageData = UIImagePNGRepresentation(self.imageBox.image);
     
     [JSONInterface addListing:toAdd imageData:imageData];

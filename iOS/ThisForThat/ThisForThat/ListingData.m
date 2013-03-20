@@ -28,6 +28,16 @@
     return self;
 }
 
+- (id)initWithData:(NSString*)title description:(NSString*)description user:(NSString *)user
+{
+    if ((self = [super init])) {
+        self.title = title;
+        self.description = description;
+        self.user = user;
+    }
+    return self;
+}
+
 - (id) initWithData:(NSString *)lid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo user:(NSString *)user trade_completed:(NSString *) trade_completed date_created:(NSString*)date_created date_completed:(NSString *)date_completed
 {
     if ((self = [super init]))
