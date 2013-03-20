@@ -21,6 +21,7 @@
 @synthesize DescriptionText;
 @synthesize URLText;
 @synthesize DateCreated;
+@synthesize ListedBy;
 @synthesize listing;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +56,10 @@
     TitleText.text = listing.title;
     DescriptionText.text = listing.description;
     DateCreated.text = [listing.date_created substringWithRange:NSMakeRange(0, 10)];
+    
+    UserData *userPosted = [JSONInterface getUserByID:listing.user.integerValue ];
+    
+    ListedBy.text = userPosted.username;
     
 }
 

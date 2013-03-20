@@ -107,11 +107,12 @@ static NSMutableArray *users = nil;
         NSString *title = [item objectForKey:@"title"];
         NSString *description = [item objectForKey:@"description"];
         NSString *photo = [item objectForKey:@"photo"];
+        NSString *user = [item objectForKey:@"user"];
         NSString *trade_completed = [item objectForKey:@"trade_completed"];
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_completed = [item objectForKey:@"date_completed"];
         
-        ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo trade_completed:trade_completed date_created:date_created date_completed:date_completed];
+        ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo user:user trade_completed:trade_completed date_created:date_created date_completed:date_completed];
         [list addObject:data];
     }
     else if([type isEqualToString: @"users"])

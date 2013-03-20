@@ -10,10 +10,6 @@
 #import "SecondViewController.h"
 #import "ASIHTTPRequest.h"
 
-@interface LoginViewController ()
-- (IBAction)login:(id)sender;
-
-@end
 
 @implementation LoginViewController
 

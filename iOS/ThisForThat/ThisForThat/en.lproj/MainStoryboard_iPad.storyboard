@@ -195,6 +195,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="By " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PAd-wJ-viS">
+                                <rect key="frame" x="35" y="104" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ioe-1u-zBx">
+                                <rect key="frame" x="55" y="104" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -202,7 +216,7 @@
                     <attributedString key="userComments">
                         <fragment content="ListingDetails">
                             <attributes>
-                                <font key="NSFont" metaFont="smallSystem"/>
+                                <font key="NSFont" metaFont="toolTip"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                             </attributes>
                         </fragment>
@@ -210,6 +224,7 @@
                     <connections>
                         <outlet property="DateCreated" destination="V6g-MB-Tls" id="axR-Td-PJa"/>
                         <outlet property="DescriptionText" destination="xWa-tj-6UY" id="jtG-h4-JwM"/>
+                        <outlet property="ListedBy" destination="Ioe-1u-zBx" id="ozf-Za-akE"/>
                         <outlet property="ListingImage" destination="yNM-aF-qxb" id="AWD-E7-sRi"/>
                         <outlet property="TitleText" destination="bqL-qh-No8" id="0iG-IK-Ca7"/>
                         <outlet property="URLText" destination="yVK-9j-Ifg" id="ngS-TT-IVk"/>
@@ -814,6 +829,7 @@
                 <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="URLText" candidateClass="UITextView"/>
@@ -823,7 +839,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="logoutButton:"/>
-                <relationship kind="action" name="makeItHappen:"/>
                 <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
             </relationships>
         </class>
@@ -831,7 +846,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="guestButton:"/>
-                <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="loginButton:"/>
                 <relationship kind="action" name="registerButton:"/>
                 <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>

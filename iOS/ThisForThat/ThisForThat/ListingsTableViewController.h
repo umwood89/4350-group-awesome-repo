@@ -11,7 +11,6 @@
 @interface ListingsTableViewController : UITableViewController
 
 // RS: Testing button and textview
-- (IBAction)makeItHappen:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *testtextbox;
 @property (copy, nonatomic) NSString *test;
 

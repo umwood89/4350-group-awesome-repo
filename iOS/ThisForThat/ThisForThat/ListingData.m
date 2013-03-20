@@ -28,7 +28,7 @@
     return self;
 }
 
-- (id) initWithData:(NSString *)lid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo trade_completed:(NSString *) trade_completed date_created:(NSString*)date_created date_completed:(NSString *)date_completed
+- (id) initWithData:(NSString *)lid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo user:(NSString *)user trade_completed:(NSString *) trade_completed date_created:(NSString*)date_created date_completed:(NSString *)date_completed
 {
     if ((self = [super init]))
     {
@@ -39,6 +39,7 @@
         self.trade_completed = trade_completed;
         self.date_created = date_created;
         self.date_completed = date_completed;
+        self.user = user;
     }
     return self;
 }
