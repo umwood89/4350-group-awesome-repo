@@ -14,9 +14,9 @@
 @property (strong, nonatomic) IBOutlet UITextView *TitleText;
 @property (strong, nonatomic) IBOutlet UIImageView *ListingImage;
 @property (strong, nonatomic) IBOutlet UITextView *DescriptionText;
-@property (strong, nonatomic) IBOutlet UITextView *URLText;
 @property (strong, nonatomic) IBOutlet UILabel *DateCreated;
 @property (strong, nonatomic) IBOutlet UILabel *ListedBy;
+@property (weak, nonatomic) IBOutlet UIButton *makeOffer;
 
 
 @property (nonatomic, strong) ListingData *listing;

@@ -115,6 +115,7 @@
     
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];
+    [JSONInterface  changeLoggedInUser:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -17,8 +17,8 @@
 @synthesize OfferImage;
 @synthesize offer;
 @synthesize DescriptionText;
-@synthesize URLText;
 @synthesize DateCreated;
+@synthesize ListedBy;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,16 +42,19 @@
         data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         OfferImage.image = image;
-        URLText.text = photoLocation;
         //    self.ListingImage.size = image.size;
     }
     @catch(NSException * e) {
-        URLText.text = @"Photo not available.";
+        NSLog(@"%@",e);
     }
     
     TitleText.text = offer.title;
     DescriptionText.text = offer.description;
     DateCreated.text = [offer.date_created substringWithRange:NSMakeRange(0, 10)];
+    
+    UserData *userPosted = [JSONInterface getUserByID:offer.user.integerValue ];
+    
+    ListedBy.text = userPosted.username;
 }
 
 - (void)didReceiveMemoryWarning

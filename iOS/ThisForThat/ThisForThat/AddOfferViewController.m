@@ -14,6 +14,7 @@
 
 @implementation AddOfferViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,7 +47,7 @@
     
     NSString *title = self.addOfferTitleTextBox.text;
     NSString *description = self.addOfferDescriptionTextBox.text;
-    NSString *listing = self.addOfferListingTextBox.text;
+    NSString *listing = self.listing.lid;
     UserData *u = [JSONInterface user_logged_in];
     
     OfferData *toAdd = [[OfferData alloc] initWithData:title description:description user:u.uid listing:listing];
@@ -61,7 +62,7 @@
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeSavedPhotosAlbum])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
+        imagePicker.delegate = (id)self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;
@@ -69,13 +70,11 @@
         //[self presentViewController:imagePicker animated:YES completion:nil];
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         
-        self.popover.delegate = self;
+        self.popover.delegate = (id)self;
         
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         [self.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 390.0, 425.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
-        //[popOverController inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES ];
-        //[popOverController presentPopoverFromRect:(CGRect) inView:<#(UIView *)#> permittedArrowDirections:<#(UIPopoverArrowDirection)#> animated:YES]
         _newMedia = NO;
     }
 }
@@ -86,7 +85,7 @@
          UIImagePickerControllerSourceTypeCamera])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
+        imagePicker.delegate = (id)self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;

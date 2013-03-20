@@ -13,6 +13,7 @@
 // RS: Testing button and textview
 @property (weak, nonatomic) IBOutlet UITextView *testtextbox;
 @property (copy, nonatomic) NSString *test;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addListing;
 
 
 // RS: Listings array used to populate the tableview

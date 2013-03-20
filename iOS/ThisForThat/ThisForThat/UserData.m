@@ -23,4 +23,11 @@
     return self;
 }
 
+- (BOOL)isEmpty
+{
+    if(self.uid ==nil && self.username == nil && self.email == nil)
+        return TRUE;
+    return FALSE;
+}
+
 @end
