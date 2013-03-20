@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *verifyPassword;
 
+@property (weak, nonatomic) IBOutlet UILabel *registrationStatus;
 
 - (IBAction)registerButton:(id)sender;
 

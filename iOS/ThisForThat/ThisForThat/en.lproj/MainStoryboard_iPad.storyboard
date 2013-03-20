@@ -656,42 +656,42 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="57M-w1-S0f">
-                                <rect key="frame" x="45" y="409" width="79" height="21"/>
+                                <rect key="frame" x="45" y="372" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bE-AG-IZu">
-                                <rect key="frame" x="40" y="491" width="84" height="21"/>
+                                <rect key="frame" x="40" y="454" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g2m-Vx-Fih">
-                                <rect key="frame" x="327" y="491" width="83" height="21"/>
+                                <rect key="frame" x="327" y="454" width="83" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ks3-7c-CaZ">
-                                <rect key="frame" x="43" y="573" width="110" height="21"/>
+                                <rect key="frame" x="43" y="536" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UAo-ai-pm0">
-                                <rect key="frame" x="43" y="649" width="75" height="21"/>
+                                <rect key="frame" x="43" y="612" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Verify Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JHU-dy-Evf">
-                                <rect key="frame" x="327" y="649" width="123" height="21"/>
+                                <rect key="frame" x="327" y="612" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -709,44 +709,44 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Registration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mwI-sA-7yV">
-                                <rect key="frame" x="41" y="345" width="233" height="26"/>
+                                <rect key="frame" x="41" y="308" width="233" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Qy8-tu-Js5">
-                                <rect key="frame" x="43" y="431" width="236" height="30"/>
+                                <rect key="frame" x="43" y="394" width="236" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="PbC-Ul-46k">
-                                <rect key="frame" x="41" y="514" width="238" height="30"/>
+                                <rect key="frame" x="41" y="477" width="238" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="c5i-8a-h7e">
-                                <rect key="frame" x="327" y="514" width="238" height="30"/>
+                                <rect key="frame" x="327" y="477" width="238" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="QLA-jf-xZS">
-                                <rect key="frame" x="42" y="598" width="238" height="30"/>
+                                <rect key="frame" x="42" y="561" width="238" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="u5c-Zv-zIt">
-                                <rect key="frame" x="41" y="674" width="239" height="30"/>
+                                <rect key="frame" x="41" y="637" width="239" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2b9-db-mfF">
-                                <rect key="frame" x="327" y="674" width="238" height="30"/>
+                                <rect key="frame" x="327" y="637" width="238" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -761,7 +761,7 @@
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dJY-Y3-QDy">
-                                <rect key="frame" x="35" y="772" width="300" height="44"/>
+                                <rect key="frame" x="35" y="763" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Register">
@@ -775,6 +775,13 @@
                                     <action selector="registerButton:" destination="fVe-dh-KGs" eventType="touchUpInside" id="jUt-cn-i4p"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Fp-jq-Ux6">
+                                <rect key="frame" x="41" y="689" width="593" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96935730200000003" green="1" blue="0.95138569380000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -784,6 +791,7 @@
                         <outlet property="firstName" destination="PbC-Ul-46k" id="h6o-3w-AOz"/>
                         <outlet property="lastName" destination="c5i-8a-h7e" id="uGl-MD-hOO"/>
                         <outlet property="password" destination="u5c-Zv-zIt" id="biY-Ip-twc"/>
+                        <outlet property="registrationStatus" destination="0Fp-jq-Ux6" id="BGp-93-dvV"/>
                         <outlet property="userName" destination="Qy8-tu-Js5" id="D2p-RD-SHI"/>
                         <outlet property="verifyPassword" destination="2b9-db-mfF" id="Xpq-F0-fLd"/>
                         <segue destination="4" kind="push" identifier="afterRegister" id="7TV-H6-gZo"/>
@@ -1012,6 +1020,7 @@
                 <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="lastName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="registrationStatus" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="verifyPassword" candidateClass="UITextField"/>
             </relationships>
@@ -1023,6 +1032,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Dwd-AV-ZDV"/>
+        <segue reference="9Fj-3S-4ic"/>
         <segue reference="YJ7-M2-2rT"/>
         <segue reference="CPH-S9-sup"/>
         <segue reference="miV-t9-uEO"/>

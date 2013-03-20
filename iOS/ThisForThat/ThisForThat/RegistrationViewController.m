@@ -8,6 +8,8 @@
 
 #import "RegistrationViewController.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "ASIHTTPRequest.h"
+
 
 @interface RegistrationViewController ()
 
@@ -38,11 +40,33 @@
 
 - (IBAction)registerButton:(id)sender {
     
-    NSString *password = self.password.text;
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/api/register/"];
+    NSMutableDictionary *registrationData  = [[NSMutableDictionary alloc]init];
     
-    NSString *hash = [self sha256:password];
     
-    NSLog(@"%@",hash);
+    [registrationData setObject:self.userName.text forKey:@"username"];
+    [registrationData setObject:self.firstName.text forKey:@"firstname"];
+    [registrationData setObject:self.lastName.text forKey:@"lastname"];
+    [registrationData setObject:self.emailAddress.text forKey:@"email"];
+    [registrationData setObject:self.password.text forKey:@"password"];
+    
+    NSError *error;
+    NSData *jsondata = [NSJSONSerialization dataWithJSONObject:registrationData options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *dataContent = [[NSString alloc] initWithData:jsondata encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"Registration post data: %@", dataContent);
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    
+    [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setRequestMethod:@"POST"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"Registration response: %@", response);
+    
+    
     
 }
 
