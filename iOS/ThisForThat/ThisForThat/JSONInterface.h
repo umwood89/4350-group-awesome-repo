@@ -25,8 +25,10 @@
 + (OfferData *) getOfferByID:(int)id;
 + (UserData *) getUserByID:(int)id;
 
-+ (ListingData *) addListing:(ListingData *)toAdd;
++ (ListingData *) addListing:(ListingData *)toAdd imageData:(NSData *)imageData;
 + (OfferData *) addOffer:(OfferData *)toAdd;
 + (UserData *) addUser:(UserData *)toAdd;
+
++ (NSDictionary *) getDictionaryFromJSON:(NSString *)json;
 
 @end
