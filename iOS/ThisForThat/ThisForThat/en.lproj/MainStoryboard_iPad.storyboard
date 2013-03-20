@@ -255,7 +255,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="hdc-ne-ISY">
                                             <connections>
-                                                <action selector="createListing:" destination="jgw-q9-BRf" id="LFf-FG-HAB"/>
+                                                <action selector="createOffer:" destination="jgw-q9-BRf" id="z3n-tZ-7Iy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -274,7 +274,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" disabledBackground="Default.png" id="gp5-6X-vyj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" disabledBackground="Default.png" id="gp5-6X-vyj">
                                 <rect key="frame" x="115" y="95" width="625" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

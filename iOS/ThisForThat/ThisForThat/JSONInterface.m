@@ -257,6 +257,8 @@ static UserData  *user_logged_in = nil;
     
     [offers addObject:toAdd];
     
+    return toAdd;
+    
 }
 
 

@@ -46,7 +46,7 @@
     
     NSString *title = self.addOfferTitleTextBox.text;
     NSString *description = self.addOfferDescriptionTextBox.text;
-    NSString *listing = self.addOfferListingTextBox.text;
+    NSString *listing = self.listing.lid;
     UserData *u = [JSONInterface user_logged_in];
     
     OfferData *toAdd = [[OfferData alloc] initWithData:title description:description user:u.uid listing:listing];
