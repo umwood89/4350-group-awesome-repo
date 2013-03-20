@@ -856,7 +856,7 @@
                                     <items>
                                         <barButtonItem title="Logout" id="Qi5-2X-VtL">
                                             <connections>
-                                                <action selector="logoutButton:" destination="Z7R-56-qaV" id="aIF-5f-H9s"/>
+                                                <action selector="logoutButton:" destination="6x0-do-5xs" id="Z0z-UT-BBZ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem title="Search" style="plain" id="evl-st-3Wr">

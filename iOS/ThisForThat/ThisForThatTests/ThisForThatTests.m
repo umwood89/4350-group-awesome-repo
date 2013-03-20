@@ -108,7 +108,7 @@
     int origCount = JSONInterface.offers.count;
     OfferData *o = [[OfferData alloc] initWithData:@"1" title:@"Tester" description:@"This is a test" photo:@"listing_photos/test.jpg" offer_accepted: 0 date_created: @"" date_accepted: @""];
     
-    [JSONInterface addOffer:o];
+    //[JSONInterface addOffer:o];
     assert(JSONInterface.offers.count == origCount +1);
     
     OfferData *o2 = [JSONInterface.offers objectAtIndex:origCount];
