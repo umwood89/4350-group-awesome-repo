@@ -41,6 +41,7 @@
 - (IBAction)createListing:(id)sender {
     NSString *title = self.addListingTitleTextBox.text;
     NSString *description = self.addListingDescriptionTextBox.text;
+    UserData *u = [JSONInterface user_logged_in];
     
     ListingData *toAdd = [[ListingData alloc] initWithData:title description:description];
     NSData *imageData = UIImagePNGRepresentation(self.imageBox.image);

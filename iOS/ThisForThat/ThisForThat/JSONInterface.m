@@ -19,6 +19,7 @@
 static NSMutableArray *offers = nil;
 static NSMutableArray *listings = nil;
 static NSMutableArray *users = nil;
+static UserData  *user_logged_in = nil;
 
 
 + (NSMutableArray *)offers
@@ -49,6 +50,16 @@ static NSMutableArray *users = nil;
     }
     
     return users;
+}
+
++ (UserData *)user_logged_in
+{
+    if(user_logged_in == nil)
+    {
+        user_logged_in = [[UserData alloc] init] ;
+    }
+    
+    return user_logged_in;
 }
 
 
@@ -179,6 +190,17 @@ static NSMutableArray *users = nil;
     return nil;
 }
 
++ (UserData *)getUserByUsername:(NSString *)username
+{
+    for (UserData *user in self.users)
+    {
+        if ([user.username isEqualToString:username])
+            return user;
+    }
+    
+    return nil;
+}
+
 + (ListingData *) addListing:(ListingData *)toAdd imageData:(NSData *)imageData
 {
     NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
@@ -229,6 +251,11 @@ static NSMutableArray *users = nil;
     
     return nil;
     
+}
+
++ (void) changeLoggedInUser:(UserData *)newUser
+{
+    user_logged_in = newUser;
 }
 
  
