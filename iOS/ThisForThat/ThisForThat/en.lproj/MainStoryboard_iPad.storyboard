@@ -965,6 +965,7 @@
                 <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="makeOffer" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="ListingsTableViewController" superclassName="UITableViewController">
