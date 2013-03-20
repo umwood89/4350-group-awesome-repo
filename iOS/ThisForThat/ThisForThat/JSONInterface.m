@@ -50,6 +50,25 @@ static NSMutableArray *users = nil;
 }
 
 
++ (NSDictionary *) getDictionaryFromJSON:(NSString *)json
+{
+    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error = nil;
+    NSDictionary *toReturn = [NSJSONSerialization
+                 JSONObjectWithData:data
+                 options:0
+                 error:&error];
+    
+    if(error)
+    {
+        NSLog(@"%@",error);
+        return nil;
+    }
+    else
+        return toReturn;
+    
+}
 //Function that will initialize either listings, users, or offers from the json posted by the webserver
 + (NSMutableArray *)initFromJSON:(NSString *)url
 {
@@ -64,14 +83,10 @@ static NSMutableArray *users = nil;
     NSError *error = [request error];
     if (!error) {
         NSString *response = [request responseString];
-        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *e = nil;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: data options :NSJSONReadingMutableContainers error: &e];
-        
-        if (!jsonArray) {
-            NSLog(@"Error parsing JSON: %@", e);
-        } else {
-            for(NSDictionary *item in jsonArray) {
+        NSDictionary *json = [self getDictionaryFromJSON:response];
+        if (json)
+        {
+            for(NSDictionary *item in json) {
                 [self addDataToList:url list:list item:item];
             }
         }
