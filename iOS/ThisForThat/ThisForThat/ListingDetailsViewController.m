@@ -19,7 +19,6 @@
 @synthesize TitleText;
 @synthesize ListingImage;
 @synthesize DescriptionText;
-@synthesize URLText;
 @synthesize DateCreated;
 @synthesize ListedBy;
 @synthesize listing;
@@ -46,11 +45,10 @@
         data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         ListingImage.image = image;
-        URLText.text = photoLocation;
         //    self.ListingImage.size = image.size;
     }
     @catch(NSException * e) {
-        URLText.text = @"Photo not available.";
+        NSLog(@"%@",e);
     }
     
     TitleText.text = listing.title;

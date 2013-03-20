@@ -64,7 +64,7 @@
         //[self presentViewController:imagePicker animated:YES completion:nil];
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         
-        self.popover.delegate = self;
+        self.popover.delegate = (id)self;
         
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         [self.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 390.0, 425.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];

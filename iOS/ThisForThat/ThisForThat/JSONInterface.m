@@ -124,8 +124,9 @@ static UserData  *user_logged_in = nil;
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_accepted = [item objectForKey:@"date_accepted"];
         NSString *listing = [item objectForKey:@"listing"];
+        NSString *user = [item objectForKey:@"user"];
         
-        OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted listing:listing];
+        OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted listing:listing user:user];
     
         [list addObject:data];
     }

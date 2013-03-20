@@ -61,7 +61,7 @@
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeSavedPhotosAlbum])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
+        imagePicker.delegate = (id)self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;
@@ -69,13 +69,11 @@
         //[self presentViewController:imagePicker animated:YES completion:nil];
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         
-        self.popover.delegate = self;
+        self.popover.delegate = (id)self;
         
         self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
         [self.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 390.0, 425.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
-        //[popOverController inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES ];
-        //[popOverController presentPopoverFromRect:(CGRect) inView:<#(UIView *)#> permittedArrowDirections:<#(UIPopoverArrowDirection)#> animated:YES]
         _newMedia = NO;
     }
 }
@@ -86,7 +84,7 @@
          UIImagePickerControllerSourceTypeCamera])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
+        imagePicker.delegate = (id)self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;

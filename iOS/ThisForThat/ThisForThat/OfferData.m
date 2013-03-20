@@ -29,7 +29,7 @@
     return self;
 }
 
-- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(NSString *)listing
+- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(NSString *)listing user:(NSString *)user
 {
     self.oid = oid;
 	self.title = title;
@@ -39,6 +39,7 @@
 	self.date_created = date_created;
 	self.date_accepted = date_accepted;
     self.listing = listing;
+    self.user = user;
     
     return self;
 }
