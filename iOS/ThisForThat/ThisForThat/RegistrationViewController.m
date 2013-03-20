@@ -70,6 +70,8 @@
     
 }
 
+
+
 -(NSString*) sha256:(NSString *)clear{
     const char *s=[clear cStringUsingEncoding:NSASCIIStringEncoding];
     NSData *keyData=[NSData dataWithBytes:s length:strlen(s)];

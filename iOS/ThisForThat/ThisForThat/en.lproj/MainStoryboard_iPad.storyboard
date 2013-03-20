@@ -755,9 +755,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Cancel" id="ZTb-xr-4J6"/>
+                                    <barButtonItem title="Cancel" id="ZTb-xr-4J6">
+                                        <connections>
+                                            <segue destination="kVx-72-vDU" kind="push" id="xW6-Ff-BHX"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aWA-H2-7BU"/>
-                                    <barButtonItem title="Register" id="zdT-wC-cT0"/>
+                                    <barButtonItem title="Register" id="zdT-wC-cT0">
+                                        <connections>
+                                            <action selector="registerButton:" destination="fVe-dh-KGs" id="F7S-95-SVL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dJY-Y3-QDy">
@@ -1015,6 +1023,7 @@
         <class className="RegistrationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationViewController.h"/>
             <relationships>
+                <relationship kind="action" name="registerButton2:"/>
                 <relationship kind="action" name="registerButton:"/>
                 <relationship kind="outlet" name="emailAddress" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
@@ -1032,9 +1041,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="miV-t9-uEO"/>
-        <segue reference="YJ7-M2-2rT"/>
         <segue reference="CPH-S9-sup"/>
+        <segue reference="YJ7-M2-2rT"/>
+        <segue reference="miV-t9-uEO"/>
+        <segue reference="xW6-Ff-BHX"/>
         <segue reference="7TV-H6-gZo"/>
     </inferredMetricsTieBreakers>
 </document>
