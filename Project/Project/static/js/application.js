@@ -57,7 +57,7 @@ $(function() {
 					var username = document.getElementById('user_username').value;
 					var password = document.getElementById('user_password').value;
 
-					submit('/login/', 'POST', [
+					submit('/login', 'POST', [
 				    { name: 'username', value: username },
 				    { name: 'password', value: password },
 					]);
