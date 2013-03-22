@@ -161,7 +161,7 @@ def newListing(request):
             newlisting.user = request.user
             form.save()
             return render_to_response("thanks.html")
-    else
+    else:
         form = ListingForm() # An unbound form
         return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
