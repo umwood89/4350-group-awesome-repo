@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     ###### Application base functionality ######
     url(r'^$', home),
     url(r'^browse$', browse),
+    url(r'^search$', search),
     url(r'^listingdetails$', listingdetails),
     url(r'^userhome$', userhome),
     

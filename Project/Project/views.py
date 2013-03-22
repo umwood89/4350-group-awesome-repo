@@ -13,10 +13,11 @@ from django.contrib.auth import *
 from django.contrib.auth.decorators import *
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
-from TFT.forms import UserRegistrationForm,ListingForm,OfferForm
+from TFT.forms import *
 import datetime
 from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 
 listings = Listing.objects.order_by('date_created')[:10]
 offers = Offer.objects.order_by('date_created')[:10]
@@ -49,6 +50,33 @@ def browse(request):
         c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
+    
+def search(request):
+        searchstring = request.GET["searchtext"]
+        
+        #qgroup = reduce(operator.or_, Q(**{fieldname: searchstring}) for fieldname in fieldnames)
+        listings = Listing.objects.filter(Q(title__icontains=searchstring) | Q(description__icontains=searchstring))
+        
+        user=request.user
+        
+        #Pagination time
+        paginator = Paginator(listings,5)
+        page = request.GET.get('page')
+           
+        try:
+            listings = paginator.page(page)
+        except PageNotAnInteger:
+            listings = paginator.page(1)
+        except EmptyPage:
+            listings = paginator.page(paginator.num_pages)
+            
+        t = get_template('browse.html')
+        c["user"] = user
+        c["listings"] = listings
+        html = t.render(c)
+        return HttpResponse(html)
+            
+    
 
 def listingdetails(request):
         user=request.user
