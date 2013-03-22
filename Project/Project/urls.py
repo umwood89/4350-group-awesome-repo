@@ -51,6 +51,7 @@ urlpatterns = patterns('',
     
     ##### FORM URLS ######
     url(r'^new_listing$', newListing),
+    url(r'^new_offer/(?P<listing_id>\d+)$', newOffer),
     url(r'^deleteListing/(?P<listing_id>\d+)$', deleteListing),
     url(r'^listing_details/(?P<listing_id>\d+)$', listingDetails),
        
