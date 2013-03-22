@@ -5,7 +5,7 @@ from TFT.models import Listing, Offer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups')
+        fields = ('id', 'username', 'email', 'groups')
 
 class GroupSerializer(serializers.ModelSerializer):
     permissions = serializers.ManySlugRelatedField(
@@ -27,4 +27,4 @@ class ListingSerializer(serializers.ModelSerializer):
 class OfferSerializer(serializers.ModelSerializer):
     class Meta:
         model = Offer
-        fields = ('listing','title','description','user','photo','date_created')
+        fields = ('offer_id','listing','title','description','user','photo','date_created')
