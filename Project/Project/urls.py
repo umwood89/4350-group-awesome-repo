@@ -50,9 +50,8 @@ urlpatterns = patterns('',
     url(r'^api/register', registerjson),
     
     ##### FORM URLS ######
-    url(r'^new_listing/$', newListing),
-    
-    
+    url(r'^new_listing$', newListing),
+       
 
     
 )
