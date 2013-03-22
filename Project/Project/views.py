@@ -161,10 +161,33 @@ def newListing(request):
             newlisting.user = request.user
             form.save()
             return render_to_response("thanks.html")
-    else:
+    else
         form = ListingForm() # An unbound form
         return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
+    
+                    
+def deleteListing(request,listing_id):
+    
+    listing = Listing.objects.get(pk=listing_id);
+    listing.delete()
+    
+    t = get_template('browse.html')
+    html = t.render(c)
+    return HttpResponse(html)
+
+def listingDetails(request,listing_id):
+    
+    listing = Listing.objects.get(pk=listing_id)
+    offers_detail = Offer.objects.filter(listing=listing.listing_id)
+    c["listing_detail"] = listing
+    c["offers_detail"] = offers_detail
+    t = get_template('listing_details.html')
+    html = t.render(c)
+    return HttpResponse(html)
+
+
+
                              
 
 

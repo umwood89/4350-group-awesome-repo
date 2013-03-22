@@ -37,20 +37,22 @@ urlpatterns = patterns('',
     ##### API URLS ######
     #url(r'^api/$', 'TFT.views',name='api_root'),
     url(r'^api/users$', UserList.as_view(), name='user-list'),
-    url(r'^api/users/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),\
+    url(r'^api/users/(?P<pk>\d+)$', UserDetail.as_view(), name='user-detail'),\
     
     url(r'^api/groups$', GroupList.as_view(), name='group-list'),
-    url(r'^api/groups/(?P<pk>\d+)/$', GroupDetail.as_view(), name='group-detail'),
+    url(r'^api/groups/(?P<pk>\d+)$', GroupDetail.as_view(), name='group-detail'),
     
     url(r'^api/listings$', Listings.as_view(), name="listing-list"),
-    url(r'^api/listings/(?P<pk>\d+)/$', ListingDetail.as_view(), name="listing-detail"),
+    url(r'^api/listings/(?P<pk>\d+)$', ListingDetail.as_view(), name="listing-detail"),
     
     url(r'^api/offers$', Offers.as_view(), name="offer-list"),
-    url(r'^api/offers/(?P<pk>\d+)/$', OfferDetail.as_view(), name="offer-detail"),
+    url(r'^api/offers/(?P<pk>\d+)$', OfferDetail.as_view(), name="offer-detail"),
     url(r'^api/register', registerjson),
     
     ##### FORM URLS ######
     url(r'^new_listing$', newListing),
+    url(r'^deleteListing/(?P<listing_id>\d+)$', deleteListing),
+    url(r'^listing_details/(?P<listing_id>\d+)$', listingDetails),
        
 
     
