@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	// Initiate the carousel
 	$('#carouselRecentListings').carousel({
-		interval : 2000
+		interval : 3500
 	});
 	// Populate the registration form in our modal
 	$.get('/register', function(data) {

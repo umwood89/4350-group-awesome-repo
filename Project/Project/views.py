@@ -18,7 +18,7 @@ import datetime
 from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-listings = Listing.objects.order_by('date_created')[:3]
+listings = Listing.objects.order_by('date_created')[:10]
 offers = Offer.objects.order_by('date_created')[:10]
 listingForm = ListingForm
 c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )

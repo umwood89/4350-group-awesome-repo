@@ -2,68 +2,100 @@
 
 {% block content %}
 <div class="container">
-      <div class="hero-unit">
-        <h2>Trade your stuff. For free!</h2>
-        <p>Have something you don't want anymore? Need something but don't want to pay for it? ThisForThat is a website designed to give you the ability
-		to trade unwanted items for something that you want. ThisForThat is a place where you can post items, search for items, and trade for items in one convenient location.
-		Sign up today and let the trading begin!</p>
-        <p><a href="#reg-modal" role="button" data-toggle="modal" class="btn btn-primary btn-large">Sign up »</a></p>
-      </div>
-      
-      <div id="carouselRecentListings" class="carousel slide">
-	      <ol class="carousel-indicators">
-	         {% for listing in listings %}
-	            {% if forloop.counter0 == 0 %}
-	             <li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-	            {% else %}
-	              <li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}"></li>	
-	            {% endif %}
-	          {% endfor %}
-	       </ol>	 
-	              <!-- Carousel items -->	
-	      <div class="carousel-inner">
-	      {% for listing in listings %}
-	        {% if forloop.counter0 == 0 %}
-	          <div class="active item">
-	        {% else %}
-	          <div class="item">
-	        {% endif %}
-	          <img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" />
-	          <div class="carousel-caption">
-	            <h4>{{ listing.title }}</h4>
-	            <p>{{ listing.description }}</p>
-	          </div>
-	      </div>
-	      {% endfor %}
-	      
-	      <!-- Carousel nav --> 	 	
-	        <a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>	
-	        <a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
-	     </div>
-	     </div>
-	     </div>
-	
-	      <div class="row">
-			<div class="span4">
-	          <h3>Sign up!</h3>
-	          <p>Sign up is quick and easy. Just need your name, email address, and we're ready to go!</p>
-	          <p><a class="btn" href="#reg-modal" data-toggle="modal">Sign Up »</a></p>
-	        </div>
-	        <div class="span4">
-	          <h3>Have something to trade?</h3>
-	          <p>If you have something that you would like to get rid of, or something you just don't need anymore, upload it onto ThisForThat for others to see and offer you stuff for it!</p>
-	          <p><a class="btn" onClick="parent.location='/new_listing'">Upload an item »</a></p>
-	        </div>
-	        <div class="span4">
-	          <h3>Make an offer!</h3>
-	          <p>Find something you like? Make an offer! You never know, another person's trash can be your treasure!</p>
-	          <p><a class="btn" href="/browse">Browse Listings»</a></p>
-       		</div>
-      	</div>
-  	
+	<div class="hero-unit hidden-phone">
+
+		<table border="0">
+			<tr>
+				<td valign="top"><h2>Trade your stuff. For free!</h2>
+				
+					Have something you don't want anymore? Need something but don't want to pay for it? ThisForThat is a website designed to give you the ability
+					to trade unwanted items for something that you want. ThisForThat is a place where you can post items, search for items, and trade for items in one convenient location.
+					Sign up today and let the trading begin!
+				
+				<br><br>
+									<a href="#reg-modal" role="button" data-toggle="modal" class="btn btn-primary btn-large">Sign up »</a>
+				</td>
+				<td width="30px"> <div style="width:1px;height:200px;background-color:black;float:left;"></div></td>
+				
+				<td><!-- BEGIN CAROUSEL --->
+				<div id="carouselRecentListings" class="carousel slide">
+					<ol class="carousel-indicators">
+						{% for listing in listings %}
+						{% if forloop.counter0 == 0 %}
+						<li data-target="#carouselRecentListings" data-slide-to="0" class="active"></li>
+						{% else %}
+						<li data-target="#carouselRecentListings" data-slide-to="{{ forloop.counter0 }}"></li>
+						{% endif %}
+						{% endfor %}
+					</ol>
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+						{% for listing in listings %}
+						{% if forloop.counter0 == 0 %}
+						<div class="active item"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" />
+							<div class="carousel-caption">
+								<h4>{{ listing.title }}</h4>
+								<p>
+									{{ listing.description }}
+								</p>
+							</div>
+						</div>
+						{% else %}
+						<div class="item"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" />
+							<div class="carousel-caption">
+								<h4>{{ listing.title }}</h4>
+								<p>
+									{{ listing.description }}
+								</p>
+							</div>
+						</div>
+						{% endif %}
+
+						{% endfor %}
+					</div>
+					<!-- Carousel nav -->
+					<a class="carousel-control left" href="#carouselRecentListings" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#carouselRecentListings" data-slide="next">&rsaquo;</a>
+				</div><!-- END CAROUSEL ---></td>
+			</tr>
+
+		</table>
+
+	</div>
+
 </div>
-<script>$('#carouselRecentListings').carousel({
-		interval : 2000
-	});</script>
+
+<div class="row">
+	<div class="span4">
+		<h3>Have something to trade?</h3>
+		<p>
+			If you have something that you would like to get rid of, or something you just don't need anymore, upload it onto ThisForThat for others to see and offer you stuff for it!
+		</p>
+		<p>
+			<a class="btn" onClick="parent.location='/new_listing'">Upload an item »</a>
+		</p>
+	</div>
+	<div class="span4">
+		<h3>Sign up!</h3>
+		<p>
+			Sign up is quick, easy, and free. Just need your name, email address, and we're ready to go!
+		</p>
+		<p>
+			<a class="btn" href="#reg-modal" data-toggle="modal">Sign Up »</a>
+		</p>
+	</div>
+
+	<div class="span4">
+		<h3>Make an offer!</h3>
+		<p>
+			Find something you like? Make an offer! You never know, another person's trash can be your treasure!
+		</p>
+		<p>
+			<a class="btn" href="/browse">Browse Listings»</a>
+		</p>
+	</div>
+</div>
+
+</div>
 
 {% endblock %}
