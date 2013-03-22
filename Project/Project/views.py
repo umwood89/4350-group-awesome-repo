@@ -15,8 +15,9 @@ from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, 
 from TFT.forms import UserRegistrationForm,ListingForm
 import datetime
 from django.utils import simplejson
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-listings = Listing.objects.order_by('date_created')[:10]
+listings = Listing.objects.order_by('date_created')
 offers = Offer.objects.order_by('date_created')[:10]
 listingForm = ListingForm
 c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )
@@ -30,8 +31,21 @@ def home(request):
 
 def browse(request):
         user=request.user
+        listings = Listing.objects.order_by('date_created')
+        #Pagination time
+        paginator = Paginator(listings,4)
+        page = request.GET.get('page')
+        
+        try:
+            listings = paginator.page(page)
+        except PageNotAnInteger:
+            listings = paginator.page(1)
+        except EmptyPage:
+            listings = paginator.page(paginator.num_pages)
+            
         t = get_template('browse.html')
         c["user"] = user
+        c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
 

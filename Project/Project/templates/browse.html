@@ -31,6 +31,25 @@
 			</tr>
 		</tfoot>
 	</table>	
+	<div class="pagination">
+	    <span class="step-links">
+	        
+	
+	        <span class="current">
+	            Page {{ listings.number }} of {{ listings.paginator.num_pages }}
+	        </span>
+	        
+	        <br />
+	        
+	        {% if listings.has_previous %}
+	            <a href="?page={{ listings.previous_page_number }}">previous</a>
+	        {% endif %}
+	
+	        {% if listings.has_next %}
+	            <a href="?page={{ listings.next_page_number }}">next</a>
+	        {% endif %}
+	    </span>
+	</div>
 </div>
 
 
