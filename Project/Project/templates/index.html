@@ -15,10 +15,10 @@
 				<br><br>
 									<a href="#reg-modal" role="button" data-toggle="modal" class="btn btn-primary btn-large">Sign up »</a>
 				</td>
-				<td width="30px"> <div style="width:1px;height:200px;background-color:black;float:left;"></div></td>
+				<td width="30px"> <div style="width:1px;height:200px;background-color:black;float:left;" class="hidden-tablet"></div></td>
 				
 				<td><!-- BEGIN CAROUSEL --->
-				<div id="carouselRecentListings" class="carousel slide">
+				<div id="carouselRecentListings" class="carousel slide hidden-tablet">
 					<ol class="carousel-indicators">
 						{% for listing in listings %}
 						{% if forloop.counter0 == 0 %}
