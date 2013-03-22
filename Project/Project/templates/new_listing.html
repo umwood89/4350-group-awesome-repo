@@ -1,14 +1,16 @@
-{% extends "base.html" %}
-<form id="add_listing" action="/new_listing/" method="post">
+
+{% block content %}
+<form enctype="multipart/form-data" id="add_listing" action="/new_listing" method="POST">{% csrf_token %}
     {% for field in form %}
         <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }} {{ field }}
+            
+            {{ field.label_tag }} {{ field.errors }}{{ field }}
         </div>
     {% endfor %}
 <input class="btn btn-primary" type="submit" value="Add Listing">
 </form>
 
+<!--
 <script type="text/javascript">
 	$(function() {
 		$("#add_listing").submit(function(e) { 
@@ -30,3 +32,7 @@
 
 		});
 	}); 
+</script>
+!-->
+
+{% endblock %}
