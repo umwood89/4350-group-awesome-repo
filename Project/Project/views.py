@@ -1,6 +1,7 @@
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 from django.template import Template, Context, RequestContext
 from django.template.loader import get_template
 from rest_framework import generics
@@ -21,30 +22,30 @@ listingForm = ListingForm
 c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )
 
 def home(request):
-	user=request.user
-	t = get_template('index.html')
-	c["user"] = user
-	html = t.render(c)
-	return HttpResponse(html)
+        user=request.user
+        t = get_template('index.html')
+        c["user"] = user
+        html = t.render(c)
+        return HttpResponse(html)
 
 def browse(request):
-	user=request.user
-	t = get_template('browse.html')
-	c["user"] = user
-	html = t.render(c)
-	return HttpResponse(html)
+        user=request.user
+        t = get_template('browse.html')
+        c["user"] = user
+        html = t.render(c)
+        return HttpResponse(html)
 
 def listingdetails(request):
-	user=request.user
-	t = get_template('listing_details.html')
-	html = t.render(Context())
-	return HttpResponse(html)
+        user=request.user
+        t = get_template('listing_details.html')
+        html = t.render(Context())
+        return HttpResponse(html)
 
 def userhome(request):
-	user=request.user
-	t = get_template('user_home.html')
-	html = t.render(Context())
-	return HttpResponse(html)
+        user=request.user
+        t = get_template('user_home.html')
+        html = t.render(Context())
+        return HttpResponse(html)
 
 
 ####################################################################
@@ -62,52 +63,82 @@ def register(request):
         'form': form,
     })
     
-   
-# JSON method for logging in 
+@csrf_exempt
+def registerjson(request):
+    if request.method == 'POST':
+        try:
+            json_data = simplejson.loads(request.raw_post_data)
+            username = json_data['username'] 
+            password = json_data['password']
+            firstname = json_data['firstname']
+            lastname = json_data['lastname']
+            email = json_data['email']
+        except Exception as e:
+            errormessage= '%s (%s)' % (e.message, type(e))
+            return HttpResponseServerError(errormessage)
+        try:
+            newuser = User.objects.get(username=username)
+            return HttpResponse("Username already in use")
+        except:
+            try:
+                user = User.objects.create_user(username, email, password)
+                user.last_name = lastname
+                user.first_name = firstname
+                user.save()
+                return HttpResponse(simplejson.dumps({'result':'success'}))
+            except Exception as e:
+                errormessage= '%s (%s)' % (e.message, type(e))
+                return HttpResponseServerError(errormessage)
+    return HttpResponse(simplejson.dumps("You should not get here"))
+
+
+# JSON method for logging in
 def JSONcheckpassword(request):
-	try:
-		username = request.POST.get('username', '')
-		password = request.POST.get('password', '')
-		
-		user = authenticate(username=username, password=password)
-		if user is not None:
-			if user.is_active:
-				#login(user)
-				result = 'success'
-				return HttpResponse(simplejson.dumps({'result': result}))						
-	except:
-		result = 'error'
-	result = 'fail'
-	return HttpResponse(simplejson.dumps({'result': result}))
+        try:
+                username = request.POST.get('username', '')
+                password = request.POST.get('password', '')
+
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                        if user.is_active:
+                                #login(user)
+                                result = 'success'
+                                return HttpResponse(simplejson.dumps({'result': result}))
+        except:
+                result = 'error'
+        result = 'fail'
+        return HttpResponse(simplejson.dumps({'result': result}))
     
 # Set browser session via cookies
+@csrf_exempt
 def login(request):
-	try:
-		username = request.POST['username']
-		password = request.POST['password']
-		
-		user = authenticate(username=username, password=password)
-		if user is not None:
-			if user.is_active:
-				login(request, user)
-				return render_to_response('browse.html')
-				
-	except:
-		return render_to_response("index.html")
+        try:
+                username = request.POST['username']
+                password = request.POST['password']
+
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                        if user.is_active:
+                                login(request, user)
+                                return render_to_response('browse.html')
+
+        except:
+                return render_to_response("index.html")
 
 def logout(request):
-	try:
-		logout(user)
-	except:
-		return render_to_response("index.html")
-	return render_to_response("index.html")
+        try:
+                logout(user)
+        except:
+                return render_to_response("index.html")
+        return render_to_response("index.html")
 
 ####################################################################
 # FORM POSTING VIEWS
 ####################################################################
 def newListing(request):
     if request.method == 'POST': # If the form has been submitted...
-        form = ListingForm(request.POST) # A form bound to the POST data
+        #form = ListingForm(request.POST) # A form bound to the POST data
+        form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid(): # All validation rules pass
             form.save();
             return render_to_response("thanks.html")
@@ -115,7 +146,7 @@ def newListing(request):
         form = ListingForm() # An unbound form
     return render_to_response("new_listing.html", {
         'form': form,})
-    			     
+                             
 
 
 ####################################################################
@@ -190,4 +221,3 @@ class OfferDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     model = Offer
     serializer_class = OfferSerializer
-
