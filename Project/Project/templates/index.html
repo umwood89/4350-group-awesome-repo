@@ -15,7 +15,7 @@
 				<br><br>
 									<a href="#reg-modal" role="button" data-toggle="modal" class="btn btn-primary btn-large">Sign up »</a>
 				</td>
-				<td width="30px"> <div style="width:1px;height:200px;background-color:black;float:left;" class="hidden-tablet"></div></td>
+				<td width="30px"> <div style="width:1px;height:325px;background-color:black;float:left;" class="hidden-tablet"></div></td>
 				
 				<td><!-- BEGIN CAROUSEL --->
 				<div id="carouselRecentListings" class="carousel slide hidden-tablet">
@@ -34,18 +34,18 @@
 						{% if forloop.counter0 == 0 %}
 						<div class="active item"><a href="/listing_details/{{listing.listing_id}}"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" /></a>
 							<div class="carousel-caption">
-								<h4>{{ listing.title }}</h4>
+								<h4>{{ listing.title|truncatechars:45 }}</h4>
 								<p>
-									{{ listing.description }}
+									{{ listing.description|truncatechars:90 }}
 								</p>
 							</div>
 						</div>
 						{% else %}
 						<div class="item"><a href="/listing_details/{{listing.listing_id}}"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" /></a>
 							<div class="carousel-caption">
-								<h4>{{ listing.title }}</h4>
+								<h4>{{ listing.title|truncatechars:45 }}</h4>
 								<p>
-									{{ listing.description }}
+									{{ listing.description|truncatechars:90 }}
 								</p>
 							</div>
 						</div>

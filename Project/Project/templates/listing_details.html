@@ -7,11 +7,11 @@
    <img src="/static/media/{{listing_detail.photo}}" height="300px" width="300px"></img>
   </div>
   <div style="float:justified;">   
-   <div id="titlediv" style="float:justified;height:25px; style="margin-bottom: 10px"">
+   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
     <h2 id="lblTitle">{{ listing_detail.title }}</h2>
    </div>
-   <div id="descdiv" style="text-align:left;float:justified;align:left; margin-top: 20px">
-    <p>{{ listing_detail.description }} </p>
+   <div id="descdiv" style="text-align:left;float:justified;align:left; margin-top: -20px">
+    {{ listing_detail.description }}
    </div>
   </div>
  </div>
