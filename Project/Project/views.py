@@ -9,7 +9,8 @@ from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
 from django.contrib.auth.models import User, Group, Permission
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import *
+from django.contrib.auth.decorators import *
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
 from TFT.forms import UserRegistrationForm,ListingForm
@@ -17,7 +18,7 @@ import datetime
 from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-listings = Listing.objects.order_by('date_created')
+listings = Listing.objects.order_by('date_created')[:3]
 offers = Offer.objects.order_by('date_created')[:10]
 listingForm = ListingForm
 c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )
@@ -150,16 +151,20 @@ def logout(request):
 # FORM POSTING VIEWS
 ####################################################################
 @csrf_exempt
+@login_required(login_url='/login')
 def newListing(request):
     if request.method == 'POST': # If the form has been submitted...
         form = ListingForm(request.POST,request.FILES) # A form bound to the POST data
-        #form = UploadFileForm(request.POST, request.FILES)
+        
         if form.is_valid(): # All validation rules pass
-            form.save();
+            newlisting = form.save(commit=False);
+            newlisting.user = request.user
+            form.save()
             return render_to_response("thanks.html")
     else:
         form = ListingForm() # An unbound form
-    return render_to_response("new_listing.html", {'form': form,})
+        return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
+    return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
                              
 
 

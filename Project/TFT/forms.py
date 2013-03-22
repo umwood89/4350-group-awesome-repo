@@ -11,6 +11,7 @@ from TFT.models import Listing
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
+        exclude = ('user','trade_completed','date_completed',)
         
 class UserRegistrationForm(forms.Form):
     username = forms.CharField(max_length=30, widget=forms.TextInput(), label=("User Name"))
