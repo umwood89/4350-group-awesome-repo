@@ -32,7 +32,7 @@
 					<div class="carousel-inner">
 						{% for listing in listings %}
 						{% if forloop.counter0 == 0 %}
-						<div class="active item"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" />
+						<div class="active item"><a href="/listing_details/{{listing.listing_id}}"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" /></a>
 							<div class="carousel-caption">
 								<h4>{{ listing.title }}</h4>
 								<p>
@@ -41,7 +41,7 @@
 							</div>
 						</div>
 						{% else %}
-						<div class="item"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" />
+						<div class="item"><a href="/listing_details/{{listing.listing_id}}"><img id="carouselImage" src="/static/media/{{ listing.photo }}" alt="" /></a>
 							<div class="carousel-caption">
 								<h4>{{ listing.title }}</h4>
 								<p>
