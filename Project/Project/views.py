@@ -135,17 +135,17 @@ def logout(request):
 ####################################################################
 # FORM POSTING VIEWS
 ####################################################################
+@csrf_exempt
 def newListing(request):
     if request.method == 'POST': # If the form has been submitted...
-        #form = ListingForm(request.POST) # A form bound to the POST data
-        form = UploadFileForm(request.POST, request.FILES)
+        form = ListingForm(request.POST,request.FILES) # A form bound to the POST data
+        #form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid(): # All validation rules pass
             form.save();
             return render_to_response("thanks.html")
     else:
         form = ListingForm() # An unbound form
-    return render_to_response("new_listing.html", {
-        'form': form,})
+    return render_to_response("new_listing.html", {'form': form,})
                              
 
 

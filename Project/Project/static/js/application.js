@@ -8,7 +8,7 @@ $(document).ready(function() {
 		$('#registrationform').html(data);
 	});
 	// Populate the registration form in our modal
-	$.get('/new_listing/', function(data) {
+	$.get('/new_listing', function(data) {
 		$('#addListingModalBody').html(data);
 	});		
 });
