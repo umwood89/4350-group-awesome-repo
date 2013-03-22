@@ -21,33 +21,33 @@ urlpatterns = patterns('',
     ###### Application base functionality ######
     url(r'^$', home),
     url(r'^browse$', browse),
-    url(r'^listingdetails/$', listingdetails),
-    url(r'^userhome/$', userhome),
+    url(r'^listingdetails$', listingdetails),
+    url(r'^userhome$', userhome),
     
     ###### Login and Authentication ######
     #url(r'^login/$', login),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
-    (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+    (r'^login$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
     (r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     
-    url(r'^JSONcheckpassword/$', JSONcheckpassword),
+    url(r'^JSONcheckpassword$', JSONcheckpassword),
 
     url(r'^register$', register),
     
     ##### API URLS ######
     #url(r'^api/$', 'TFT.views',name='api_root'),
-    url(r'^api/users/$', UserList.as_view(), name='user-list'),
+    url(r'^api/users$', UserList.as_view(), name='user-list'),
     url(r'^api/users/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),\
     
-    url(r'^api/groups/$', GroupList.as_view(), name='group-list'),
+    url(r'^api/groups$', GroupList.as_view(), name='group-list'),
     url(r'^api/groups/(?P<pk>\d+)/$', GroupDetail.as_view(), name='group-detail'),
     
-    url(r'^api/listings/$', Listings.as_view(), name="listing-list"),
+    url(r'^api/listings$', Listings.as_view(), name="listing-list"),
     url(r'^api/listings/(?P<pk>\d+)/$', ListingDetail.as_view(), name="listing-detail"),
     
-    url(r'^api/offers/$', Offers.as_view(), name="offer-list"),
+    url(r'^api/offers$', Offers.as_view(), name="offer-list"),
     url(r'^api/offers/(?P<pk>\d+)/$', OfferDetail.as_view(), name="offer-detail"),
-    url(r'^api/register/', registerjson),
+    url(r'^api/register', registerjson),
     
     ##### FORM URLS ######
     url(r'^new_listing/$', newListing),

@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <form id="add_listing" action="/new_listing/" method="post">{% csrf_token %}
     {% for field in form %}
         <div class="fieldWrapper">
