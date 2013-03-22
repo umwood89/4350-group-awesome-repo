@@ -3,6 +3,11 @@
 <div id="app" class="container">
 	<h2>Browse Listings</h2>
 	
+	<tfoot>
+			<tr>
+				<td colspan="5"><button class="btn btn-primary" href="/new_listing" data-toggle="modal">Add new listing</button></td>
+			</tr>
+	</tfoot>
 	<table class="table table-striped" id="listings_table">
 		<thead>
 			<tr>
@@ -14,22 +19,17 @@
 		</thead>
 		<tr>
 			{% for listing in listings %}
-				<td><img src="/static/media/{{ listing.photo }}"></td>
-				<td>{{ listing.title }}</td>
-				<td>{{ listing.description }}</td>
-				<td>{{ listing.date_created }}</td>
-				<td><a href="/api/listings/{{listing.listing_id}}">View</a></td>
+				<td width="150px"><img width="150" height="300" src="/static/media/{{ listing.photo }}"></td>
+				<td width="150px">{{ listing.title }}</td>
+				<td width="300px">{{ listing.description }}</td>
+				<td width="200px">{{ listing.date_created }}</td>
+				<td width="100px"><a href="/listingdetails">View details</a></td>
 				<td>
 					<a href="#" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
 					<a href="#" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
 				</td>
 		</tr>
 			{% endfor %}
-		<tfoot>
-			<tr>
-				<td colspan="5"><button class="btn btn-primary" href="#addListingModal" data-toggle="modal">Add new listing</button></td>
-			</tr>
-		</tfoot>
 	</table>	
 	<div class="pagination">
 	    <span class="step-links">
