@@ -10,7 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-LOGIN_REDIRECT_URL = '/browse/'
+LOGIN_REDIRECT_URL = '/browse'
 
 DATABASES = {
     'default': {

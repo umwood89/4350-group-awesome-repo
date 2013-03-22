@@ -18,7 +18,7 @@
 
 			$.ajax({
 				type : "POST",
-				url : "/new_listing/",
+				url : "/new_listing",
 				data : dataString,
 				success : function(data) {
 					$('#addListingModalBody').html(data)

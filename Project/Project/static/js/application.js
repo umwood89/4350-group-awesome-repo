@@ -48,7 +48,7 @@ $(function() {
 
 		$.ajax({
 			type : "POST",
-			url : "/JSONcheckpassword/",
+			url : "/JSONcheckpassword",
 			contentType : "application/json",
 			data : dataString,
 			dataType : "json",
