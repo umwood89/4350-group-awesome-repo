@@ -48,6 +48,9 @@
  	<td>{{offer.title}}</td>
     <td>{{offer.description}}</td>
     <td>{{offer.date_created}}</td>
+ 	{% if user.is_authenticated and user.id == listing_detail.user.id %}
+ 	<td><a href="/accept_offer/{{listing.listing_id}}">Accept offer</a></td>
+ 	{% endif %}
  	{% endfor %}
    </tr>
    </tbody>
@@ -62,15 +65,18 @@
 	        <br />
 	        
 	        {% if offers_detail.has_previous %}
-	            <a href="?page={{ offers_detail.previous_page_number }}">&gt;</a>
+	            <a href="?page={{ offers_detail.previous_page_number }}">&lt;</a>
 	        {% endif %}
 	
 	        {% if offers_detail.has_next %}
-	            <a href="?page={{ offers_detail.next_page_number }}">&lt;</a>
+	            <a href="?page={{ offers_detail.next_page_number }}">&gt;</a>
 	        {% endif %}
 	    </span>
 	    {% endif %}
   </div>
+  {% if user.is_authenticated and not user.id == listing_detail.user.id %}
+  <button class="btn btn-primary" onClick="parent.location='/new_offer/{{listing_detail.listing_id}}'">Make an offer!</button>
+  {% endif %}
         </div>
       </div>
 </div>

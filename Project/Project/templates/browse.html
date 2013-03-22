@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="app" class="container">
+	<tfoot>
+		<tr>
+			<td colspan="5"><button class="btn btn-primary" onClick="parent.location='/new_listing'">Add new listing</button></td>
+		</tr>
+	</tfoot>
 	<h2>Browse Listings</h2>
 	
-	<tfoot>
-			<tr>
-				<td colspan="5"><button class="btn btn-primary" onClick="parent.location='/new_listing'">Add new listing</button></td>
-			</tr>
-	</tfoot>
+
 	<table class="table table-striped" id="listings_table">
 		<thead>
 			<tr>
@@ -26,7 +27,7 @@
 				<td width="100px"><a href="/listing_details/{{listing.listing_id}}">View details</a></td>
 				<td>
 					{% if user.is_authenticated and user.id == listing.user.id %}
-					<a href="/edit/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+					<a href="/editListing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
 					<a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
 					{% endif %}
 				</td>
@@ -44,11 +45,11 @@
 	        <br />
 	        
 	        {% if listings.has_previous %}
-	            <a href="?page={{ listings.previous_page_number }}">previous</a>
+	            <a href="?page={{ listings.previous_page_number }}">&lt;</a>
 	        {% endif %}
 	
 	        {% if listings.has_next %}
-	            <a href="?page={{ listings.next_page_number }}">next</a>
+	            <a href="?page={{ listings.next_page_number }}">&gt;</a>
 	        {% endif %}
 	    </span>
 	</div>

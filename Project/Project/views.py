@@ -13,7 +13,7 @@ from django.contrib.auth import *
 from django.contrib.auth.decorators import *
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
-from TFT.forms import UserRegistrationForm,ListingForm
+from TFT.forms import UserRegistrationForm,ListingForm,OfferForm
 import datetime
 from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -165,7 +165,28 @@ def newListing(request):
         form = ListingForm() # An unbound form
         return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
-    
+
+@login_required(login_url='/login')
+def newOffer(request,listing_id):
+    listing = Listing.objects.get(pk=listing_id)
+    if request.method == 'POST': # If the form has been submitted...
+        form = OfferForm(request.POST,request.FILES) # A form bound to the POST data
+        
+        if form.is_valid(): # All validation rules pass
+            newOffer = form.save(commit=False)
+            newOffer.user = request.user
+            newOffer.listing = listing
+            form.save()
+            return render_to_response("thanks.html")
+    else:
+        form = OfferForm() # An unbound form
+        c["form"] = form
+        c["user"] = request.user
+        c["listing"] = listing
+        t = get_template('new_offer.html')
+        html = t.render(c)
+        return HttpResponse(html)
+        
                     
 def deleteListing(request,listing_id):
     
@@ -193,6 +214,7 @@ def listingDetails(request,listing_id):
     
     c["listing_detail"] = listing
     c["offers_detail"] = offers_detail
+    c["user"] = request.user;
     t = get_template('listing_details.html')
     html = t.render(c)
     return HttpResponse(html)
