@@ -33,7 +33,7 @@ def browse(request):
         user=request.user
         listings = Listing.objects.order_by('date_created')
         #Pagination time
-        paginator = Paginator(listings,4)
+        paginator = Paginator(listings,5)
         page = request.GET.get('page')
         
         try:
