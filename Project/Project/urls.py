@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     ###### Application base functionality ######
     url(r'^$', home),
-    url(r'^browse/$', browse),
+    url(r'^browse$', browse),
     url(r'^listingdetails/$', listingdetails),
     url(r'^userhome/$', userhome),
     
