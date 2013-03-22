@@ -52,6 +52,25 @@
    </tr>
    </tbody>
   </table>
+  <div class="pagination">
+  		{% if offers_detail %}
+	    <span class="step-links">
+	        <span class="current">
+	            Page {{ offers_detail.number }} of {{ offers_detail.paginator.num_pages }}
+	        </span>
+	        
+	        <br />
+	        
+	        {% if offers_detail.has_previous %}
+	            <a href="?page={{ offers_detail.previous_page_number }}">&gt;</a>
+	        {% endif %}
+	
+	        {% if offers_detail.has_next %}
+	            <a href="?page={{ offers_detail.next_page_number }}">&lt;</a>
+	        {% endif %}
+	    </span>
+	    {% endif %}
+  </div>
         </div>
       </div>
 </div>

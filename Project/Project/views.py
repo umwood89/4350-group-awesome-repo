@@ -175,6 +175,17 @@ def listingDetails(request,listing_id):
     
     listing = Listing.objects.get(pk=listing_id)
     offers_detail = Offer.objects.filter(listing=listing.listing_id)
+    
+    paginator = Paginator(offers_detail,5)
+    page = request.GET.get('page')
+    
+    try:
+        offers_detail = paginator.page(page)
+    except PageNotAnInteger:
+        offers_detail = paginator.page(1)
+    except EmptyPage:
+        offers_detail = paginator.page(paginator.num_pages)
+    
     c["listing_detail"] = listing
     c["offers_detail"] = offers_detail
     t = get_template('listing_details.html')
