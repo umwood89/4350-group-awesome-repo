@@ -28,11 +28,11 @@ urlpatterns = patterns('',
     #url(r'^login/$', login),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
-    (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
-    #(r'^logout/$', logout),
+    (r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    
     url(r'^JSONcheckpassword/$', JSONcheckpassword),
 
-    url(r'^register/$', register),
+    url(r'^register$', register),
     
     ##### API URLS ######
     #url(r'^api/$', 'TFT.views',name='api_root'),
