@@ -1,4 +1,4 @@
-
+{% extends "base.html" %}
 {% block content %}
 <form enctype="multipart/form-data" id="add_listing" action="/new_listing" method="POST">{% csrf_token %}
     {% for field in form %}
