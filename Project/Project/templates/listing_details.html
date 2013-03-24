@@ -49,7 +49,7 @@
     <td>{{offer.description}}</td>
     <td>{{offer.date_created}}</td>
  	{% if user.is_authenticated and user.id == listing_detail.user.id %}
- 	<td><a href="/accept_offer/{{listing.listing_id}}">Accept offer</a></td>
+ 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>
  	{% endif %}
  	{% endfor %}
    </tr>

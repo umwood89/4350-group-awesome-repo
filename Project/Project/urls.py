@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^search$', search),
     url(r'^listingdetails$', listingdetails),
     url(r'^userhome$', userhome),
+
     
     ###### Login and Authentication ######
     #url(r'^login/$', login),
@@ -55,7 +56,7 @@ urlpatterns = patterns('',
     url(r'^new_offer/(?P<listing_id>\d+)$', newOffer),
     url(r'^deleteListing/(?P<listing_id>\d+)$', deleteListing),
     url(r'^listing_details/(?P<listing_id>\d+)$', listingDetails),
-       
+    url(r'^accept_offer/(?P<offer_id>\d+)$', acceptOffer),
 
     
 )

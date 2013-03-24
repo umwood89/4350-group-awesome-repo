@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import *
 from TFT.models import Listing, Offer
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
 from TFT.forms import *
-import datetime
+from datetime import *
 from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
@@ -214,7 +214,21 @@ def newOffer(request,listing_id):
         t = get_template('new_offer.html')
         html = t.render(c)
         return HttpResponse(html)
+ 
+@login_required(login_url='/login')
+def acceptOffer(request,offer_id):
+    try:
+        offer = Offer.objects.get(pk=offer_id)
+        offer.offer_accepted = 0
+        offer.date_accepted = datetime.now()
+        offer.save()
+        html = "success"
+        return HttpResponse(html)
+    except Exception as e:
+        html = '%s (%s)' % (e.message, type(e))
+        return HttpResponseServerError(html)
         
+    return HttpResponse(html)       
                     
 def deleteListing(request,listing_id):
     
