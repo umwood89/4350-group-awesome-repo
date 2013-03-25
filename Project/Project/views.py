@@ -321,7 +321,7 @@ def listingDetails(request,listing_id):
     listing = Listing.objects.get(pk=listing_id)
     offers_detail = Offer.objects.filter(listing=listing.listing_id)
     
-    paginator = Paginator(offers_detail,5)
+    paginator = Paginator(offers_detail,3)
     page = request.GET.get('page')
     
     try:

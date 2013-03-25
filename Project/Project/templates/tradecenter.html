@@ -15,8 +15,8 @@
     <tbody>
   	{% for listing in user_listings %}
    <tr> 
- 	<td><a href="/listing_details/{{listing.listing_id}}">{{listing.title}}</a></td>
-    <td>{{listing.description}}</td>
+ 	<td><a href="/listing_details/{{listing.listing_id}}">{{listing.title|truncatechars:70}}</a></td>
+    <td>{{listing.description|truncatechars:100}}</td>
     <td>{{listing.date_created}}</td>
  	<td>{{listing.offerCount }}</td>
  	<td>
@@ -45,7 +45,19 @@
    <tr> 
  	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title|truncatechars:70}}</a></td>
     <td><a href="/listing_details/{{offer.listing_id}}">{{offer.listingTitle|truncatechars:70}}</a></td>
-    <td>{{offer.status}}</td>
+    <td>
+ 		{%if offer.status == "Accepted"%}
+ 			<span class="label label-success" >
+ 		{%elif offer.status == "Pending"%}
+ 			<span class="label label-warning" >
+ 		{%elif offer.status == "Not Accepted" %}
+ 			<span class="label label-important" >
+ 		{% else %}
+ 			<span class="label label-info" >
+ 		{% endif %}
+ 		{{offer.status}}</span>
+ 			
+ 	</td>
  	<td>
  		<a href="/update_offer/{{offer.offer_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
 		<a href="/cancel_offer/{{offer.offer_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
