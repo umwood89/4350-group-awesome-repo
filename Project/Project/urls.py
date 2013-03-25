@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^browse$', browse),
     url(r'^search$', search),
     url(r'^tradecenter$', tradeCenter),
+    url(r'^profiles/(?P<user_id>\d+)$', viewProfile),
+    url(r'^EditProfile', editProfile),
     
     ###### Login and Authentication ######
     #url(r'^login/$', login),
