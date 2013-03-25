@@ -15,10 +15,14 @@
     <tbody>
   	{% for listing in user_listings %}
    <tr> 
- 	<td>{{listing.title}}</td>
+ 	<td><a href="/listing_details/{{listing.listing_id}}">{{listing.title}}</a></td>
     <td>{{listing.description}}</td>
     <td>{{listing.date_created}}</td>
  	<td>{{listing.offerCount }}</td>
+ 	<td>
+ 		<a href="/update_listing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+		<a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
+	</td>
    </tr>
    	{% empty %}
   	<td>You have no listings</td>
@@ -42,6 +46,10 @@
  	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title|truncatechars:70}}</a></td>
     <td><a href="/listing_details/{{offer.listing_id}}">{{offer.listingTitle|truncatechars:70}}</a></td>
     <td>{{offer.status}}</td>
+ 	<td>
+ 		<a href="/update_offer/{{offer.offer_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+		<a href="/cancel_offer/{{offer.offer_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
+	</td>
    </tr>
    	{% empty %}
   	<td>You've made no offers.</td>

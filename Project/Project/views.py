@@ -303,6 +303,10 @@ def cancelOffer(request,offer_id):
 def deleteListing(request,listing_id):
     listing = Listing.objects.get(pk=listing_id);
     if listing.user_id == request.user.id:
+        for offer in Offer.objects.all():
+            if offer.listing.listing_id == listing.listing_id:
+                offer.delete()
+        
         listing.delete()
         return render_to_response("thanks.html",{'message':'deleted your listing! ','location':'tradecenter'})
     else: 
