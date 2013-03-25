@@ -205,7 +205,7 @@ def newOffer(request,listing_id):
             newOffer.user = request.user
             newOffer.listing = listing
             form.save()
-            return render_to_response("thanks.html")
+            return render_to_response("listing_details.html/" + listing.listing_id)
     else:
         form = OfferForm() # An unbound form
         c["form"] = form

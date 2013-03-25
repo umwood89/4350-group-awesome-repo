@@ -18,20 +18,26 @@
 				<th>Date Posted</th>
 			</tr>
 		</thead>
-		<tr>
+		
 			{% for listing in listings %}
+			<tr>
 				<td width="150px"><img width="150" height="300" src="/static/media/{{ listing.photo }}"></td>
 				<td width="150px">{{ listing.title|truncatechars:100 }}</td>
-				<td width="300px">{{ listing.description|truncatechars:200 }}</td>
+				<td width="300px">{{ listing.description|truncatechars:150 }}</td>
 				<td width="200px">{{ listing.date_created }}</td>
 				<td width="100px"><a href="/listing_details/{{listing.listing_id}}">View details</a></td>
 				<td>
-					{% if user.is_authenticated and user.id == listing.user.id %}
+					{% if user.is_authenticated and user.id == listing.user.id and listing.trade_completed == 0%}
 					<a href="/editListing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
 					<a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
 					{% endif %}
 				</td>
-		</tr>
+				{% if listing.trade_completed == 1%}
+				<td><strong>Trade Completed!</strong></td>
+				{% else %}
+				<td></td>
+				{% endif %}
+			</tr>
 			{% endfor %}
 	</table>	
 	<div class="pagination">
