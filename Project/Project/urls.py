@@ -21,7 +21,6 @@ urlpatterns = patterns('',
     url(r'^$', home),
     url(r'^browse$', browse),
     url(r'^search$', search),
-    url(r'^listingdetails$', listingdetails),
     url(r'^userhome$', userhome),
 
     
@@ -53,10 +52,14 @@ urlpatterns = patterns('',
     ##### FORM URLS ######
     url(r'^new_listing$', newListing),
     url(r'^update_listing/(?P<listing_id>\d+)$', updateListing),
+    url(r'^listing_details/(?P<listing_id>\d+)$', listingDetails),
+    
     url(r'^new_offer/(?P<listing_id>\d+)$', newOffer),
     url(r'^update_offer/(?P<offer_id>\d+)$', updateOffer),
+    url(r'^offer_details/(?P<offer_id>\d+)$', offerDetails),
+    
     url(r'^deleteListing/(?P<listing_id>\d+)$', deleteListing),
-    url(r'^listing_details/(?P<listing_id>\d+)$', listingDetails),
+
     url(r'^accept_offer/(?P<offer_id>\d+)$', acceptOffer),
 
     

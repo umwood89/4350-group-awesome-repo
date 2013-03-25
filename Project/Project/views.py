@@ -75,14 +75,6 @@ def search(request):
         c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
-            
-    
-
-def listingdetails(request):
-        user=request.user
-        t = get_template('listing_details.html')
-        html = t.render(Context())
-        return HttpResponse(html)
 
 def userhome(request):
         user=request.user
@@ -309,6 +301,16 @@ def listingDetails(request,listing_id):
     c["offers_detail"] = offers_detail
     c["user"] = request.user;
     t = get_template('listing_details.html')
+    html = t.render(c)
+    return HttpResponse(html)
+
+def offerDetails(request,offer_id):
+    
+    offer = Offer.objects.get(pk=offer_id)
+    
+    c["offer_detail"] = offer
+    c["user"] = request.user;
+    t = get_template('offer_details.html')
     html = t.render(c)
     return HttpResponse(html)
 

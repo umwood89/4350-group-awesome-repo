@@ -51,7 +51,7 @@
 			   <tr>		
 			 		<td><a href="/static/media/{{offer.photo}}"><img width="100px" height="100px" src="/static/media/{{offer.photo}}" /></a></td>
 				    <td>{{offer.user.username}}</td>
-				 	<td>{{offer.title}}</td>
+				 	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title}}</a></td>
 				    <td>{{offer.description}}</td>
 				    <td>{{offer.date_created}}</td>
 					 {% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
