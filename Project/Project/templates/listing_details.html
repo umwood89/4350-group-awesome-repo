@@ -1,91 +1,123 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Listing Details</h1>
 <div class="container">
  <div style="min-height:100px;">
-  <div id="imagediv" style="float:left;margin-right:10px;">   
-   <a href="/static/media/{{listing_detail.photo}}"><img src="/static/media/{{listing_detail.photo}}" height="300px" width="300px"></img></a>
-  </div>
-  
+  <table>
+		<tr>
+			<td>
+				<div id="imagediv" style="float:left;margin-right:10px;">   
+  				 	<a href="/static/media/{{listing_detail.photo}}"><img src="/static/media/{{listing_detail.photo}}" height="200px" width="200px"/></a>
+  				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div style="margin-left: 20p" >   
+				   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
+				    <h3 id="lblTitle">{{ listing_detail.title }}</h2>
+				 	{% if listing_detail.trade_completed%}
+				 	<h2><font color="grey" >(Trade Completed)</font></h2>
+				 	{% endif %}
+				   </div>
+				   <div class="well" id="descdiv" style="text-align:left;float:justified;align:left; margin-top: -20px">
+				    {{ listing_detail.description }}
+				   </div>
+				</div>
+			</td>
+		</tr>	
+	</table>
  </div>
- <div >   
-   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
-    <h2 id="lblTitle">{{ listing_detail.title }}</h2>
- 	{% if listing_detail.trade_completed%}
- 	<h2><font color="grey" >(Trade Completed)</font></h2>
- 	{% endif %}
-   </div>
-   <div id="descdiv" style="text-align:left;float:justified;align:left; margin-top: -20px">
-    {{ listing_detail.description }}
-   </div>
-  </div>
  <hr>
  <div class="row">
-  <div class="span6">
-   <table>
-    <tr>
-     <td>
-      <h2>Contact Information</h2>
-      <div id="userinfodiv" style="width:400px float: left;">
-       <p><strong>Username: </strong> {{listing_detail.user.username}}</p>
-       <p><strong>Email: </strong>{{listing_detail.user.email}}</p>
-      </div>
-     </td>
-    </tr>
-   </table>
-        </div>
-  <div class="span6">
-          <h2>Offers</h2>
-		  <table class="table table-striped">
-		   	<thead>
-		    	<tr>
-		 		 <th>Photo</th>
-			 	 <th>Title</th>
-			     <th>Description</th>
-			 	 <th>Username</th>
-			     <th>Date Offered</th>
-		    	</tr>
-		   </thead>
-		   <tbody>
-		 	{% for offer in offers_detail %}
-			   <tr>		
-			 		<td><a href="/static/media/{{offer.photo}}"><img width="100px" height="100px" src="/static/media/{{offer.photo}}" /></a></td>
-				 	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title}}</a></td>
-				    <td>{{offer.description}}</td>
-				 	<td>{{offer.user.username}}</td>
-				    <td>{{offer.date_created}}</td>
-					 {% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
-					 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>
-					 	{% endif %}
-					 {% empty %}
-					  <td colspan="4">No offers yet! Make one now!</td>
-			 	{% endfor %}
-			 </tr>
-   </tbody>
-  </table>
-  <div class="pagination">
-  		{% if offers_detail %}
-	    <span class="step-links">
-	        <span class="current">
-	            Page {{ offers_detail.number }} of {{ offers_detail.paginator.num_pages }}
-	        </span>
-	        
-	        <br />
-	        
-	        {% if offers_detail.has_previous %}
-	            <a href="?page={{ offers_detail.previous_page_number }}">&lt;</a>
-	        {% endif %}
-	
-	        {% if offers_detail.has_next %}
-	            <a href="?page={{ offers_detail.next_page_number }}">&gt;</a>
-	        {% endif %}
-	    </span>
-	    {% endif %}
-  </div>
-  {% if user.is_authenticated and not user.id == listing_detail.user.id and listing_detail.trade_completed == 0 %}
-  <button class="btn btn-primary" onClick="parent.location='/new_offer/{{listing_detail.listing_id}}'">Make an offer!</button>
-  {% endif %}
-        </div>
-      </div>
+  	<div class="span6">
+	 		<tr>
+	 			<td>
+          		  <h2>Offers</h2>
+ 				  {% if user.is_authenticated and not user.id == listing_detail.user.id and listing_detail.trade_completed == 0 %}
+				  <button class="btn btn-primary" onClick="parent.location='/new_offer/{{listing_detail.listing_id}}'">Make an offer!</button>
+				  {% endif %}
+				  <table class="table table-striped">
+				   	<thead>
+				    	<tr>
+				 		 <th>Photo</th>
+					 	 <th>Title</th>
+					     <th>Description</th>
+					 	 <th>Username</th>
+					     <th>Date Offered</th>
+				    	</tr>
+				   </thead>
+				   <tbody>
+				 	{% for offer in offers_detail %}
+					   <tr>		
+					 		<td><a href="/static/media/{{offer.photo}}"><img width="100px" height="100px" src="/static/media/{{offer.photo}}" /></a></td>
+						 	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title|truncatechars:70}}</a></td>
+						    <td>{{offer.description|truncatechars:100}}</td>
+						 	<td>{{offer.user.username}}</td>
+						    <td width="175px">{{offer.date_created}}</td>
+							 {% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
+							 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>
+							 	{% endif %}
+							 {% empty %}
+							  <td colspan="4">No offers yet.</td>
+					 	{% endfor %}
+					 </tr>
+				   </tbody>
+				  </table>
+				  <div class="pagination">
+				  		{% if offers_detail %}
+					    <span class="step-links">
+					        <span class="current">
+					            Page {{ offers_detail.number }} of {{ offers_detail.paginator.num_pages }}
+					        </span>
+					        
+					        <br />
+					        
+					        {% if offers_detail.has_previous %}
+					            <a href="?page={{ offers_detail.previous_page_number }}">&lt;</a>
+					        {% endif %}
+					
+					        {% if offers_detail.has_next %}
+					            <a href="?page={{ offers_detail.next_page_number }}">&gt;</a>
+					        {% endif %}
+					    </span>
+					    {% endif %}
+				  </div>
+				  
+		 </td>
+	 		</tr>
+	 	 <tr>
+	 	 	<td width="600px" valign="top">
+	 			<h2>Contact Information</h2>
+			   <table>
+			    <tr>
+			     <td valign="top">
+				 	<table>
+				 		<tr>
+				 			<td align="right">
+				 				<strong>Username:&nbsp;&nbsp; </strong>
+				 			</td>
+				 			<td>
+				 				{{listing_detail.user.username}}
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<strong>Email:&nbsp;&nbsp; </strong>
+				 			</td>
+				 			<td>
+				 				{{listing_detail.user.email}}
+				 			</td>
+				 		</tr>
+				 	</table>
+			     </td>
+			    </tr>
+			   </table>
+	 		</td>
+	 	 </tr>
+	 	</table>
+ 	</div>
+   </div>
 </div>
 {% endblock %}

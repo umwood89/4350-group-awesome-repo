@@ -276,10 +276,10 @@ def newListing(request):
             newlisting = form.save(commit=False);
             newlisting.user = request.user
             form.save()
-            return render_to_response("thanks.html")
+            return render_to_response("thanks.html",{'location':"browse", 'message':'added a listing!'})
     else:
         form = ListingForm() # An unbound form
-        return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
+        
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
 
 def updateListing(request, listing_id):
@@ -287,7 +287,7 @@ def updateListing(request, listing_id):
     if request.method == 'POST': # If the form has been submitted...
         form = ListingForm(request.POST or None,request.FILES, instance=listing) # A form bound to the POST data
         form.save()
-        return render_to_response("thanks.html")
+        return render_to_response("thanks.html",{'location':"listing_details/" + str(listing.listing_id), 'message':'updated your listing!'})
     else:
         form = ListingForm( instance=listing) # An unbound form
         return render_to_response("update_listing.html", {'form': form,'update':'yes','listing':listing},context_instance=RequestContext(request))
@@ -303,22 +303,25 @@ def newOffer(request,listing_id):
             newOffer.user = request.user
             newOffer.listing = listing
             form.save()
-            return render_to_response("thanks.html",{'location':request.META['HTTP_REFERER'], 'message':'made an offer on a listing!'})
+            return render_to_response("thanks.html",{'location':"listing_details/" + str(listing.listing_id), 'message':'made an offer on a listing!'})
     else:
         form = OfferForm() # An unbound form
         c["form"] = form
         c["user"] = request.user
         c["listing"] = listing
-        t = get_template('new_offer.html')
-        html = t.render(c)
-        return HttpResponse(html)
+        
+    t = get_template('new_offer.html')
+    html = t.render(c)
+    return HttpResponse(html)
+    
+    
     
 def updateOffer(request, offer_id):
     offer = Offer.objects.get(pk=offer_id);
     if request.method == 'POST': # If the form has been submitted...
         form = OfferForm(request.POST or None,request.FILES, instance=offer) # A form bound to the POST data
         form.save()
-        return render_to_response("thanks.html")
+        return render_to_response("thanks.html",{'location':"offer_details/" + str(offer.offer_id), 'message':'updated your offer!'})
     else:
         form = OfferForm( instance=offer) # An unbound form
         return render_to_response("update_offer.html", {'form': form,'update':'yes','offer':offer},context_instance=RequestContext(request))
@@ -380,6 +383,10 @@ def cancelOffer(request,offer_id):
 def deleteListing(request,listing_id):
     listing = Listing.objects.get(pk=listing_id);
     if listing.user_id == request.user.id:
+        for offer in Offer.objects.all():
+            if offer.listing.listing_id == listing.listing_id:
+                offer.delete()
+        
         listing.delete()
         return render_to_response("thanks.html",{'message':'deleted your listing! ','location':'tradecenter'})
     else: 
@@ -390,7 +397,7 @@ def listingDetails(request,listing_id):
     listing = Listing.objects.get(pk=listing_id)
     offers_detail = Offer.objects.filter(listing=listing.listing_id)
     
-    paginator = Paginator(offers_detail,5)
+    paginator = Paginator(offers_detail,3)
     page = request.GET.get('page')
     
     try:
