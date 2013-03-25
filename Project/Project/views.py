@@ -215,7 +215,7 @@ def newOffer(request,listing_id):
             newOffer.user = request.user
             newOffer.listing = listing
             form.save()
-            return render_to_response("listing_details.html/" + listing.listing_id)
+            return render_to_response("thanks.html",{'location':'listing_details/' + str(listing.listing_id), 'message':'made an offer on a listing!'})
     else:
         form = OfferForm() # An unbound form
         c["form"] = form
@@ -224,6 +224,16 @@ def newOffer(request,listing_id):
         t = get_template('new_offer.html')
         html = t.render(c)
         return HttpResponse(html)
+    
+def updateOffer(request, offer_id):
+    offer = Offer.objects.get(pk=offer_id);
+    if request.method == 'POST': # If the form has been submitted...
+        form = OfferForm(request.POST or None,request.FILES, instance=offer) # A form bound to the POST data
+        form.save()
+        return render_to_response("thanks.html")
+    else:
+        form = OfferForm( instance=offer) # An unbound form
+        return render_to_response("update_offer.html", {'form': form,'update':'yes','offer':offer},context_instance=RequestContext(request))
  
 @login_required(login_url='/login')
 def acceptOffer(request,offer_id):

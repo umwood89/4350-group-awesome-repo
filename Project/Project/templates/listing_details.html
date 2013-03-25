@@ -34,31 +34,33 @@
     </tr>
    </table>
         </div>
-        <div class="span6">
-        <h2>Offers</h2>
-  <table class="table table-striped">
-   <thead>
-    <tr>
-     <th>Username</th>
- 	 <th>Title</th>
-     <th>Description</th>
-     <th>Date Offered</th>
-    </tr>
-   </thead>
-   <tbody>
-   <tr>		
- 	{% for offer in offers_detail %}
-    <td>{{offer.user.username}}</td>
- 	<td>{{offer.title}}</td>
-    <td>{{offer.description}}</td>
-    <td>{{offer.date_created}}</td>
-	 	{% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
-	 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>
-	 	{% endif %}
-	 {% empty %}
-	  <td colspan="4">No offers yet! Make one now!</td>
-	 {% endfor %}
-   </tr>
+  <div class="span6">
+          <h2>Offers</h2>
+		  <table class="table table-striped">
+		   	<thead>
+		    	<tr>
+		 		 <th>Photo</th>
+			     <th>Username</th>
+			 	 <th>Title</th>
+			     <th>Description</th>
+			     <th>Date Offered</th>
+		    	</tr>
+		   </thead>
+		   <tbody>
+		 	{% for offer in offers_detail %}
+			   <tr>		
+			 		<td><a href="/static/media/{{offer.photo}}"><img width="100px" height="100px" src="/static/media/{{offer.photo}}" /></a></td>
+				    <td>{{offer.user.username}}</td>
+				 	<td>{{offer.title}}</td>
+				    <td>{{offer.description}}</td>
+				    <td>{{offer.date_created}}</td>
+					 {% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
+					 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>
+					 	{% endif %}
+					 {% empty %}
+					  <td colspan="4">No offers yet! Make one now!</td>
+			 	{% endfor %}
+			 </tr>
    </tbody>
   </table>
   <div class="pagination">

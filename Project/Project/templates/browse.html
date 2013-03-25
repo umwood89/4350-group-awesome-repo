@@ -21,7 +21,7 @@
 		
 			{% for listing in listings %}
 			<tr>
-				<td width="150px"><img width="150" height="300" src="/static/media/{{ listing.photo }}"></td>
+				<td width="150px"><a href="/static/media/{{listing.photo}}"><img width="150" height="300" src="/static/media/{{ listing.photo }}"></a></td>
 				<td width="150px">{{ listing.title|truncatechars:100 }}</td>
 				<td width="300px">{{ listing.description|truncatechars:150 }}</td>
 				<td width="200px">{{ listing.date_created }}</td>
