@@ -76,12 +76,6 @@ def search(request):
         html = t.render(c)
         return HttpResponse(html)
 
-def userhome(request):
-        user=request.user
-        t = get_template('user_home.html')
-        html = t.render(Context())
-        return HttpResponse(html)
-
 
 ####################################################################
 # Registration and authentication

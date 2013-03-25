@@ -21,8 +21,6 @@ urlpatterns = patterns('',
     url(r'^$', home),
     url(r'^browse$', browse),
     url(r'^search$', search),
-    url(r'^userhome$', userhome),
-
     
     ###### Login and Authentication ######
     #url(r'^login/$', login),
