@@ -217,12 +217,41 @@ def newOffer(request,listing_id):
  
 @login_required(login_url='/login')
 def acceptOffer(request,offer_id):
-    try:
+    try:  
+        # Get the Offer being accepted, and the listing associated with the offer      
         offer = Offer.objects.get(pk=offer_id)
-        offer.offer_accepted = 0
-        offer.date_accepted = datetime.now()
-        offer.save()
-        html = "success"
+        listing = Listing.objects.get(pk=offer.listing_id)
+        
+        # Check to make sure that the Listing hasn't been accepted already
+        
+        if listing.trade_completed == 1:
+            html = "Listing has already been accepted. <br><br> <a href=\"/listing_details/" + str(listing.listing_id) + "\">Return to listing details</a>"
+            return HttpResponse(html) 
+        
+        # Check to make sure that the user logged in is the owner of the listing the offer is being accepted for. 
+        if listing.user_id == request.user.id:
+            
+            # Set flags for trade completion
+            offer.offer_accepted = 1
+            offer.date_accepted = datetime.now()
+            listing.trade_completed = 1
+            listing.date_accepted = datetime.now()
+            offer.save()
+            listing.save()
+            
+            # Return to listings details page
+            c["listing_detail"] = listing
+            c["offers_detail"] = Offer.objects.filter(listing=listing.listing_id)
+            c["user"] = request.user;
+            t = get_template('listing_details.html')
+            html = t.render(c)
+            return HttpResponse(html)
+        else:
+            html = "User logged in cannot accept this offer, because they're not the owner of this offer"
+            return HttpResponse(html)        
+        
+    except Offer.DoesNotExist:
+        html = "Offer does not exist.."
         return HttpResponse(html)
     except Exception as e:
         html = '%s (%s)' % (e.message, type(e))
@@ -260,10 +289,6 @@ def listingDetails(request,listing_id):
     t = get_template('listing_details.html')
     html = t.render(c)
     return HttpResponse(html)
-
-
-
-                             
 
 
 ####################################################################
