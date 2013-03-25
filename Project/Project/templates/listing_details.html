@@ -40,9 +40,9 @@
 		   	<thead>
 		    	<tr>
 		 		 <th>Photo</th>
-			     <th>Username</th>
 			 	 <th>Title</th>
 			     <th>Description</th>
+			 	 <th>Username</th>
 			     <th>Date Offered</th>
 		    	</tr>
 		   </thead>
@@ -50,9 +50,9 @@
 		 	{% for offer in offers_detail %}
 			   <tr>		
 			 		<td><a href="/static/media/{{offer.photo}}"><img width="100px" height="100px" src="/static/media/{{offer.photo}}" /></a></td>
-				    <td>{{offer.user.username}}</td>
 				 	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title}}</a></td>
 				    <td>{{offer.description}}</td>
+				 	<td>{{offer.user.username}}</td>
 				    <td>{{offer.date_created}}</td>
 					 {% if user.is_authenticated and user.id == listing_detail.user.id and listing_detail.trade_completed == 0%}
 					 	<td><a href="/accept_offer/{{offer.offer_id}}">Accept offer</a></td>

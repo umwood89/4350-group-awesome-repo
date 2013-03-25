@@ -61,6 +61,7 @@ urlpatterns = patterns('',
     url(r'^deleteListing/(?P<listing_id>\d+)$', deleteListing),
 
     url(r'^accept_offer/(?P<offer_id>\d+)$', acceptOffer),
+    url(r'^cancel_offer/(?P<offer_id>\d+)$', cancelOffer),
 
     
 )

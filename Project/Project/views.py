@@ -207,7 +207,7 @@ def newOffer(request,listing_id):
             newOffer.user = request.user
             newOffer.listing = listing
             form.save()
-            return render_to_response("thanks.html",{'location':'listing_details/' + str(listing.listing_id), 'message':'made an offer on a listing!'})
+            return render_to_response("thanks.html",{'location':request.META['HTTP_REFERER'], 'message':'made an offer on a listing!'})
     else:
         form = OfferForm() # An unbound form
         c["form"] = form
@@ -269,16 +269,23 @@ def acceptOffer(request,offer_id):
         html = '%s (%s)' % (e.message, type(e))
         return HttpResponseServerError(html)
         
-    return HttpResponse(html)       
+    return HttpResponse(html)  
+
+def cancelOffer(request,offer_id):
+    offer = Offer.objects.get(pk=offer_id);
+    if offer.user_id == request.user.id:
+        
+        offer.delete()
+        return render_to_response("thanks.html",{'message':'canceled your offer! ','location':'tradecenter'})
+    else: 
+        html = "User logged in cannot delete this offer, because they're not the owner of this offer"
+        return HttpResponse(html)     
                     
 def deleteListing(request,listing_id):
+    listing = Listing.objects.get(pk=listing_id);
     if listing.user_id == request.user.id:
-        listing = Listing.objects.get(pk=listing_id);
         listing.delete()
-        
-        t = get_template('browse.html')
-        html = t.render(c)
-        return HttpResponse(html)
+        return render_to_response("thanks.html",{'message':'deleted your listing! ','location':'tradecenter'})
     else: 
         html = "User logged in cannot delete this offer, because they're not the owner of this offer"
         return HttpResponse(html)
