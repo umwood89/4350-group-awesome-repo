@@ -75,12 +75,6 @@ def search(request):
         c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
-
-def userhome(request):
-        user=request.user
-        t = get_template('user_home.html')
-        html = t.render(Context())
-        return HttpResponse(html)
     
 @login_required(login_url='/login')
 def tradeCenter(request):
@@ -108,7 +102,6 @@ def tradeCenter(request):
     t = get_template('tradecenter.html')
     html = t.render(c)
     return HttpResponse(html)
-
 
 ####################################################################
 # Registration and authentication

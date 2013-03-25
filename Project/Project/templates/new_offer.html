@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>New Offer for {{listing.title}}</h2>
+<form enctype="multipart/form-data" id="add_offer" action="/new_offer/{{listing.listing_id}}" method="POST">{% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            
+            {{ field.label_tag }} {{ field.errors }}{{ field }}
+        </div>
+    {% endfor %}
+<input class="btn btn-primary" type="submit" value="Add Offer">
+</form>
+
+{% endblock %}
