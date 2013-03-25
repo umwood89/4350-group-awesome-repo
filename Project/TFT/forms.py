@@ -75,7 +75,8 @@ class EditProfileForm(forms.Form):
         profile.url = self.cleaned_data['url']
         profile.company = self.cleaned_data['company']
         profile.location = self.cleaned_data['location']
-        profile.userphoto = self.cleaned_data['userphoto']
+        if self.cleaned_data['userphoto']:
+            profile.userphoto = self.cleaned_data['userphoto']
         profile.save()
     
     

@@ -37,7 +37,6 @@ def viewProfile(request,user_id):
         
         try:
             user = User.objects.get(pk=user_id)
-            html = user.first_name
             c["username"] = user.username
             c["firstname"] = user.first_name
             c["lastname"] = user.last_name
@@ -47,20 +46,24 @@ def viewProfile(request,user_id):
             errormessage= '%s (%s)' % (e.message, type(e))
             return HttpResponseServerError(errormessage)
 
-        # Get user profile, create a blank one if they dont have one
+        # Try to get the users profile
         try:
-            profile = UserProfile.objects.get(user_id=user.id)
+            profile = UserProfile.objects.get(user_id=user_id)
             c["url"] = profile.url
             c["userphoto"] = profile.userphoto
             c["company"] = profile.company
-            c["location"] = profile.location
+            c["location"] = profile.location            
         except:
-            a = "do nothing in the except"
+            c["url"] = ""
+            c["userphoto"] = ""
+            c["company"] = ""
+            c["location"] = ""
+
+        if str(request.user.id) == user_id:
+            c["myprofile"] = 1
+            
+        c["user"] = request.user
         
-        if request.user.id == user.id:
-            c["myprofile"] = "yes"
-        
-        c["user"] = user
         html = t.render(c)
         return HttpResponse(html)
  
