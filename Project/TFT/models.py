@@ -12,6 +12,7 @@ class Listing(models.Model):
 	trade_completed = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_completed = models.DateTimeField(blank = True, null = True)
+
 #	def __unicode__(self):
 #		return self.listing_id
 	
@@ -25,3 +26,4 @@ class Offer(models.Model):
 	offer_accepted = models.BooleanField()
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_accepted = models.DateTimeField(blank = True, null = True)
+	

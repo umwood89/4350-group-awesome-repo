@@ -75,7 +75,32 @@ def search(request):
         c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
-
+    
+@login_required(login_url='/login')
+def tradeCenter(request):
+    
+    userlistings = Listing.objects.filter(user_id = request.user.id)
+    for ulisting in userlistings:
+        ulisting.offerCount = Offer.objects.filter(listing_id = ulisting.listing_id).count()
+    c["user_listings"] = userlistings
+    
+#    listing = Listing.objects.get(pk=offer.listing_id)
+    
+    
+    usersOffers = Offer.objects.filter(user_id = request.user.id)
+    for offer in usersOffers:
+        offer.listingTitle = Listing.objects.get(pk=offer.listing_id).title
+        if offer.offer_accepted == 1:
+            offer.status = "Trade Accepted"
+        else:
+            offer.status = "Pending"
+        
+    c["users_offers"] = usersOffers
+    
+    c["user"] = request.user
+    t = get_template('tradecenter.html')
+    html = t.render(c)
+    return HttpResponse(html)
 
 ####################################################################
 # Registration and authentication

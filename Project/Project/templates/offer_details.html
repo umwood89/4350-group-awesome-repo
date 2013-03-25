@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+ <div style="min-height:100px;">
+  <div id="imagediv" style="float:left;margin-right:10px;">   
+   <a href="/static/media/{{offer_detail.photo}}"><img src="/static/media/{{offer_detail.photo}}" height="300px" width="300px"></img></a>
+  </div>
+  
+ </div>
+ <div >   
+   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
+    <h2 id="lblTitle">{{ offer_detail.title }}</h2>
+ 	{% if offer_detail.offer_accepted%}
+ 	<h2><font color="grey" >(Offer Accepted)</font></h2>
+ 	{% endif %}
+   </div>
+   <div id="descdiv" style="text-align:left;float:justified;align:left; margin-top: -20px">
+    {{ offer_detail.description }}
+   </div>
+  </div>
+ <hr>
+ <div class="row">
+  <div class="span6">
+ 	<h2>Contact Information</h2>
+   <table>
+    <tr>
+ 	 <td width="30px"></td>
+     <td>
+      <div id="userinfodiv" style="width:400px float: left;">
+       <p><strong>Username: </strong> {{offer_detail.user.username}}</p>
+       <p><strong>Email: </strong>{{offer_detail.user.email}}</p>
+      </div>
+     </td>
+    </tr>
+   </table>
+        </div>
+</div>
+	<h2>Listing</h2>
+	<table>
+		
+		<tr>
+			<td width="30px"></td>
+			<td>
+				<a href="/static/media/{{offer_detail.listing.photo}}"><img height="100" width="100" src="/static/media/{{offer_detail.listing.photo}}"></a>
+				&nbsp; <h4><a href="/listing_details/{{offer_detail.listing.listing_id}}">{{offer_detail.listing.title}}</a></h4>
+			</td>
+		</tr>
+	</table>
+	
+	
+</div>
+  {% if user.is_authenticated and user.id == offer_detail.listing.user.id and offer_detail.offer_accepted == 0 %}
+  	<button class="btn btn-primary" onClick="parent.location='/accept_offer/{{offer_detail.offer_id}}'">Accept this offer!</button>
+  {% elif user.is_authenticated and user.id == offer_detail.user.id %}
+  	<button class="btn btn-primary" onClick="parent.location='/cancel_offer/{{offer_detail.offer_id}}'">Cancel this offer!</button>
+  {% endif %}
+ 
+      </div>
+{% endblock %}
