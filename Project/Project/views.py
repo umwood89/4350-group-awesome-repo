@@ -75,14 +75,6 @@ def search(request):
         c["listings"] = listings
         html = t.render(c)
         return HttpResponse(html)
-            
-    
-
-def listingdetails(request):
-        user=request.user
-        t = get_template('listing_details.html')
-        html = t.render(Context())
-        return HttpResponse(html)
 
 def userhome(request):
         user=request.user
@@ -220,6 +212,16 @@ def newListing(request):
         return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
 
+def updateListing(request, listing_id):
+    listing = Listing.objects.get(pk=listing_id);
+    if request.method == 'POST': # If the form has been submitted...
+        form = ListingForm(request.POST or None,request.FILES, instance=listing) # A form bound to the POST data
+        form.save()
+        return render_to_response("thanks.html")
+    else:
+        form = ListingForm( instance=listing) # An unbound form
+        return render_to_response("update_listing.html", {'form': form,'update':'yes','listing':listing},context_instance=RequestContext(request))
+
 @login_required(login_url='/login')
 def newOffer(request,listing_id):
     listing = Listing.objects.get(pk=listing_id)
@@ -231,7 +233,7 @@ def newOffer(request,listing_id):
             newOffer.user = request.user
             newOffer.listing = listing
             form.save()
-            return render_to_response("thanks.html")
+            return render_to_response("thanks.html",{'location':request.META['HTTP_REFERER'], 'message':'made an offer on a listing!'})
     else:
         form = OfferForm() # An unbound form
         c["form"] = form
@@ -240,6 +242,16 @@ def newOffer(request,listing_id):
         t = get_template('new_offer.html')
         html = t.render(c)
         return HttpResponse(html)
+    
+def updateOffer(request, offer_id):
+    offer = Offer.objects.get(pk=offer_id);
+    if request.method == 'POST': # If the form has been submitted...
+        form = OfferForm(request.POST or None,request.FILES, instance=offer) # A form bound to the POST data
+        form.save()
+        return render_to_response("thanks.html")
+    else:
+        form = OfferForm( instance=offer) # An unbound form
+        return render_to_response("update_offer.html", {'form': form,'update':'yes','offer':offer},context_instance=RequestContext(request))
  
 @login_required(login_url='/login')
 def acceptOffer(request,offer_id):
@@ -283,17 +295,26 @@ def acceptOffer(request,offer_id):
         html = '%s (%s)' % (e.message, type(e))
         return HttpResponseServerError(html)
         
-    return HttpResponse(html)       
+    return HttpResponse(html)  
+
+def cancelOffer(request,offer_id):
+    offer = Offer.objects.get(pk=offer_id);
+    if offer.user_id == request.user.id:
+        
+        offer.delete()
+        return render_to_response("thanks.html",{'message':'canceled your offer! ','location':'tradecenter'})
+    else: 
+        html = "User logged in cannot delete this offer, because they're not the owner of this offer"
+        return HttpResponse(html)     
                     
 def deleteListing(request,listing_id):
-    
     listing = Listing.objects.get(pk=listing_id);
-    listing.delete()
-    
-    t = get_template('browse.html')
-    html = t.render(c)
-    return HttpResponse(html)
-
+    if listing.user_id == request.user.id:
+        listing.delete()
+        return render_to_response("thanks.html",{'message':'deleted your listing! ','location':'tradecenter'})
+    else: 
+        html = "User logged in cannot delete this offer, because they're not the owner of this offer"
+        return HttpResponse(html)
 def listingDetails(request,listing_id):
     
     listing = Listing.objects.get(pk=listing_id)
@@ -313,6 +334,16 @@ def listingDetails(request,listing_id):
     c["offers_detail"] = offers_detail
     c["user"] = request.user;
     t = get_template('listing_details.html')
+    html = t.render(c)
+    return HttpResponse(html)
+
+def offerDetails(request,offer_id):
+    
+    offer = Offer.objects.get(pk=offer_id)
+    
+    c["offer_detail"] = offer
+    c["user"] = request.user;
+    t = get_template('offer_details.html')
     html = t.render(c)
     return HttpResponse(html)
 

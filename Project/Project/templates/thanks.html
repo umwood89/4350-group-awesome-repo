@@ -1,4 +1,13 @@
-Thanks for registering, dude and/or dudette.
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h2>Thank you!</h2>
 
-<br><br>
-<input type="button" class="btn btn-primary" onclick="window.location='/browse'" value="continue" />
+	<p>
+		Successfully {{message}}, please click continue to return where you were. 
+	</p>
+	
+	<br><br>
+	<input type="button" class="btn btn-primary" onclick="window.location='/{{location}}'" value="continue" />
+</div>
+{% endblock %}
