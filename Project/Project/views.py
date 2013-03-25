@@ -52,10 +52,15 @@ def viewProfile(request,user_id):
             profile = UserProfile.objects.get(user_id=user.id)
             c["url"] = profile.url
             c["userphoto"] = profile.userphoto
-            c["company"] = profile.location
+            c["company"] = profile.company
+            c["location"] = profile.location
         except:
             a = "do nothing in the except"
         
+        if request.user.id == user.id:
+            c["myprofile"] = "yes"
+        
+        c["user"] = user
         html = t.render(c)
         return HttpResponse(html)
  
@@ -81,7 +86,7 @@ def editProfile(request):
         try:
             profile = UserProfile.objects.get(user_id=user.id)
         except:
-            profile = profile()
+            profile = UserProfile()
             profile.user_id = user.id
             profile.save()
         

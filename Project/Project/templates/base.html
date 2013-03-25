@@ -47,6 +47,10 @@
 							{% if user.is_authenticated %}
 								<li><a href="/tradecenter" role="button" style="font-style: strong;">Trade Center</a></li>
 								<li class="divider-vertical" />
+								<li><a href="/profiles/{{user.id}}" role="button" style="font-style: strong;">My Profile</a></li>
+								<li class="divider-vertical" />
+								
+								
 							{% endif %}
 						</ul>
 						{% if user.is_authenticated %}

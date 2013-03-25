@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<img src="/static/media/{{userphoto}}">
+<img src="/static/media/{{userphoto}}"><h3>{{username}}</h3>
 
 <table border="0">
-  <tr>
-    <td width="75" align="right">Username:</td>
-    <td width="10"></td>
-    <td>{{username}} </td>
-  </tr>
+
   <tr>
   <td align="right">Full Name:</td>
-  <td></td>
+  <td width="20"></td>
   <td>{{firstname}} {{lastname}}</td>
   </tr>
   <tr>
@@ -34,7 +30,11 @@
   <td></td>
   <td>{{location}}</td>
   </tr>
-    
 </table>
+
+{% if myprofile  %}
+<br><br>
+<input class="btn btn-primary" type="submit" value="   Edit Profile    "  onclick="window.location='/EditProfile'">
+{% endif %}
 
 {% endblock %}
