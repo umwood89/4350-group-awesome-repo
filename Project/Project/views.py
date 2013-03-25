@@ -194,6 +194,16 @@ def newListing(request):
         return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
     return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
 
+def updateListing(request, listing_id):
+    listing = Listing.objects.get(pk=listing_id);
+    if request.method == 'POST': # If the form has been submitted...
+        form = ListingForm(request.POST or None,request.FILES, instance=listing) # A form bound to the POST data
+        form.save()
+        return render_to_response("thanks.html")
+    else:
+        form = ListingForm( instance=listing) # An unbound form
+        return render_to_response("update_listing.html", {'form': form,'update':'yes','listing':listing},context_instance=RequestContext(request))
+
 @login_required(login_url='/login')
 def newOffer(request,listing_id):
     listing = Listing.objects.get(pk=listing_id)
@@ -260,14 +270,16 @@ def acceptOffer(request,offer_id):
     return HttpResponse(html)       
                     
 def deleteListing(request,listing_id):
-    
-    listing = Listing.objects.get(pk=listing_id);
-    listing.delete()
-    
-    t = get_template('browse.html')
-    html = t.render(c)
-    return HttpResponse(html)
-
+    if listing.user_id == request.user.id:
+        listing = Listing.objects.get(pk=listing_id);
+        listing.delete()
+        
+        t = get_template('browse.html')
+        html = t.render(c)
+        return HttpResponse(html)
+    else: 
+        html = "User logged in cannot delete this offer, because they're not the owner of this offer"
+        return HttpResponse(html)
 def listingDetails(request,listing_id):
     
     listing = Listing.objects.get(pk=listing_id)

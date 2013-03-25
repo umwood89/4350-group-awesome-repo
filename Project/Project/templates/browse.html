@@ -28,7 +28,7 @@
 				<td width="100px"><a href="/listing_details/{{listing.listing_id}}">View details</a></td>
 				<td>
 					{% if user.is_authenticated and user.id == listing.user.id and listing.trade_completed == 0%}
-					<a href="/editListing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+					<a href="/update_listing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
 					<a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
 					{% endif %}
 				</td>
