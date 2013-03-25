@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Offer Details</h1>
 <div class="container">
 	<table>
 		<tr>
@@ -12,7 +13,7 @@
 		</tr>
 		<tr>
 			<td>
-				<div >   
+				<div style="margin-left: 20px" >   
 				   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
 				    <h2 id="lblTitle">{{ offer_detail.title }}</h2>
 				 	{% if offer_detail.offer_accepted%}

@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Listing Details</h1>
 <div class="container">
  <div style="min-height:100px;">
   <table>
 		<tr>
 			<td>
 				<div id="imagediv" style="float:left;margin-right:10px;">   
-  				 	<a href="/static/media/{{listing_detail.photo}}"><img src="/static/media/{{listing_detail.photo}}" height="200px" width="200px"></img></a>
+  				 	<a href="/static/media/{{listing_detail.photo}}"><img src="/static/media/{{listing_detail.photo}}" height="200px" width="200px"/></a>
   				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<div >   
+				<div style="margin-left: 20p" >   
 				   <div id="titlediv" style="float:justified; style="margin-bottom: 0px"">
 				    <h3 id="lblTitle">{{ listing_detail.title }}</h2>
 				 	{% if listing_detail.trade_completed%}
