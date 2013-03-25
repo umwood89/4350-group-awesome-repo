@@ -83,17 +83,18 @@ def tradeCenter(request):
     for ulisting in userlistings:
         ulisting.offerCount = Offer.objects.filter(listing_id = ulisting.listing_id).count()
     c["user_listings"] = userlistings
-    
-#    listing = Listing.objects.get(pk=offer.listing_id)
-    
-    
+
     usersOffers = Offer.objects.filter(user_id = request.user.id)
     for offer in usersOffers:
         offer.listingTitle = Listing.objects.get(pk=offer.listing_id).title
         if offer.offer_accepted == 1:
-            offer.status = "Trade Accepted"
+            offer.status = "Accepted"
         else:
-            offer.status = "Pending"
+            olisting = Listing.objects.get(pk=offer.listing_id)
+            if olisting.trade_completed == 1:
+                offer.status = "Not accepted"
+            else:
+                offer.status = "Pending"
         
     c["users_offers"] = usersOffers
     

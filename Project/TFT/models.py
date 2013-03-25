@@ -27,3 +27,8 @@ class Offer(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True)
 	date_accepted = models.DateTimeField(blank = True, null = True)
 	
+class UserProfile(models.Model):
+    user = models.ForeignKey(User, unique=True)
+    userphoto = models.ImageField(upload_to='profile_pictures/',blank=True)
+    url = models.URLField("Website", blank=True)
+    company = models.CharField(max_length=50, blank=True)
