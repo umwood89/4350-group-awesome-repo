@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from TFT.models import Listing,Offer
+from TFT.models import *
 
 
 class ListingForm(forms.ModelForm):
@@ -52,3 +52,31 @@ class UserRegistrationForm(forms.Form):
         new_user.last_name = self.cleaned_data['last_name']
         new_user.save()
         return new_user
+    
+class EditProfileForm(forms.Form):
+    first_name = forms.CharField(max_length=30,label="First Name")
+    last_name = forms.CharField(max_length=30,label="Last Name")
+    email=forms.EmailField(max_length=30,label="Email Address")
+    #password1=forms.CharField(max_length=30,widget=forms.PasswordInput(),label=("Password")) #render_value=False
+    #password2=forms.CharField(max_length=30,widget=forms.PasswordInput(),label=("Verify Password"))
+    
+    userphoto=forms.ImageField(label="Profile Picture",required=False)
+    url = forms.URLField(label="Website",required=False)
+    company = forms.CharField(max_length=50,required=False)
+    location = forms.CharField(max_length=140,required=False)
+    
+    def save(self, user):
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']    
+        user.save()
+        
+        profile = UserProfile.objects.get(user_id=user.id)
+        profile.url = self.cleaned_data['url']
+        profile.company = self.cleaned_data['company']
+        profile.location = self.cleaned_data['location']
+        profile.userphoto = self.cleaned_data['userphoto']
+        profile.save()
+    
+    
+    

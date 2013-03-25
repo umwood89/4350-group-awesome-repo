@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<img src="/static/media/{{userphoto}}">
+
+<table border="0">
+  <tr>
+    <td width="75" align="right">Username:</td>
+    <td width="10"></td>
+    <td>{{username}} </td>
+  </tr>
+  <tr>
+  <td align="right">Full Name:</td>
+  <td></td>
+  <td>{{firstname}} {{lastname}}</td>
+  </tr>
+  <tr>
+  <td align="right">Email:</td>
+  <td></td>
+  <td>{{email}}</td>
+  </tr>
+    <tr>
+  <td align="right">Website:</td>
+  <td></td>
+  <td>{{url}}</td>
+  </tr>
+    <tr>
+  <td align="right">Company:</td>
+  <td></td>
+  <td>{{company}}</td>
+  </tr>
+    <tr>
+  <td align="right">Location:</td>
+  <td></td>
+  <td>{{location}}</td>
+  </tr>
+    
+</table>
+
+{% endblock %}

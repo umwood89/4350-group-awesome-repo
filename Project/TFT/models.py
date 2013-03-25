@@ -29,6 +29,9 @@ class Offer(models.Model):
 	
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    userphoto = models.ImageField(upload_to='profile_pictures/',blank=True)
+    userphoto = models.ImageField(upload_to='profile_pictures/',blank=True,null=True)
     url = models.URLField("Website", blank=True)
     company = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=140, blank=True)
+    def __unicode__(self):
+        return u'Profile of user: %s' % self.user.usernames

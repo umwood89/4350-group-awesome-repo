@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import *
 from django.contrib.auth.decorators import *
-from TFT.models import Listing, Offer
+from TFT.models import *
 from TFT.serializers import ListingSerializer, OfferSerializer, UserSerializer, GroupSerializer
 from TFT.forms import *
 from datetime import *
@@ -31,6 +31,82 @@ def home(request):
         html = t.render(c)
         return HttpResponse(html)
 
+@login_required(login_url='/login')    
+def viewProfile(request,user_id):
+        t = get_template('profile.html')
+        
+        try:
+            user = User.objects.get(pk=user_id)
+            html = user.first_name
+            c["username"] = user.username
+            c["firstname"] = user.first_name
+            c["lastname"] = user.last_name
+            c["email"] = user.email
+            
+        except Exception as e:
+            errormessage= '%s (%s)' % (e.message, type(e))
+            return HttpResponseServerError(errormessage)
+
+        # Get user profile, create a blank one if they dont have one
+        try:
+            profile = UserProfile.objects.get(user_id=user.id)
+            c["url"] = profile.url
+            c["userphoto"] = profile.userphoto
+            c["company"] = profile.location
+        except:
+            a = "do nothing in the except"
+        
+        html = t.render(c)
+        return HttpResponse(html)
+ 
+@login_required(login_url='/login')   
+def editProfile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES)
+        user = request.user
+        try:
+            profile = UserProfile.objects.get(user_id=user.id)
+        except:
+            profile = UserProfile()
+            profile.user_id = user.id
+            profile.save()
+        if form.is_valid():
+            form.save(user)
+            
+            return render_to_response("thanks.html")
+        else:
+            return render_to_response("profile_edit.html", {'form': form,},context_instance=RequestContext(request))
+    else:
+        user = request.user
+        try:
+            profile = UserProfile.objects.get(user_id=user.id)
+        except:
+            profile = profile()
+            profile.user_id = user.id
+            profile.save()
+        
+        data = {'first_name': user.first_name, 'last_name': user.last_name, 'email':user.email, 'url':profile.url, 'location':profile.location,'company':profile.company,'userphoto':profile.userphoto}
+        form = EditProfileForm(initial=data) # form with pre-filled out stuph in it
+        
+        return render_to_response("profile_edit.html", {'form': form,},context_instance=RequestContext(request))
+        
+        
+#               
+#               def newListing(request):
+#    if request.method == 'POST': # If the form has been submitted...
+#        form = ListingForm(request.POST,request.FILES) # A form bound to the POST data
+#        
+#        if form.is_valid(): # All validation rules pass
+#            newlisting = form.save(commit=False);
+#            newlisting.user = request.user
+#            form.save()
+#            return render_to_response("thanks.html")
+#    else:
+#        form = ListingForm() # An unbound form
+#        return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
+#    return render_to_response("new_listing.html", {'form': form,},context_instance=RequestContext(request))
+               
+        
 def browse(request):
         user=request.user
         listings = Listing.objects.order_by('date_created')
