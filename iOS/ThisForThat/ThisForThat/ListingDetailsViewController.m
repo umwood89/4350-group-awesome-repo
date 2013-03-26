@@ -8,6 +8,7 @@
 
 #import "ListingDetailsViewController.h"
 #import "AddOfferViewController.h"
+#import "OfferDetailsViewController.h"
 #import "JSONInterface.h"
 #import <UIKit/UIImageView.h>
 #import <UIKit/UIImage.h>
@@ -23,6 +24,7 @@
 @synthesize ListedBy;
 @synthesize listing;
 @synthesize makeOffer;
+@synthesize offersList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,10 +62,40 @@
     DescriptionText.text = listing.description;
     DateCreated.text = [listing.date_created substringWithRange:NSMakeRange(0, 10)];
     
-    UserData *userPosted = [JSONInterface getUserByID:listing.user.integerValue ];
+    UserData *userPosted = [JSONInterface getUserByID:listing.user ];
     
     ListedBy.text = userPosted.username;
     
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    //return 0;
+    // RS: return number of sections from our array holding our super data
+    return [JSONInterface getOffersForListing:listing.lid].count;
+}
+
+// RS: Modified below section to load up listingsdata
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //static NSString *CellIdentifier = @"Cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:@"offerTableCell"];
+    OfferData *offer = [[JSONInterface getOffersForListing:listing.lid ] objectAtIndex:indexPath.row];
+    cell.textLabel.text = offer.title;
+    cell.detailTextLabel.text = offer.description;
+    //cell.imageView.image = bug.thumbImage;
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +113,14 @@
     if ([segue.identifier isEqualToString:@"addOfferFromListing"]) {
         AddOfferViewController *destViewController = segue.destinationViewController;
         destViewController.listing = listing;
+    }
+    else if([segue.identifier isEqualToString:@"viewOfferDetailsFromListing"])
+    {
+        NSIndexPath *indexPath = [offersList indexPathForSelectedRow];
+        OfferDetailsViewController *destViewController = segue.destinationViewController;
+        OfferData *offer = [JSONInterface.offers objectAtIndex:indexPath.row];
+        
+        destViewController.offer = offer;
     }
 }
 @end

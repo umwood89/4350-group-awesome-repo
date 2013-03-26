@@ -116,15 +116,15 @@ static UserData  *user_logged_in = nil;
 {
     if([type isEqualToString: @"offers"])
     {
-        NSString *oid = [item objectForKey:@"offer_id"];
+        int oid = [[item objectForKey:@"offer_id"] intValue];
         NSString *title = [item objectForKey:@"title"];
         NSString *description = [item objectForKey:@"description"];
         NSString *photo = [item objectForKey:@"photo"];
         NSString *offer_accepted = [item objectForKey:@"offer_accepted"];
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_accepted = [item objectForKey:@"date_accepted"];
-        NSString *listing = [item objectForKey:@"listing"];
-        NSString *user = [item objectForKey:@"user"];
+        int listing = [[item objectForKey:@"listing"] intValue];
+        int user = [[item objectForKey:@"user"]intValue];
         
         OfferData *data = [[OfferData alloc] initWithData:oid title:title description:description photo:photo offer_accepted:offer_accepted date_created:date_created date_accepted:date_accepted listing:listing user:user];
     
@@ -132,21 +132,22 @@ static UserData  *user_logged_in = nil;
     }
     else if([type isEqualToString: @"listings"])
     {
-        NSString *lid = [item objectForKey:@"listing_id"];
+        int lid = [[item objectForKey:@"listing_id"] intValue];
         NSString *title = [item objectForKey:@"title"];
         NSString *description = [item objectForKey:@"description"];
         NSString *photo = [item objectForKey:@"photo"];
-        NSString *user = [item objectForKey:@"user"];
+        int user = [[item objectForKey:@"user"]intValue];
         NSString *trade_completed = [item objectForKey:@"trade_completed"];
         NSString *date_created = [item objectForKey:@"date_created"];
         NSString *date_completed = [item objectForKey:@"date_completed"];
+        
         
         ListingData *data = [[ListingData alloc] initWithData:lid title:title description:description photo:photo user:user trade_completed:trade_completed date_created:date_created date_completed:date_completed];
         [list addObject:data];
     }
     else if([type isEqualToString: @"users"])
     {
-        NSString* uid  = [item objectForKey:@"id"];
+        int uid  = [[item objectForKey:@"id"] intValue];
         NSString *username = [item objectForKey:@"username"];
         NSString *email = [item objectForKey:@"email"];
         UserData *data = [[UserData alloc] initWithData:uid username:username email:email ];
@@ -162,7 +163,7 @@ static UserData  *user_logged_in = nil;
 {
     for (ListingData *listing in self.listings)
     {
-        if (listing.lid.integerValue == lid)
+        if (listing.lid == lid)
             return listing;
     }
     
@@ -173,7 +174,7 @@ static UserData  *user_logged_in = nil;
 {
     for (OfferData *offer in self.offers)
     {
-        if (offer.oid.integerValue == oid)
+        if (offer.oid == oid)
             return offer;
     }
     
@@ -184,7 +185,7 @@ static UserData  *user_logged_in = nil;
 {
     for (UserData *user in self.users)
     {
-        if (user.uid.integerValue == uid)
+        if (user.uid == uid)
             return user;
     }
     
@@ -213,7 +214,7 @@ static UserData  *user_logged_in = nil;
     [request addRequestHeader:@"Accept" value:@"application/json"];
     [request setPostValue:toAdd.title forKey:@"title"];
     [request setPostValue:toAdd.description forKey:@"description"];
-    [request setPostValue:toAdd.user forKey:@"user"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.user] forKey:@"user"];
     [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
     [request startSynchronous];
     
@@ -224,9 +225,11 @@ static UserData  *user_logged_in = nil;
     
     toAdd.photo = [responseJSON objectForKey:@"photo"];
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
-    toAdd.lid = [responseJSON objectForKey:@"listing_id"];
+    toAdd.lid = [[responseJSON objectForKey:@"listing_id"]intValue];
     
     [listings addObject:toAdd];
+    
+    
     
     
     return nil;
@@ -242,8 +245,8 @@ static UserData  *user_logged_in = nil;
     [request addRequestHeader:@"Accept" value:@"application/json"];
     [request setPostValue:toAdd.title forKey:@"title"];
     [request setPostValue:toAdd.description forKey:@"description"];
-    [request setPostValue:toAdd.user forKey:@"user"];
-    [request setPostValue:toAdd.listing forKey:@"listing"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.user] forKey:@"user"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.listing] forKey:@"listing"];
     [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
     [request startSynchronous];
     
@@ -254,7 +257,7 @@ static UserData  *user_logged_in = nil;
     
     toAdd.photo = [responseJSON objectForKey:@"photo"];
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
-    toAdd.oid = [responseJSON objectForKey:@"offer_id"];
+    toAdd.oid = [[responseJSON objectForKey:@"offer_id"]intValue];
     
     [offers addObject:toAdd];
     
@@ -278,6 +281,22 @@ static UserData  *user_logged_in = nil;
     user_logged_in = newUser;
     NSLog(@"User changed: %@",newUser.username);
 }
+
++ (NSMutableArray *)getOffersForListing:(int)listing_id
+{
+    NSMutableArray *toReturn = [[NSMutableArray alloc] init];
+    for (OfferData *offer in [self offers])
+    {
+        if(offer.listing == listing_id )
+        {
+            [toReturn addObject:offer];
+        }
+    }
+    
+    return toReturn;
+}
+
+
 
  
  

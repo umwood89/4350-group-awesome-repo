@@ -10,12 +10,12 @@
 
 @interface UserData : NSObject
 
-@property (strong) NSString *uid;
+@property int uid;
 @property (strong) NSString *username;
 @property (strong) NSString *email;
 
 
-- (id)initWithData:(NSString *)uid username:(NSString*)username email:(NSString*)email;
+- (id)initWithData:(int)uid username:(NSString*)username email:(NSString*)email;
 
 - (BOOL)isEmpty;
 

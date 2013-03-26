@@ -47,13 +47,14 @@
     
     NSString *title = self.addOfferTitleTextBox.text;
     NSString *description = self.addOfferDescriptionTextBox.text;
-    NSString *listing = self.listing.lid;
+    int listing = self.listing.lid;
     UserData *u = [JSONInterface user_logged_in];
     
     OfferData *toAdd = [[OfferData alloc] initWithData:title description:description user:u.uid listing:listing];
     NSData *imageData = UIImagePNGRepresentation(self.imageBox.image);
     
     [JSONInterface addOffer:toAdd imageData:imageData];
+    [self.navigationController popViewControllerAnimated:YES];
     
     
 }

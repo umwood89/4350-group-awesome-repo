@@ -29,7 +29,7 @@
     return self;
 }
 
-- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(NSString *)listing user:(NSString *)user
+- (id) initWithData:(int)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(int)listing user:(int)user
 {
     self.oid = oid;
 	self.title = title;
@@ -44,7 +44,7 @@
     return self;
 }
 
-- (id)initWithData:(NSString*)title description:(NSString *)description user:(NSString *)user listing:(NSString *)listing
+- (id)initWithData:(NSString*)title description:(NSString *)description user:(int)user listing:(int)listing
 {
     if ((self = [super init])) {
         self.title = title;

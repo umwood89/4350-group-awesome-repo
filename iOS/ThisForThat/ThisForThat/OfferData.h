@@ -11,21 +11,21 @@
 
 @interface OfferData : NSObject
 
-@property (strong) NSString *oid;
+@property int oid;
 @property (strong) NSString *title;
 @property (strong) NSString *description;
 @property (strong) NSString *photo;
 @property (strong) NSString *offer_accepted;
 @property (strong) NSString *date_created;
 @property (strong) NSString *date_accepted;
-@property (strong) NSString *listing;
-@property (strong) NSString *user;
+@property int listing;
+@property int user;
 
-- (id) initWithData:(NSString *)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(NSString *)listing user:(NSString *)user;
+- (id) initWithData:(int)oid title:(NSString*)title description:(NSString*)description photo:(NSString *)photo offer_accepted:(NSString *)offer_accepted date_created:(NSString *)date_created date_accepted:(NSString *)date_accepted listing:(int)listing user:(int)user;
 
 - (id)initWithData:(NSString*)title description:(NSString *)description;
 
-- (id)initWithData:(NSString*)title description:(NSString *)description user:(NSString *)user listing:(NSString *)listing;
+- (id)initWithData:(NSString*)title description:(NSString *)description user:(int)user listing:(int)listing;
 
 
 

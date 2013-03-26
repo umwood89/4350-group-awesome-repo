@@ -14,7 +14,7 @@
 @synthesize username = _username;
 @synthesize email = _email;
 
-- (id)initWithData:(NSString *)uid username:(NSString*)username email:(NSString *)email {
+- (id)initWithData:(int)uid username:(NSString*)username email:(NSString *)email {
     if ((self = [super init])) {
         self.uid = uid;
         self.username = username;
@@ -25,7 +25,7 @@
 
 - (BOOL)isEmpty
 {
-    if(self.uid ==nil && self.username == nil && self.email == nil)
+    if(self.username == nil && self.email == nil)
         return TRUE;
     return FALSE;
 }

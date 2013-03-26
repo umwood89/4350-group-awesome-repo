@@ -52,7 +52,7 @@
     DescriptionText.text = offer.description;
     DateCreated.text = [offer.date_created substringWithRange:NSMakeRange(0, 10)];
     
-    UserData *userPosted = [JSONInterface getUserByID:offer.user.integerValue ];
+    UserData *userPosted = [JSONInterface getUserByID:offer.user ];
     
     ListedBy.text = userPosted.username;
 }
@@ -70,7 +70,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showListingDetails2"]) {
         ListingDetailsViewController *destViewController = segue.destinationViewController;
-        ListingData *listing = [JSONInterface getListingByID:offer.listing.integerValue];
+        ListingData *listing = [JSONInterface getListingByID:offer.listing];
         
         destViewController.listing = listing;
     }

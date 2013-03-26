@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *DateCreated;
 @property (strong, nonatomic) IBOutlet UILabel *ListedBy;
 @property (weak, nonatomic) IBOutlet UIButton *makeOffer;
+@property (weak, nonatomic) IBOutlet UITableView *offersList;
+
 
 
 @property (nonatomic, strong) ListingData *listing;

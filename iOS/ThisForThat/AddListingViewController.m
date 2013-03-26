@@ -48,6 +48,7 @@
     NSData *imageData = UIImagePNGRepresentation(self.imageBox.image);
     
     [JSONInterface addListing:toAdd imageData:imageData];
+    [self.navigationController popViewControllerAnimated:YES];
     
     
 }
