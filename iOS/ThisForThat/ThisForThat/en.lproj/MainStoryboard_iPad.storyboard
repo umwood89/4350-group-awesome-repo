@@ -25,7 +25,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="jt6-LS-9bK">
                                             <connections>
-                                                <action selector="createListing:" destination="pEE-PD-ooG" id="P8H-Xq-KCu"/>
+                                                <action selector="createListing:" destination="pEE-PD-ooG" id="htU-zR-0vR"/>
                                                 <segue destination="Z7R-56-qaV" kind="push" identifier="returnToListingsAfterAdding" id="CPH-S9-sup"/>
                                             </connections>
                                         </barButtonItem>

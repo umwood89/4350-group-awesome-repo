@@ -45,7 +45,7 @@
     
     // Check to see if password is correct
     self.loginStatus.text = @"Checking username and password...";
-    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/JSONcheckpassword/"];
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/JSONcheckpassword"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request addRequestHeader:@"Accept" value:@"application/json"];
     //[request addRequestHeader:@"Content-Type" value:@"application/json; encoding=utf-8"];
@@ -61,7 +61,7 @@
     
     if([response isEqualToString:@"{\"result\": \"success\"}"] ) {
         
-        url = [NSURL URLWithString:@"http://hackshack.ca/login/"];
+        url = [NSURL URLWithString:@"http://hackshack.ca/login"];
         request = [ASIHTTPRequest requestWithURL:url];
         [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
         [request setRequestMethod:@"POST"];
