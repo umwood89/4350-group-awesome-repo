@@ -38,6 +38,16 @@
 + (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData;
 + (UserData *) addUser:(UserData *)toAdd;
 
++ (OfferData *) updateOffer:(OfferData *)toAdd imageData:(NSData *)imageData;
++ (ListingData *) updateListing:(ListingData *)toAdd imageData:(NSData *)imageData;
+
++ (void) cancelOffer:(OfferData *)toDelete;
++ (void) deleteListing:(ListingData *)toDelete;
+
++ (void) findAndDeleteAssociatedOffers:(int)listing_id;
+
 + (NSDictionary *) getDictionaryFromJSON:(NSString *)json;
+
++ (NSString *) rightNowInString;
 
 @end

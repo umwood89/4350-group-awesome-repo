@@ -26,6 +26,11 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

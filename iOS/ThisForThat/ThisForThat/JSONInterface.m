@@ -227,41 +227,124 @@ static UserData  *user_logged_in = nil;
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
     toAdd.lid = [[responseJSON objectForKey:@"listing_id"]intValue];
     
-    [listings addObject:toAdd];
+    [[self listings] addObject:toAdd];
     
     
     
     
-    return nil;
+    return toAdd;
 }
 
 
-+ (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData
++ (ListingData *) updateListing:(ListingData *)toAdd imageData:(NSData *)imageData
 {
     NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://hackshack.ca/api/listings/"];
+    [url appendString:[NSString stringWithFormat:@"%i",toAdd.lid]];
     
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://hackshack.ca/api/offers"]];
-    [request setRequestMethod:@"POST"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setRequestMethod:@"PATCH"];
     [request addRequestHeader:@"Accept" value:@"application/json"];
     [request setPostValue:toAdd.title forKey:@"title"];
     [request setPostValue:toAdd.description forKey:@"description"];
     [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.user] forKey:@"user"];
-    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.listing] forKey:@"listing"];
+    [request setPostValue:toAdd.date_completed forKey:@"date_completed"];
+    [request setPostValue:toAdd.trade_completed forKey:@"trade_completed"];
     [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
     [request startSynchronous];
     
     NSString *response = [request responseString];
-    NSLog(@"JSONLogin response: %@", response);
+    NSLog(@"JSONUpdateListing response: %@", response);
     
     NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
     
     toAdd.photo = [responseJSON objectForKey:@"photo"];
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
-    toAdd.oid = [[responseJSON objectForKey:@"offer_id"]intValue];
+    toAdd.lid = [[responseJSON objectForKey:@"listing_id"]intValue];
     
-    [offers addObject:toAdd];
+    [[self listings] addObject:toAdd];
     
     return toAdd;
+}
+
++ (void) deleteListing:(ListingData *)toDelete
+{
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://hackshack.ca/api/listings/"];
+    [url appendString:[NSString stringWithFormat:@"%i",toDelete.lid]];
+    
+    [self findAndDeleteAssociatedOffers:toDelete.lid];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setRequestMethod:@"DELETE"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONCancelOffer response: %@", response);
+    
+    [[self offers] removeObject:toDelete];
+    
+    
+}
+
++ (void) findAndDeleteAssociatedOffers:(int)listing_id
+{
+    NSMutableArray *offersCopy = [self.offers copy];
+    for (OfferData *offer in offersCopy)
+    {
+        if (offer.listing == listing_id)
+        {
+            [self cancelOffer:offer];
+        }
+    }
+}
+
+
++ (OfferData *) updateOffer:(OfferData *)toAdd imageData:(NSData *)imageData
+{
+    NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://hackshack.ca/api/offers/"];
+    [url appendString:[NSString stringWithFormat:@"%i",toAdd.oid]];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setRequestMethod:@"PATCH"];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request setPostValue:toAdd.title forKey:@"title"];
+    [request setPostValue:toAdd.description forKey:@"description"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.user] forKey:@"user"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.listing] forKey:@"listing"];
+    [request setPostValue:toAdd.date_accepted forKey:@"date_accepted"];
+    [request setPostValue:toAdd.offer_accepted forKey:@"offer_accepted"];
+    [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONUpdateOffer response: %@", response);
+    
+    NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
+    
+    toAdd.photo = [responseJSON objectForKey:@"photo"];
+    toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    
+    [[self offers] addObject:toAdd];
+    
+    return toAdd;
+    
+}
+
++ (void) cancelOffer:(OfferData *)toDelete
+{
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://hackshack.ca/api/offers/"];
+    [url appendString:[NSString stringWithFormat:@"%i",toDelete.oid]];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setRequestMethod:@"DELETE"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONCancelOffer response: %@", response);
+    
+    [[self offers] removeObject:toDelete];
+    
     
 }
 
@@ -323,6 +406,21 @@ static UserData  *user_logged_in = nil;
     }
     
     return toReturn;
+}
+
++ (NSString *) rightNowInString
+{
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    
+    dateString = [formatter stringFromDate:[NSDate date]];
+    
+    [formatter release];
+    
+    return dateString;
 }
 
     

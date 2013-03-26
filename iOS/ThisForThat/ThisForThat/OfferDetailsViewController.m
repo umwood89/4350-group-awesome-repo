@@ -19,6 +19,8 @@
 @synthesize DescriptionText;
 @synthesize DateCreated;
 @synthesize ListedBy;
+@synthesize acceptOffer;
+@synthesize cancelOffer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +29,22 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    ListingData *listing = [JSONInterface getListingByID:offer.listing];
+    
+    if([JSONInterface user_logged_in].uid == offer.user)
+        cancelOffer.hidden = NO;
+    else
+        cancelOffer.hidden = YES;
+    
+    if([JSONInterface user_logged_in].uid == listing.user)
+        acceptOffer.hidden = NO;
+    else
+        acceptOffer.hidden = YES;
+    
 }
 
 - (void)viewDidLoad
@@ -68,11 +86,43 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showListingDetails2"]) {
+    
+    
+    
+    if([segue.identifier isEqualToString:@"showListingDetails2"])
+    {
+        ListingDetailsViewController *destViewController = segue.destinationViewController;
+        ListingData *listing = [JSONInterface getListingByID:offer.listing];
+    
+        destViewController.listing = listing;
+    }
+    if([segue.identifier isEqualToString:@"acceptOffer"])
+    {
         ListingDetailsViewController *destViewController = segue.destinationViewController;
         ListingData *listing = [JSONInterface getListingByID:offer.listing];
         
         destViewController.listing = listing;
+        listing.trade_completed = @"1";
+        listing.date_completed = [JSONInterface rightNowInString];
+        offer.offer_accepted = @"1";
+        offer.date_accepted = [JSONInterface rightNowInString];
+        
+        NSString *photoLocation = [NSString stringWithFormat:@"http://hackshack.ca/static/media/%@", offer.photo];
+        NSURL *url = [NSURL URLWithString:photoLocation];
+        NSData *data;
+        @try {
+            data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            OfferImage.image = image;
+            [JSONInterface updateOffer:offer imageData:data];
+        }
+        @catch(NSException * e) {
+            NSLog(@"%@",e);
+        } 
+    }
+    else if([segue.identifier isEqualToString:@"cancelOffer"])
+    {
+        [JSONInterface cancelOffer:offer];
     }
 }
 
