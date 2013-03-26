@@ -10,6 +10,8 @@
 #import "OfferDetailsViewController.h"
 #import "OfferData.h"
 #import "JSONInterface.h"
+#import "ASIHTTPRequest.h"
+
 
 @implementation OffersTableViewController
 
@@ -107,11 +109,19 @@
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+     [self.navigationController pushViewController:detailViewController animated:YES];s
      */
 }
 
 - (IBAction)logoutButton:(id)sender {
+    // Send server logout request
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/logout"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request startSynchronous];
+    
+    // Tell API user is logged out
+    [JSONInterface changeLoggedInUser:nil];
     
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];

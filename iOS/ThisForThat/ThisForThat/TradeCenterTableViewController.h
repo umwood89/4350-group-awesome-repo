@@ -10,5 +10,6 @@
 
 @interface TradeCenterTableViewController : UITableViewController
 - (IBAction)logoutButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UITabBarItem *tradeCenterTab;
 
 @end

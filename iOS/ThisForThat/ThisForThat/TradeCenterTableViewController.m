@@ -10,10 +10,9 @@
 #import "OfferData.h"
 #import "ListingData.h"
 #import "JSONInterface.h"
-
-@interface TradeCenterTableViewController ()
-
-@end
+#import "ASIHTTPRequest.h"
+#import "OfferDetailsViewController.h"
+#import "ListingDetailsViewController.h"
 
 @implementation TradeCenterTableViewController
 
@@ -29,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -53,15 +53,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(section == 0)
+    if(section == 1)
     {
-        return JSONInterface.offers.count;
+        //return JSONInterface.offers.count;
+        return [JSONInterface getOffersForLoggedInUser].count;
         
     }
-    else if(section == 1)
+    else if(section == 0)
     {
-        return JSONInterface.listings.count;
-        
+        //return JSONInterface.listings.count;
+        return [JSONInterface getListingsForLoggedInUser].count;
     }
     
     
@@ -72,17 +73,21 @@
 {
     UITableViewCell *cell;
     
-    if(indexPath.section == 0)
+    if(indexPath.section == 1)
     {
-        OfferData *offer = [JSONInterface.offers objectAtIndex: indexPath.row];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableCell"];
+       // Get offers for user that's logged in
+        OfferData *offer = [[JSONInterface getOffersForLoggedInUser] objectAtIndex: indexPath.row];
+        
+        //OfferData *offer = [JSONInterface.offers objectAtIndex: indexPath.row];
+                cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableCell"];
         cell.textLabel.text = offer.title;
         return cell;
         
     }
-    else if(indexPath.section == 1)
+    else if(indexPath.section == 0)
     {
-        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        //ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        ListingData *listing = [[JSONInterface getListingsForLoggedInUser] objectAtIndex: indexPath.row];
         cell = [tableView dequeueReusableCellWithIdentifier:@"OfferTableCell"];
         cell.textLabel.text = listing.title;
         return cell;
@@ -159,8 +164,35 @@
 
 
 - (IBAction)logoutButton:(id)sender {
+    // Send server logout request
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/logout"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request startSynchronous];
+    
+    // Tell API user is logged out
+    [JSONInterface changeLoggedInUser:nil];
+    
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];
     [JSONInterface  changeLoggedInUser:nil];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showOfferDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        OfferDetailsViewController *destViewController = segue.destinationViewController;
+        OfferData *offer = [[JSONInterface getOffersForLoggedInUser] objectAtIndex:indexPath.row];
+        
+        destViewController.offer = offer;
+    }
+    else if ([segue.identifier isEqualToString:@"showListingDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ListingDetailsViewController *destViewController = segue.destinationViewController;
+        ListingData *listing = [[JSONInterface getListingsForLoggedInUser] objectAtIndex:indexPath.row];
+        
+        destViewController.listing = listing;
+    }
+}
+
 @end

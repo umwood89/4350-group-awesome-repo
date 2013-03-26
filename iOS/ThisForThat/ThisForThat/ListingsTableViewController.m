@@ -31,10 +31,17 @@
     [super viewDidLoad];
     self.title = @"Listings";
     
-    if([[JSONInterface user_logged_in] isEmpty] == TRUE)
+    if([[JSONInterface user_logged_in] isEmpty] == TRUE) {
         addListing.enabled = NO;
-    else
+        UITabBarItem *tabBarItem = [[self.tabBarController tabBar].items objectAtIndex:2];
+        [tabBarItem setEnabled:false];
+    }
+    else {
         addListing.enabled = YES;
+        UITabBarItem *tabBarItem = [[self.tabBarController tabBar].items objectAtIndex:2];
+        [tabBarItem setEnabled:true];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,6 +142,14 @@
 }
 
 - (IBAction)logoutButton:(id)sender {
+    // Send server logout request
+    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/logout"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request startSynchronous];
+    
+    // Tell API user is logged out
+    [JSONInterface changeLoggedInUser:nil];
     
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];

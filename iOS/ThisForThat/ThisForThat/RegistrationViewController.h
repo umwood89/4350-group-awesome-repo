@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *registrationStatus;
 
 - (IBAction)registerButton:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 
 
 -(NSString*) sha256:(NSString *)clear;
