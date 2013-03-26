@@ -30,6 +30,10 @@
 		1D41921316F03D12003C1798 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F216F03AE7003C1798 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41921416F03D12003C1798 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F616F03AE7003C1798 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D41921516F03D12003C1798 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4191F816F03AE7003C1798 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D70ECAB170136AB001951D6 /* TradeCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D70ECAA170136AB001951D6 /* TradeCenterTableViewController.m */; };
+		1D70ECAD170146A2001951D6 /* 104-index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D70ECAC170146A2001951D6 /* 104-index-cards.png */; };
+		1D70ECAF170146C6001951D6 /* 130-dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D70ECAE170146C6001951D6 /* 130-dice.png */; };
+		1D70ECB1170146F9001951D6 /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D70ECB0170146F9001951D6 /* 73-radar.png */; };
 		1DB2B6B516F53E4B00C8C186 /* logo_horiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2B6B416F53E4B00C8C186 /* logo_horiz.png */; };
 		1DB2B6B916F53F6100C8C186 /* ListingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2B6B816F53F6100C8C186 /* ListingDetailsViewController.m */; };
 		1DB2B6BC16F540AB00C8C186 /* OfferDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2B6BB16F540AB00C8C186 /* OfferDetailsViewController.m */; };
@@ -111,6 +115,11 @@
 		1D41920716F03C1F003C1798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1D41920916F03C2C003C1798 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1D41920B16F03C4B003C1798 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1D70ECA9170136AB001951D6 /* TradeCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeCenterTableViewController.h; sourceTree = "<group>"; };
+		1D70ECAA170136AB001951D6 /* TradeCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeCenterTableViewController.m; sourceTree = "<group>"; };
+		1D70ECAC170146A2001951D6 /* 104-index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards.png"; sourceTree = "<group>"; };
+		1D70ECAE170146C6001951D6 /* 130-dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "130-dice.png"; sourceTree = "<group>"; };
+		1D70ECB0170146F9001951D6 /* 73-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "73-radar.png"; sourceTree = "<group>"; };
 		1DB2B6B416F53E4B00C8C186 /* logo_horiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_horiz.png; sourceTree = "<group>"; };
 		1DB2B6B716F53F6100C8C186 /* ListingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingDetailsViewController.h; sourceTree = "<group>"; };
 		1DB2B6B816F53F6100C8C186 /* ListingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingDetailsViewController.m; sourceTree = "<group>"; };
@@ -307,6 +316,9 @@
 		E2DA75C716E701F2005DACB7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D70ECB0170146F9001951D6 /* 73-radar.png */,
+				1D70ECAE170146C6001951D6 /* 130-dice.png */,
+				1D70ECAC170146A2001951D6 /* 104-index-cards.png */,
 				E2BAE1C016EAE8970012E24C /* background.png */,
 				E2DA75C816E701F2005DACB7 /* ThisForThat-Info.plist */,
 				E2DA75C916E701F2005DACB7 /* InfoPlist.strings */,
@@ -396,6 +408,8 @@
 				E27FA86E16ED0B230062DB01 /* OffersTableViewController.h */,
 				E27FA86B16ED0A8D0062DB01 /* ListingsTableViewController.h */,
 				E27FA86C16ED0A8D0062DB01 /* ListingsTableViewController.m */,
+				1D70ECA9170136AB001951D6 /* TradeCenterTableViewController.h */,
+				1D70ECAA170136AB001951D6 /* TradeCenterTableViewController.m */,
 			);
 			name = "View Pages";
 			sourceTree = "<group>";
@@ -484,6 +498,9 @@
 				E244FF8416E7F6EB00031AC8 /* icon.png in Resources */,
 				E2BAE1C116EAE8970012E24C /* background.png in Resources */,
 				1DB2B6B516F53E4B00C8C186 /* logo_horiz.png in Resources */,
+				1D70ECAD170146A2001951D6 /* 104-index-cards.png in Resources */,
+				1D70ECAF170146C6001951D6 /* 130-dice.png in Resources */,
+				1D70ECB1170146F9001951D6 /* 73-radar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +558,7 @@
 				1DB2B6BC16F540AB00C8C186 /* OfferDetailsViewController.m in Sources */,
 				F298AEEC16F6CBEF006DBD66 /* UserData.m in Sources */,
 				1DDB5C9816F9573A00C7CEA6 /* RegistrationViewController.m in Sources */,
+				1D70ECAB170136AB001951D6 /* TradeCenterTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

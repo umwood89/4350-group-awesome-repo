@@ -11,10 +11,6 @@
 #import "ASIHTTPRequest.h"
 
 
-@interface RegistrationViewController ()
-
-@end
-
 @implementation RegistrationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,32 +36,41 @@
 
 - (IBAction)registerButton:(id)sender {
     
-    NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/api/register/"];
-    NSMutableDictionary *registrationData  = [[NSMutableDictionary alloc]init];
-    
-    
-    [registrationData setObject:self.userName.text forKey:@"username"];
-    [registrationData setObject:self.firstName.text forKey:@"firstname"];
-    [registrationData setObject:self.lastName.text forKey:@"lastname"];
-    [registrationData setObject:self.emailAddress.text forKey:@"email"];
-    [registrationData setObject:self.password.text forKey:@"password"];
-    
-    NSError *error;
-    NSData *jsondata = [NSJSONSerialization dataWithJSONObject:registrationData options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *dataContent = [[NSString alloc] initWithData:jsondata encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"Registration post data: %@", dataContent);
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request addRequestHeader:@"Accept" value:@"application/json"];
-    [request addRequestHeader:@"Content-Type" value:@"application/json"];
-    
-    [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setRequestMethod:@"POST"];
-    [request startSynchronous];
-    
-    NSString *response = [request responseString];
-    NSLog(@"Registration response: %@", response);
-    
+    if([self.password.text isEqualToString:self.verifyPassword.text]) {
+        NSURL *url = [NSURL URLWithString:@"http://hackshack.ca/api/register/"];
+        NSMutableDictionary *registrationData  = [[NSMutableDictionary alloc]init];
+        
+        [registrationData setObject:self.userName.text forKey:@"username"];
+        [registrationData setObject:self.firstName.text forKey:@"firstname"];
+        [registrationData setObject:self.lastName.text forKey:@"lastname"];
+        [registrationData setObject:self.emailAddress.text forKey:@"email"];
+        [registrationData setObject:self.password.text forKey:@"password"];
+        
+        NSError *error;
+        NSData *jsondata = [NSJSONSerialization dataWithJSONObject:registrationData options:NSJSONWritingPrettyPrinted error:&error];
+        NSString *dataContent = [[NSString alloc] initWithData:jsondata encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"Registration post data: %@", dataContent);
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request addRequestHeader:@"Accept" value:@"application/json"];
+        [request addRequestHeader:@"Content-Type" value:@"application/json"];
+        
+        [request appendPostData:[dataContent dataUsingEncoding:NSUTF8StringEncoding]];
+        [request setRequestMethod:@"POST"];
+        [request startSynchronous];
+        
+        NSString *response = [request responseString];
+        NSLog(@"Registration response: %@", response);
+        
+        if([response isEqualToString:@"Username already in use"]) {
+            self.registrationStatus.text = @"Username is already in use";
+        }
+        
+        
+    }
+    else {
+        self.registrationStatus.text = @"Passwords do not match";
+    }
     
     
 }
