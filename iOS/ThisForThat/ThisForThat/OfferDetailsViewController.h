@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *DateCreated;
 @property (strong, nonatomic) IBOutlet UILabel *ListedBy;
 @property (nonatomic, strong) OfferData *offer;
+@property (weak, nonatomic) IBOutlet UIButton *acceptOffer;
+@property (weak, nonatomic) IBOutlet UIButton *cancelOffer;
 
 
 - (IBAction)backButton:(id)sender;

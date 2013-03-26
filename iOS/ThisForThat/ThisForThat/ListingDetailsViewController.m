@@ -24,6 +24,7 @@
 @synthesize ListedBy;
 @synthesize listing;
 @synthesize makeOffer;
+@synthesize deleteListing;
 @synthesize offersList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +34,23 @@
         // Custom initialization
     }
     return self;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if([JSONInterface user_logged_in].uid == listing.user)
+        deleteListing.hidden = NO;
+    else
+    {
+        deleteListing.hidden = YES;
+        if(! [[JSONInterface user_logged_in] isEmpty])
+            makeOffer.hidden = NO;
+        else
+            makeOffer.hidden = YES;
+    }
+    
+    
 }
 
 - (void)viewDidLoad
@@ -121,6 +139,10 @@
         OfferData *offer = [[JSONInterface getOffersForListing:listing.lid ] objectAtIndex:indexPath.row];
         
         destViewController.offer = offer;
+    }
+    else if([segue.identifier isEqualToString:@"deleteListing"])
+    {
+        [JSONInterface deleteListing:listing];
     }
 }
 @end
