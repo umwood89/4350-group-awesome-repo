@@ -157,7 +157,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bl-3l-AH4">
-                                <rect key="frame" x="35" y="659" width="375" height="44"/>
+                                <rect key="frame" x="35" y="884" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal" title="Make an offer!">
@@ -196,6 +196,26 @@
                                 <color key="textColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cSd-qw-mmG">
+                                <rect key="frame" x="35" y="639" width="429" height="237"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="offerTableCell" id="6zW-pC-Mq4">
+                                        <rect key="frame" x="0.0" y="22" width="429" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="429" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jpm-1P-iEd" id="HNn-Qf-BAx"/>
+                                    <outlet property="delegate" destination="jpm-1P-iEd" id="iWs-qZ-uQ0"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -215,6 +235,7 @@
                         <outlet property="ListingImage" destination="yNM-aF-qxb" id="AWD-E7-sRi"/>
                         <outlet property="TitleText" destination="bqL-qh-No8" id="0iG-IK-Ca7"/>
                         <outlet property="makeOffer" destination="1bl-3l-AH4" id="Xar-Cq-1OM"/>
+                        <outlet property="offersList" destination="cSd-qw-mmG" id="gNn-bs-EEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ul9-II-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1107,6 +1128,7 @@
                 <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="makeOffer" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="offersList" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="ListingsTableViewController" superclassName="UITableViewController">
