@@ -1118,108 +1118,12 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
-    <classes>
-        <class className="AddListingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createListing:"/>
-                <relationship kind="action" name="takePictureButton:"/>
-                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AddOfferViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createOffer:"/>
-                <relationship kind="action" name="takePictureButton:"/>
-                <relationship kind="outlet" name="addOfferDescriptionTextBox" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="addOfferListingTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addOfferTitleTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ListingDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="makeOffer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="offersList" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ListingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-                <relationship kind="outlet" name="addListing" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="guestButton:"/>
-                <relationship kind="action" name="loginButton:"/>
-                <relationship kind="action" name="registerButton:"/>
-                <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="OfferDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfferDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="OfferImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="OffersTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-            </relationships>
-        </class>
-        <class className="RegistrationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="registerButton:"/>
-                <relationship kind="outlet" name="emailAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="registrationStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="verifyPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TradeCenterTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeCenterTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YJ7-M2-2rT"/>
         <segue reference="7TV-H6-gZo"/>
         <segue reference="xW6-Ff-BHX"/>
         <segue reference="YJ7-M2-2rT"/>
