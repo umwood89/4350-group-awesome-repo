@@ -26,6 +26,11 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,7 +39,7 @@
     if([[JSONInterface user_logged_in] isEmpty] == TRUE)
         addListing.enabled = NO;
     else
-        addListing.enabled = YES;
+        addListing.enabled = YES;  
 }
 
 - (void)didReceiveMemoryWarning

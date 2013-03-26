@@ -118,7 +118,7 @@
     {
         NSIndexPath *indexPath = [offersList indexPathForSelectedRow];
         OfferDetailsViewController *destViewController = segue.destinationViewController;
-        OfferData *offer = [JSONInterface.offers objectAtIndex:indexPath.row];
+        OfferData *offer = [[JSONInterface getOffersForListing:listing.lid ] objectAtIndex:indexPath.row];
         
         destViewController.offer = offer;
     }

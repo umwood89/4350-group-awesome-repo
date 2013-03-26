@@ -227,7 +227,7 @@ static UserData  *user_logged_in = nil;
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
     toAdd.lid = [[responseJSON objectForKey:@"listing_id"]intValue];
     
-    [listings addObject:toAdd];
+    [[self listings] addObject:toAdd];
     
     
     
@@ -259,7 +259,7 @@ static UserData  *user_logged_in = nil;
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
     toAdd.oid = [[responseJSON objectForKey:@"offer_id"]intValue];
     
-    [offers addObject:toAdd];
+    [[self offers] addObject:toAdd];
     
     return toAdd;
     
