@@ -71,7 +71,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    NSLog(@"going here");
     
     if(indexPath.section == 0)
     {
