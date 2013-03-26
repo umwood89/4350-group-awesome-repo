@@ -243,7 +243,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="hdc-ne-ISY">
                                             <connections>
                                                 <action selector="createOffer:" destination="jgw-q9-BRf" id="z3n-tZ-7Iy"/>
-                                                <segue destination="6x0-do-5xs" kind="push" identifier="returnToOffersAfterAdding" id="miV-t9-uEO"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1040,9 +1039,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YJ7-M2-2rT"/>
         <segue reference="7TV-H6-gZo"/>
         <segue reference="xW6-Ff-BHX"/>
-        <segue reference="miV-t9-uEO"/>
+        <segue reference="YJ7-M2-2rT"/>
     </inferredMetricsTieBreakers>
 </document>
