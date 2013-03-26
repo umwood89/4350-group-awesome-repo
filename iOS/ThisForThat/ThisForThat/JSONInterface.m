@@ -297,7 +297,35 @@ static UserData  *user_logged_in = nil;
 }
 
 
++ (NSMutableArray *)getListingsForLoggedInUser
+{
+    NSMutableArray *toReturn = [[NSMutableArray alloc] init];
+    for (ListingData *listing in [self listings])
+    {
+        if(listing.user == [self user_logged_in].uid )
+        {
+            [toReturn addObject:listing];
+        }
+    }
+    
+    return toReturn;
+}
 
++ (NSMutableArray *)getOffersForLoggedInUser
+{
+    NSMutableArray *toReturn = [[NSMutableArray alloc] init];
+    for (OfferData *offer in [self offers])
+    {
+        if(offer.user == [self user_logged_in].uid )
+        {
+            [toReturn addObject:offer];
+        }
+    }
+    
+    return toReturn;
+}
+
+    
  
  
 

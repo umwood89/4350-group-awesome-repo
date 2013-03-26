@@ -29,6 +29,9 @@
 
 + (NSMutableArray *)getOffersForListing:(int)listing_id;
 
++ (NSMutableArray *)getOffersForLoggedInUser;
++ (NSMutableArray *)getListingsForLoggedInUser;
+
 + (void) changeLoggedInUser:(UserData *)newUser;
 
 + (ListingData *) addListing:(ListingData *)toAdd imageData:(NSData *)imageData;
