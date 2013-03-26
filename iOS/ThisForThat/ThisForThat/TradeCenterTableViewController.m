@@ -1,21 +1,21 @@
 //
-//  ListingsTableViewController.m
+//  TradeCenterTableViewController.m
 //  ThisForThat
 //
-//  Created by Kyle Shewchuk on 2013-03-10.
+//  Created by Richard Sipinski on 2013-03-25.
 //  Copyright (c) 2013 Kyle Shewchuk. All rights reserved.
 //
 
-#import "ListingsTableViewController.h"
-#import "ASIHTTPRequest.h"
-#import "ListingData.h"  // RS: our listing model object
+#import "TradeCenterTableViewController.h"
+#import "OfferData.h"
+#import "ListingData.h"
 #import "JSONInterface.h"
-#import "ListingDetailsViewController.h"
 
+@interface TradeCenterTableViewController ()
 
-@implementation ListingsTableViewController
+@end
 
-@synthesize addListing;
+@implementation TradeCenterTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,12 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Listings";
-    
-    if([[JSONInterface user_logged_in] isEmpty] == TRUE)
-        addListing.enabled = NO;
-    else
-        addListing.enabled = YES;
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,33 +47,52 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    //return 0;
-    // RS: return number of sections from our array holding our super data
-    return JSONInterface.listings.count;
+    if(section == 0)
+    {
+        return JSONInterface.offers.count;
+        
+    }
+    else if(section == 1)
+    {
+        return JSONInterface.listings.count;
+        
+    }
+    
+    
+    return 3;
 }
 
-// RS: Modified below section to load up listingsdata
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell;
+    NSLog(@"going here");
+    
+    if(indexPath.section == 0)
+    {
+        OfferData *offer = [JSONInterface.offers objectAtIndex: indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableCell"];
+        cell.textLabel.text = offer.title;
+        return cell;
+        
+    }
+    else if(indexPath.section == 1)
+    {
+        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"OfferTableCell"];
+        cell.textLabel.text = listing.title;
+        return cell;
+        
+    }
     //static NSString *CellIdentifier = @"Cell";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    //cell.description = @"JERKFACE";
     // Configure the cell...
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"ListingTableCell"];
-    ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
-      
-    
-    cell.textLabel.text = listing.title;
-    cell.detailTextLabel.text = listing.description;
-    //cell.imageView.image = bug.thumbImage;
     
     return cell;
 }
@@ -122,34 +141,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    
-   //  <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-    
-    //ListingDetailsViewController *detailsView = [[ListingDetailsViewController alloc] initWithNibName:@"ListingDetailViewController" bundle:nil];
-
-    //[self.navigationController pushViewController:detailsView animated:YES];
-
-    
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section == 0)
+        return @"Your Listings";
+    else if(section == 1)
+        return @"Offers you've made on listings";
+    return @"section";
+}
+
+
+
 - (IBAction)logoutButton:(id)sender {
-    
     // Pop this view. Head back to login screen.
     [self.navigationController popViewControllerAnimated:YES];
     [JSONInterface  changeLoggedInUser:nil];
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showListingDetails"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ListingDetailsViewController *destViewController = segue.destinationViewController;
-        ListingData *listing = [JSONInterface.listings objectAtIndex:indexPath.row];
-        
-        destViewController.listing = listing;
-    }
-}
-
-
 @end
