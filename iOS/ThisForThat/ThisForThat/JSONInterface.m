@@ -281,7 +281,7 @@ static UserData  *user_logged_in = nil;
     NSString *response = [request responseString];
     NSLog(@"JSONCancelOffer response: %@", response);
     
-    [[self offers] removeObject:toDelete];
+    [[self listings] removeObject:toDelete];
     
     
 }
@@ -298,7 +298,37 @@ static UserData  *user_logged_in = nil;
     }
 }
 
-
++ (OfferData *) addOffer:(OfferData *)toAdd imageData:(NSData *)imageData
+{
+    NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://hackshack.ca/api/offers"];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request setPostValue:toAdd.title forKey:@"title"];
+    [request setPostValue:toAdd.description forKey:@"description"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.user] forKey:@"user"];
+    [request setPostValue:[NSString stringWithFormat:@"%i",toAdd.listing] forKey:@"listing"];
+    [request setPostValue:toAdd.date_accepted forKey:@"date_accepted"];
+    [request setPostValue:toAdd.offer_accepted forKey:@"offer_accepted"];
+    [request addData:imageData withFileName:filename andContentType:@"image/jpeg" forKey:@"photo"];
+    [request startSynchronous];
+    
+    NSString *response = [request responseString];
+    NSLog(@"JSONUpdateOffer response: %@", response);
+    
+    NSDictionary *responseJSON = [self getDictionaryFromJSON:response];
+    
+    toAdd.photo = [responseJSON objectForKey:@"photo"];
+    toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    toAdd.oid = [[responseJSON objectForKey:@"offer_id"]intValue];
+    
+    [[self offers] addObject:toAdd];
+    
+    return toAdd;
+    
+}
 + (OfferData *) updateOffer:(OfferData *)toAdd imageData:(NSData *)imageData
 {
     NSString *filename = [NSString stringWithFormat:@"%i.jpg",arc4random() % 50000];
@@ -324,6 +354,7 @@ static UserData  *user_logged_in = nil;
     
     toAdd.photo = [responseJSON objectForKey:@"photo"];
     toAdd.date_created = [responseJSON objectForKey:@"date_created"];
+    
     
     [[self offers] addObject:toAdd];
     
