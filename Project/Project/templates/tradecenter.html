@@ -2,71 +2,71 @@
 {% block content %}
 <h1>Trade Center</h1>
 <hr>
-<h3>Your listings</h3>  
+<h3>Your listings</h3> 
 <table style="margin-top:-30px;" class="table table-striped">
-   <thead>
-    <tr>
-  	 <th>Title</th>
-     <th>Description</th>
-     <th width="220">Listed on</th>
- 	 <th width="120">Offers Received</th>
-    </tr>
-   </thead>
-    <tbody>
-  	{% for listing in user_listings %}
-   <tr> 
- 	<td><a href="/listing_details/{{listing.listing_id}}">{{listing.title|truncatechars:70}}</a></td>
-    <td>{{listing.description|truncatechars:100}}</td>
-    <td>{{listing.date_created}}</td>
- 	<td>{{listing.offerCount }}</td>
- 	<td>
- 		<a href="/update_listing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
-		<a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
-	</td>
-   </tr>
-   	{% empty %}
-  	<td>You have no listings</td>
-  	{% endfor %}
-   </tbody>
+  <thead>
+  <tr>
+         <th>Title</th>
+   <th>Description</th>
+   <th width="220">Listed on</th>
+         <th width="120">Offers Received</th>
+  </tr>
+  </thead>
+   <tbody>
+        {% for listing in user_listings %}
+  <tr> 
+        <td><a href="/listing_details/{{listing.listing_id}}">{{listing.title|truncatechars:70}}</a></td>
+  <td>{{listing.description|truncatechars:100}}</td>
+  <td>{{listing.date_created}}</td>
+        <td>{{listing.offerCount }}</td>
+        <td>
+                <a href="/update_listing/{{listing.listing_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+                <a href="/deleteListing/{{listing.listing_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
+        </td>
+  </tr>
+        {% empty %}
+        <td colspan="4">You have no listings</td>
+        {% endfor %}
+  </tbody>
  </table>
 <hr>
 <h3>Offers you've made on listings</h3>
 <hr>
 <table style="margin-top:-30px;" class="table table-striped">
-   <thead>
-    <tr>
-  	 <th>You offered a</th>
-     <th>For a </th>
-     <th width="220">Trade status</th>
-    </tr>
-   </thead>
-    <tbody>
-  	{% for offer in users_offers %}
-   <tr> 
- 	<td><a href="/offer_details/{{offer.offer_id}}">{{offer.title|truncatechars:70}}</a></td>
-    <td><a href="/listing_details/{{offer.listing_id}}">{{offer.listingTitle|truncatechars:70}}</a></td>
-    <td>
- 		{%if offer.status == "Accepted"%}
- 			<span class="label label-success" >
- 		{%elif offer.status == "Pending"%}
- 			<span class="label label-warning" >
- 		{%elif offer.status == "Not Accepted" %}
- 			<span class="label label-important" >
- 		{% else %}
- 			<span class="label label-info" >
- 		{% endif %}
- 		{{offer.status}}</span>
- 			
- 	</td>
- 	<td>
- 		<a href="/update_offer/{{offer.offer_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
-		<a href="/cancel_offer/{{offer.offer_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
-	</td>
-   </tr>
-   	{% empty %}
-  	<td>You've made no offers.</td>
-  	{% endfor %}
-   </tbody>
+  <thead>
+  <tr>
+         <th>You offered a</th>
+   <th>For a </th>
+   <th width="220">Trade status</th>
+  </tr>
+  </thead>
+   <tbody>
+        {% for offer in users_offers %}
+  <tr> 
+        <td><a href="/offer_details/{{offer.offer_id}}">{{offer.title|truncatechars:70}}</a></td>
+  <td><a href="/listing_details/{{offer.listing_id}}">{{offer.listingTitle|truncatechars:70}}</a></td>
+  <td>
+                {%if offer.status == "Accepted"%}
+                        <span class="label label-success" >
+                {%elif offer.status == "Pending"%}
+                        <span class="label label-warning" >
+                {%elif offer.status == "Not Accepted" %}
+                        <span class="label label-important" >
+                {% else %}
+                        <span class="label label-info" >
+                {% endif %}
+                {{offer.status}}</span>
+ 
+        </td>
+        <td>
+                <a href="/update_offer/{{offer.offer_id}}" class="edit" title="Edit this entry"><i class="icon-pencil"></i></a>
+                <a href="/cancel_offer/{{offer.offer_id}}" class="destroy" title="Delete this entry"><i class="icon-remove"></i></a>
+        </td>
+  </tr>
+        {% empty %}
+        <td colspan="3">You've made no offers.</td>
+        {% endfor %}
+  </tbody>
  </table>
 
 {% endblock %}

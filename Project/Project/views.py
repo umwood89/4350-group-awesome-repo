@@ -19,7 +19,7 @@ from django.utils import simplejson
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
-listings = Listing.objects.order_by('date_created')[:10]
+listings = Listing.objects.order_by('-date_created')[:10]
 offers = Offer.objects.order_by('date_created')[:10]
 listingForm = ListingForm
 c = Context({"listings": listings, "offers" : offers, "listingForm" : listingForm} )
@@ -81,7 +81,7 @@ def editProfile(request):
         if form.is_valid():
             form.save(user)
             
-            return render_to_response("thanks.html")
+            return render_to_response("thanks.html", {'message':'updated your profile','location':'profiles/' + str(user.id),'user':user})
         else:
             return render_to_response("profile_edit.html", {'form': form,},context_instance=RequestContext(request))
     else:
@@ -117,7 +117,7 @@ def editProfile(request):
         
 def browse(request):
         user=request.user
-        listings = Listing.objects.order_by('date_created')
+        listings = Listing.objects.order_by('-date_created')
         #Pagination time
         paginator = Paginator(listings,5)
         page = request.GET.get('page')
