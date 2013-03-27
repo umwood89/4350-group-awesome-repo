@@ -27,4 +27,4 @@ class ListingSerializer(serializers.ModelSerializer):
 class OfferSerializer(serializers.ModelSerializer):
     class Meta:
         model = Offer
-        fields = ('offer_id','listing','title','description','user','photo','date_created')
+        fields = ('offer_id','listing','title','description','user','photo','date_created', 'offer_accepted', 'date_accepted')
