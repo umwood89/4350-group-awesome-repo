@@ -224,7 +224,8 @@ def registerjson(request):
                 user.last_name = lastname
                 user.first_name = firstname
                 user.save()
-                return HttpResponse(simplejson.dumps({'result':'success'}))
+                html = "success" + str(user.id);
+                return HttpResponse(html)
             except Exception as e:
                 errormessage= '%s (%s)' % (e.message, type(e))
                 return HttpResponseServerError(errormessage)
