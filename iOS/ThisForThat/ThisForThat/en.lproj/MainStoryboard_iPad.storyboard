@@ -412,11 +412,11 @@
             <objects>
                 <viewController id="FUs-fv-lJf" customClass="OfferDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="" id="PGI-UR-z6f">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Title" id="vHf-lZ-qqI" userLabel="ListingDetailsViewController">
-                                <rect key="frame" x="4" y="53" width="760" height="92"/>
+                                <rect key="frame" x="4" y="53" width="760" height="43"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -1032,7 +1032,7 @@
             <objects>
                 <tableViewController id="bOL-ap-dY6" customClass="TradeCenterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="AwF-pQ-w5O">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Cvr-2h-YfY">
@@ -1068,7 +1068,7 @@
                                 <rect key="frame" x="0.0" y="122" width="768" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="45" y="0.0" width="645" height="43"/>
+                                    <rect key="frame" x="45" y="1" width="645" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MJW-qK-H6g">
@@ -1099,7 +1099,7 @@
                                 <rect key="frame" x="0.0" y="167" width="768" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="45" y="1" width="645" height="43"/>
+                                    <rect key="frame" x="45" y="0.0" width="645" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zLg-QJ-nT0">
@@ -1168,117 +1168,17 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="logo_horiz.png" width="951" height="114"/>
     </resources>
-    <classes>
-        <class className="AddListingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createListing:"/>
-                <relationship kind="action" name="takePictureButton:"/>
-                <relationship kind="outlet" name="addListingDescriptionTextBox" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="addListingTitleTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AddOfferViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddOfferViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="choosePictureButton:"/>
-                <relationship kind="action" name="createOffer:"/>
-                <relationship kind="action" name="takePictureButton:"/>
-                <relationship kind="outlet" name="addOfferDescriptionTextBox" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="addOfferListingTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addOfferTitleTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageBox" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ListingDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ListingImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="deleteListing" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="makeOffer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="offersList" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ListingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-                <relationship kind="outlet" name="addListing" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="testtextbox" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="guestButton:"/>
-                <relationship kind="action" name="loginButton:"/>
-                <relationship kind="action" name="registerButton:"/>
-                <relationship kind="outlet" name="loginStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameBox" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="OfferDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfferDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="outlet" name="DateCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="DescriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="ListedBy" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="OfferImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TitleText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="acceptOffer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cancelOffer" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="OffersTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OffersTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-            </relationships>
-        </class>
-        <class className="RegistrationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="registerButton:"/>
-                <relationship kind="outlet" name="emailAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="registrationStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="verifyPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TradeCenterTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeCenterTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-                <relationship kind="outlet" name="tradeCenterTab" candidateClass="UITabBarItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bpv-n0-3RG"/>
-        <segue reference="YJ7-M2-2rT"/>
+        <segue reference="P4F-Un-ksn"/>
+        <segue reference="Xq6-Hq-cMk"/>
         <segue reference="7TV-H6-gZo"/>
         <segue reference="xW6-Ff-BHX"/>
-        <segue reference="MMA-pt-hxk"/>
-        <segue reference="P4F-Un-ksn"/>
+        <segue reference="bpv-n0-3RG"/>
+        <segue reference="YJ7-M2-2rT"/>
     </inferredMetricsTieBreakers>
 </document>
